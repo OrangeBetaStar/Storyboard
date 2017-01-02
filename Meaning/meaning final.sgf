@@ -1,0 +1,605 @@
+function moreView(startTime, endTime){
+	var midPoint = (startTime + endTime) / 2;
+	var centerX = 256 + 64;
+	var centerY = 192 + 55;
+	var thickness = 0.1;
+	var thicknessSM = 0.05;
+	var length = 7.5;
+	var oneFourth = 632;
+	var oneHalf = 948;
+	var tempCenterX = 0;
+	var dist = 50;
+	var distSM = 30;
+	var endDist = 100;
+	var thicknessXT = 0.15;
+	
+	var easeFirst = 1;
+	var easeNext = 29;
+	
+	// Vertical
+	for(var i=-20; i<=20; i++){
+		var square = new Sprite("SB/square.jpg");
+		square.scaleVec(easeFirst, startTime, midPoint, thickness, length, thicknessSM, length);
+		square.scaleVec(easeNext, midPoint, endTime, thicknessSM, length, thicknessXT, length);
+		square.fade(startTime, startTime + (oneFourth / 2), 0, 1);
+		square.moveY(startTime, startTime, centerY, centerY);
+		square.moveX(easeFirst, startTime, midPoint, centerX + (dist * i), centerX + (distSM * i));
+		square.moveX(easeNext, midPoint, endTime, centerX + (distSM * i), centerX + (endDist * i));
+	}
+	
+	// Horizontal
+	for(var i=-10; i<=10; i++){
+		var square = new Sprite("SB/square.jpg");
+		square.scaleVec(easeFirst, startTime, midPoint, length, thickness, length, thicknessSM);
+		square.scaleVec(easeNext, midPoint, endTime, length, thicknessSM, length, thicknessXT);
+		square.fade(startTime, startTime + (oneFourth / 2), 0, 1);
+		square.moveX(startTime, startTime, centerX, centerX);
+		square.moveY(easeFirst, startTime, midPoint, centerY + (dist * i), centerY + (distSM * i));
+		square.moveY(easeNext, midPoint, endTime, centerY + (distSM * i), centerY + (endDist * i));
+	}
+}
+// moreView(83966, 86492);
+
+
+function breakTime(startTime, endTime){
+
+	var centerX = 256 + 64;
+	var centerY = 192 + 55;
+	var spin1 = 0.05;
+	var spin2 = 0.06;
+	var spin3 = 0.08;
+	var coreSize = 0.4;
+	var layer1Size = 0.7;
+	var layer2Size = 1.05;
+	var layer3Size = 1.4;
+	var fadeOut = 632;
+	var oneTick = 158;
+	var layer1Spin = rand(0,1000);
+	layer1Spin = layer1Spin / 100.0;
+	var layer2Spin = rand(0,1000);
+	layer2Spin = layer2Spin / 100.0;
+	var layer3Spin = rand(0,1000);
+	layer3Spin = layer3Spin / 100.0;
+	
+	var fadeEase = 2;
+
+	var core = new Sprite("SB/Onion Layer/Onion0.png");
+	var layer1 = new Sprite("SB/Onion Layer/Onion1.png");
+	var layer2 = new Sprite("SB/Onion Layer/Onion2.png");
+	var layer3 = new Sprite("SB/Onion Layer/Onion3.png");
+
+	core.scale(startTime, startTime, coreSize, coreSize);
+	layer1.scale(startTime, startTime, layer1Size, layer1Size);
+	layer2.scale(startTime, startTime, layer2Size, layer2Size);
+	layer3.scale(startTime, startTime, layer3Size, layer3Size);
+	
+	core.fade(startTime, endTime - fadeOut, 0.5, 0.5);
+	core.fade(fadeEase, endTime - fadeOut, endTime, 0.5, 0);
+	layer1.fade(startTime, endTime - fadeOut, 0.6, 0.6);
+	layer1.fade(fadeEase, endTime - fadeOut, endTime, 0.6, 0);
+	layer2.fade(startTime, endTime - fadeOut, 0.7, 0.7);
+	layer2.fade(fadeEase, endTime - fadeOut, endTime, 0.7, 0);
+	layer3.fade(startTime, endTime - fadeOut, 0.8, 0.8);
+	layer3.fade(fadeEase, endTime - fadeOut, endTime, 0.8, 0);
+	
+	for(var i=startTime; i<endTime; i++){
+	
+		layer1.rotate(i, i + oneTick, layer1Spin, layer1Spin + spin1);
+		layer2.rotate(i, i + oneTick, layer2Spin, layer2Spin - spin2);
+		layer3.rotate(i, i + oneTick, layer3Spin, layer3Spin + spin3);
+		
+		layer1Spin = layer1Spin + spin1;
+		layer2Spin = layer2Spin - spin2;
+		layer3Spin = layer3Spin + spin3;
+	
+		i = i + (oneTick - 1);
+	}
+	
+	var gradi = new Sprite ("SB/grad.png");
+	gradi.scaleVec(startTime, startTime, 0.58, 0.67, 0.58, 0.67);
+	gradi.color(0,0,0);
+	gradi.fade(1, startTime, startTime + fadeOut, 0, 1);
+	gradi.fade(startTime + fadeOut, endTime, 1, 1);
+	
+	var gradiD = new Sprite ("SB/grad.png");
+	gradiD.scaleVec(startTime, startTime, 0.58, 0.67, 0.58, 0.67);
+	gradiD.color(0,0,0);
+	gradiD.fade(1, startTime, startTime + fadeOut, 0, 1);
+	gradiD.fade(startTime + fadeOut, endTime, 1, 1);
+	gradiD.move(startTime, startTime, 256 + 64, 488, 256 + 64, 488);
+	gradiD.rotate(startTime, startTime, 3.141592, 3.141592);
+	
+	
+
+}
+
+// breakTime(73861, 78282);
+
+function spinningThree(startTime, endTime, centerX, centerY) {
+
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+	var moveV = 80;
+	var moveH = 150;
+	var moveL = true;
+	var moveU = true;
+	var oneFourth = 632;
+	var oneHalf = 948;
+	var size = 0.1;
+	var easingY = 1;
+	var easingX = 1;
+	
+	var dots = new Sprite ("SB/Onion Layer/Onion0.png");
+	dots.scale(startTime, startTime, size, size);
+	dots.color(0,0,0);
+	dots.fade(startTime, startTime + oneFourth, 0, 1);
+	dots.fade(endTime, endTime, 0, 0);
+	
+	for(var i = startTime; i<endTime; i++){
+	
+		if(moveU){
+			dots.moveY(easingY, i, i + oneHalf, centerY - (moveV / 2), centerY + (moveV / 2));
+			moveU = false;
+		}
+		else{
+			dots.moveY(easingY, i, i + oneHalf, centerY + (moveV / 2), centerY - (moveV / 2));
+			moveU = true;
+		}
+		i = i + (oneHalf - 1);
+	}
+	
+	for(var i = startTime; i<endTime; i++){
+		if(moveL){
+			dots.moveX(easingX, i, i + oneFourth, centerX - (moveH / 2), centerX + (moveH / 2));
+			dots.scale(i, i + (oneFourth / 2), size, size + 0.05);
+			dots.scale(i + (oneFourth / 2), i + oneFourth, size + 0.05, size);
+			moveL = false;
+		}
+		else{
+			dots.moveX(easingX, i, i + oneFourth, centerX + (moveH / 2), centerX - (moveH / 2));
+			dots.scale(i, i + (oneFourth / 2), size, size - 0.05);
+			dots.scale(i + (oneFourth / 2), i + oneFourth, size - 0.05, size);
+			moveL = true;
+		}
+		i = i + (oneFourth - 1); // 316
+	}
+}
+/*
+spinningThree(38492, 42598);
+spinningThree(38808, 42598);
+spinningThree(39124, 42598);
+spinningThree(39440, 42598);
+*/
+
+/*
+var asdf = 109229;
+for(var p = 0; p < 4; p++){
+	spinningThree(asdf, 113966, 336, 192);
+	asdf = asdf + 316;
+}
+
+asdf = 119334;
+for(var p = 0; p < 4; p++){
+	spinningThree(asdf, 121861, 120, 192);
+	asdf = asdf + 316;
+}
+*/
+
+function lyricBubble(startTime, endTime, characters, startX, startY){
+	var centerX = 256 + 64;
+	var centerY = 192 + 55;
+	startX = startX + 64;
+	startY = startY + 55;
+	var spacingX = characters / 2;
+	var fadeIn = 79;
+	var placementX = 40;
+	var size = 0.23;
+	var randomYOffset = 0;
+	var randomSizeOffset = 0;
+	var randR = 0;
+	var randG = 0;
+	var randB = 0;
+	for(var i=1; i<=characters; i++){
+		var bubble = new Sprite("SB/Onion Layer/Onion0.png");
+		randomYOffset = rand(-10,10);
+		randR = rand(127, 255);
+		randG = rand(127, 255);
+		randB = rand(127, 255);
+		randomSizeOffset = rand(-3, 3);
+		randomSizeOffset = randomSizeOffset / 100.0;
+		bubble.move(startTime + ((i - 1) * fadeIn), startTime + ((i - 1) * fadeIn), startX + ((i - 1) * placementX), startY + randomYOffset, startX + ((i - 1) * placementX), startY + randomYOffset);
+		bubble.scale(30, startTime + ((i - 1) * fadeIn), startTime + ((i - 1) * fadeIn) + fadeIn, 0, size + randomSizeOffset);
+		bubble.color(startTime + ((i - 1) * fadeIn), startTime + ((i - 1) * fadeIn), randR, randG, randB, randR, randG, randB); 
+		bubble.fade(startTime + ((i - 1) * fadeIn), startTime + ((i - 1) * fadeIn) + fadeIn, 0, 1);
+		bubble.fade(startTime + ((i - 1) * fadeIn) + fadeIn, endTime - (fadeIn * 2), 1, 1);
+		bubble.fade(endTime - (fadeIn * 2), endTime, 1, 0);
+	}
+
+}
+// lyricBubble(23334, 26808, 11, 64, 340);
+// lyricBubble(84395, 87440, 10, 224, 350);
+// lyricBubble(101550, 103703, 9, 200, 350);
+
+function spinDiskMod(startTime, switch, endTime, setAngle, dist, centerX, centerY, colorASDF){
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+	var initAngle = setAngle;
+	var oneTick = 79;
+	var radistance = dist;
+	var curAngle = setAngle;
+	var curAngleDiff = 0.0349066;
+	var thickness = 0.1;
+	var length = 0.3;
+	var rotateAngle = 0;
+	
+	// Angle apart from each other
+	var setIndiv = 0.174533;
+	
+	for(var quant = 0; quant < 36; quant++){
+		var petal = new Sprite("SB/square.jpg");
+		petal.fade(startTime, startTime + (oneTick * 2), 0, 1);
+		if (colorASDF == 1){
+			petal.color(255,51,51); //1
+		}
+		else if(colorASDF == 2){
+		petal.color(51,51,255); //2
+		}
+		else if(colorASDF == 3){
+		petal.color(128, 64, 0); //3
+		}
+		else if(colorASDF == 4){
+		petal.color(128, 128, 128); //4
+		}
+		petal.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		for(var a=startTime; a<=switch; a++){
+			rotateAngle = 0 - curAngle;
+			petal.move(a, a + oneTick, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, radistance * sin(curAngle + curAngleDiff) + centerX, radistance * cos(curAngle + curAngleDiff) + centerY);
+			petal.rotate(a, a + oneTick, rotateAngle, (0 - (curAngle + curAngleDiff)));
+			curAngle = curAngle + curAngleDiff;
+			rotateAngle = 0 - curAngle;
+			
+			a = a + (oneTick - 1); //79
+		}
+		initAngle = initAngle + setIndiv;
+		curAngle = initAngle;
+		
+		if (colorASDF == 1){
+			petal.color(switch, switch + (316 * 1), 255,51,51, 255, 153, 153); //1
+		}
+		else if(colorASDF == 2){
+			petal.color(switch, switch + (316 * 1), 51,51,255, 153, 153, 255); //2
+		}
+		else if(colorASDF == 3){
+			petal.color(switch, switch + (316 * 1), 128, 64, 0, 140, 140, 140); //3
+		}
+		else if(colorASDF == 4){
+			petal.color(switch, switch + (316 * 1), 128, 128, 128, 255, 204, 153); //4
+		}
+		petal.move(2, switch, switch + (316 * 1), radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, centerX, centerY);
+		petal.rotate(switch, switch, rotateAngle, (0 - (curAngle + curAngleDiff)));
+		if (colorASDF == 1){
+			petal.color(switch + (316 * 1), switch + (316 * 5), 255, 153, 153, 51, 51, 255); //1
+		}
+		else if(colorASDF == 2){
+			petal.color(switch + (316 * 1), switch + (316 * 5), 153, 153, 255, 255, 51, 51); //2
+		}
+		else if(colorASDF == 3){
+			petal.color(switch + (316 * 1), switch + (316 * 5), 140, 140, 140, 255, 133, 51); //3
+		}
+		else if(colorASDF == 4){
+			petal.color(switch + (316 * 1), switch + (316 * 5), 255, 204, 153, 255, 0, 0); //4
+		}
+		petal.move(7, switch + (316 * 1), switch + (316 * 5), centerX, centerY, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY);
+		petal.fade(2, switch + (316 * 1), switch + (316 * 5), 1, 0);
+	}
+}
+/*
+ spinDiskMod(104176, 108913, 113650, 0, 190, 336, 192, 1);
+ spinDiskMod(104176, 108913, 113650, 0.0872665, 210, 336, 192, 2);
+ 
+ spinDiskMod(114282, 119019, 121861, 0, 190, 120, 192, 3);
+ spinDiskMod(114282, 119019, 121861, 0.0872665, 210, 120, 192, 4);
+*/
+function spinDisk(startTime, switch, endTime, setAngle, dist){
+	var centerX = 256 + 64;
+	var centerY = 192 + 55;
+	var initAngle = setAngle;
+	var oneTick = 79;
+	var radistance = dist;
+	var curAngle = setAngle;
+	var curAngleDiff = 0.0349066;
+	var thickness = 0.1;
+	var length = 0.3;
+	var rotateAngle = 0;
+	
+	// Angle apart from each other
+	var setIndiv = 0.174533;
+	
+	for(var quant = 0; quant < 36; quant++){
+		var petal = new Sprite("SB/square.jpg");
+		petal.fade(startTime, startTime + (oneTick * 2), 0, 1);
+		petal.color(0,0,0);
+		petal.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		for(var a=startTime; a<=switch; a++){
+			rotateAngle = 0 - curAngle;
+			petal.move(a, a + oneTick, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, radistance * sin(curAngle + curAngleDiff) + centerX, radistance * cos(curAngle + curAngleDiff) + centerY);
+			petal.rotate(a, a + oneTick, rotateAngle, (0 - (curAngle + curAngleDiff)));
+			curAngle = curAngle + curAngleDiff;
+			rotateAngle = 0 - curAngle;
+			
+			a = a + (oneTick - 1); //79
+		}
+		initAngle = initAngle + setIndiv;
+		curAngle = initAngle;
+		
+		petal.color(switch, switch + (316 * 1), 0, 0, 0, 255, 64, 0);
+		petal.move(2, switch, switch + (316 * 1), radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, centerX, centerY);
+		petal.rotate(switch, switch, rotateAngle, (0 - (curAngle + curAngleDiff)));
+		petal.color(switch + (316 * 1), switch + (316 * 5), 0, 0, 0, 51, 51, 255);
+		petal.move(7, switch + (316 * 1), switch + (316 * 5), centerX, centerY, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY);
+		petal.fade(2, switch + (316 * 1), switch + (316 * 5), 1, 0);
+	}
+}
+
+//spinDisk(33440, 38176, 42598, 0, 190);
+//spinDisk(33440, 38176, 42598, 0.0872665, 210);
+
+function grid(startTime,expST,expED,endTime){
+
+	var centerX = 320;
+	var centreY = 257;
+	var LineOffset = 80;
+	var LineOffsetExp = 100;
+	var thickness = 0.1;
+	var length = 7.5;
+	var oneTick = 100;
+	var rightX = 780;
+	var leftX = -150;
+	var easing = 0;
+	
+	for(var i=-5; i<5; i++){
+		var hori = new Sprite("SB/square.jpg", Background, Centre);
+		hori.scaleVec(startTime, startTime, length, thickness, length, thickness);
+		hori.fade(startTime, startTime, 0.5, 0.5);
+		hori.moveX(startTime, endTime, centerX, centerX);
+		hori.moveY(startTime, expST, (i * LineOffset) + centreY, (i * LineOffset) + centreY);
+		hori.moveY(1, expST, expED, ((i * LineOffset) + centreY), ((i * (LineOffsetExp-15)) + centreY));
+		hori.moveY(expED, endTime, ((i * (LineOffsetExp-15)) + centreY), ((i * (LineOffsetExp-15)) + centreY));
+	}
+	
+	for(var i=startTime; i<=endTime - (600); i++){
+		var vert = new Sprite("SB/square.jpg", Background, Centre);
+		vert.moveY(startTime, endTime, centreY, centreY);
+		vert.moveX(i, i + (oneTick * 16), rightX, leftX);
+		vert.fade(i, i + (oneTick * 8), 0, 1);
+		vert.fade(i + (oneTick * 8), i + (oneTick * 16), 1, 0);
+		vert.scaleVec(i, i, thickness, length, thickness, length);
+		
+		if(i >= expST-948){
+			if(easing==0){
+				oneTick = oneTick + 1;
+			}
+			else if(easing==1){
+				oneTick = oneTick + 1;
+			}
+			else if(easing==2){
+				oneTick = oneTick + 1;
+			}
+			else if(easing==3){
+				oneTick = oneTick + 2;
+			}
+			else if(easing==4){
+				oneTick = oneTick + 2;
+			}
+			else if(easing==5){
+				oneTick = oneTick + 2;
+			}
+			else if(easing==6){
+				oneTick = oneTick + 3;
+			}
+			else if(easing==7){
+				oneTick = oneTick + 3;
+			}
+			else if(easing==8){
+				oneTick = oneTick + 3;
+			}
+			else if(easing==9){
+				oneTick = oneTick + 4;
+			}
+			else if(easing==10){
+				oneTick = oneTick + 4;
+			}
+			else if(easing==11){
+				oneTick = oneTick + 4;
+			}
+			else if(easing==12){
+				oneTick = oneTick + 5;
+			}
+			else if(easing==13){
+				oneTick = oneTick + 5;
+			}
+			else if(easing==14){
+				oneTick = oneTick + 5;
+			}
+			else if(easing==15){
+				oneTick = oneTick + 6;
+			}
+			else if(easing==16){
+				oneTick = oneTick + 6;
+			}
+			else if(easing==17){
+				oneTick = oneTick + 6;
+			}
+			easing++;
+		}
+		
+		i = i + (oneTick - 1);
+	}
+	
+	
+}
+
+// grid(22071,24282,24598,26176);
+
+function expandBull(posX, posY, startTime){
+	posX = posX + 64;
+	posY = posY + 55;
+
+	var oneFourthBar = 157;
+
+	var layer0 = new Sprite("SB/Onion Layer/Onion0.png");
+	var layer1 = new Sprite("SB/Onion Layer/Onion1.png");
+	var layer2 = new Sprite("SB/Onion Layer/Onion1.png");
+	var layer3 = new Sprite("SB/Onion Layer/Onion1.png");
+	
+	layer0.move(startTime, startTime, posX, posY, posX, posY);
+	layer1.move(startTime, startTime, posX, posY, posX, posY);
+	layer2.move(startTime, startTime, posX, posY, posX, posY);
+	layer3.move(startTime, startTime, posX, posY, posX, posY);
+	
+	layer0.scale(1,startTime, startTime + (oneFourthBar * 4), 0, 0.1);
+	layer3.scale(6,startTime, startTime + (oneFourthBar * 4), 0, 0.3);
+	layer2.scale(3,startTime, startTime + (oneFourthBar * 4), 0, 0.6);
+	layer1.scale(12,startTime, startTime + (oneFourthBar * 4), 0, 1);
+	
+}
+
+//expandBull(271, 266, 598);
+
+function white (startTime, endTime){
+	var whiteThings = new Sprite ("SB/square.jpg", Background, Centre);
+	whiteThings.scaleVec(0, startTime, startTime, 7.5, 4.5, 7.5, 4.5);
+	whiteThings.fade(0, startTime, endTime, 1, 1);
+}
+// white(3992, 13229);
+// white(33440, 42598);
+// white(43229, 43545);
+// white(64229, 73861);
+// white(86176, 86492);
+// white(88703,89650);
+// white(93755, 94387);
+
+// xChippy
+// white(68176,68808);
+
+function horiArrowMod (startTime) {
+
+	startTime = startTime - 157;
+
+	var arrowHeadTurn = -2.356602 + 3.14159;
+	var oneFourthBar = 157;
+	var oneTick = 19;
+	var expandDur = 315;
+	var startX = 750;
+	var endX = -150;
+	var startY = 20;
+	var arrowHeadSize = 0.45;
+	var arrowShaftSizeX = 3;
+	var arrowShaftSizeY = 0.6;
+	var arrowShaftExpand = 5;
+	var arrowShaftComp = -120;
+		for(var i = 0; i < 4; i++){
+		var arrowHead = new Sprite ("SB/arrowHead.png");
+		arrowHead.scale(0, startTime, startTime, arrowHeadSize, arrowHeadSize);
+		arrowHead.rotate(0, startTime, startTime, arrowHeadTurn, arrowHeadTurn);
+		arrowHead.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowHead.move(2, startTime, startTime + (expandDur * 2), startX, startY, endX, startY);
+		var arrowShaft = new Sprite ("SB/square.jpg");
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 2), 0, 1);
+	//	arrowShaft.color(0, 255, 255);
+		arrowShaft.scaleVec(2, startTime, startTime + (expandDur * 2), arrowShaftSizeX, arrowShaftSizeY, arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY);
+		arrowShaft.move(2, startTime, startTime + (expandDur * 2), startX - arrowShaftComp , startY, (450 / 2) - (arrowShaftComp * 0.8), startY);
+		arrowShaft.scaleVec(1, startTime + (expandDur * 2), startTime + (expandDur * 3), arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY, arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY + 0.8); //0.68 is default
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowShaft.fade(startTime + (oneTick * 3), 65097, 1, 1);
+		arrowShaft.fade(65097, 65176, 1, 0);
+		
+		//  every loop
+		startTime = startTime + oneFourthBar;
+		startY = startY + 150;
+	}
+}
+
+// horiArrowMod(62966);
+
+function horiArrow (startTime) {
+
+	startTime = startTime - 157;
+
+	var arrowHeadTurn = -2.356602;
+	var oneFourthBar = 157;
+	var oneTick = 19;
+	var expandDur = 315;
+	var startX = -150;
+	var endX = 800;
+	var startY = 20;
+	var arrowHeadSize = 0.45;
+	var arrowShaftSizeX = 3;
+	var arrowShaftSizeY = 0.6;
+	var arrowShaftExpand = 5;
+	var arrowShaftComp = -120;
+		for(var i = 0; i < 4; i++){
+		var arrowHead = new Sprite ("SB/arrowHead.png");
+		arrowHead.scale(0, startTime, startTime, arrowHeadSize, arrowHeadSize);
+		arrowHead.rotate(0, startTime, startTime, arrowHeadTurn, arrowHeadTurn);
+		arrowHead.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowHead.move(2, startTime, startTime + (expandDur * 2), startX, startY, endX, startY);
+		var arrowShaft = new Sprite ("SB/square.jpg");
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 2), 0, 1);
+	//	arrowShaft.color(0, 255, 255);
+		arrowShaft.scaleVec(2, startTime, startTime + (expandDur * 2), arrowShaftSizeX, arrowShaftSizeY, arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY);
+		arrowShaft.move(2, startTime, startTime + (expandDur * 2), startX + arrowShaftComp , startY, (endX / 2) + (arrowShaftComp * 0.6), startY);
+		arrowShaft.scaleVec(1, startTime + (expandDur * 2), startTime + (expandDur * 3), arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY, arrowShaftSizeX + arrowShaftExpand, arrowShaftSizeY + 0.8); //0.68 is default
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowShaft.fade(startTime + (oneTick * 3), 3992, 1, 1);
+		arrowShaft.fade(3992, 4071, 1, 0);
+		
+		//  every loop
+		startTime = startTime + oneFourthBar;
+		startY = startY + 150;
+	}
+}
+
+// horiArrow(2176);
+
+function vertArrow (startTime) {
+
+	startTime = startTime - 157;
+
+	var arrowHeadTurn = 2.356603;
+	var oneFourthBar = 157;
+	var oneTick = 19;
+	var expandDur = 315;
+	var startX = -80;
+	var endY = 0;
+	var startY = 512;
+	var arrowHeadSize = 0.45;
+	var arrowShaftSizeX = 3;
+	var arrowShaftSizeY = 0.6;
+	var arrowShaftExpand = 5;
+	var arrowShaftComp = -120;
+		for(var i = 0; i < 5; i++){
+		var arrowHead = new Sprite ("SB/arrowHead.png");
+		arrowHead.scale(0, startTime, startTime, arrowHeadSize, arrowHeadSize);
+		arrowHead.rotate(0, startTime, startTime, arrowHeadTurn, arrowHeadTurn);
+		arrowHead.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowHead.move(2, startTime, startTime + (expandDur * 2), startX, startY, startX, endY);
+		var arrowShaft = new Sprite ("SB/square.jpg");
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 2), 0, 1);
+	//	arrowShaft.color(0, 255, 255);
+		arrowShaft.scaleVec(2, startTime, startTime + (expandDur * 2), arrowShaftSizeY, arrowShaftSizeX, arrowShaftSizeY, arrowShaftSizeX + 2.2);
+		arrowShaft.move(2, startTime, startTime + (expandDur * 2), startX , startY - arrowShaftComp, startX, (250));
+		arrowShaft.fade(1, startTime, startTime + (oneTick * 3), 0, 1);
+		arrowShaft.fade(startTime + (oneTick * 3), 65097, 1, 1);
+		arrowShaft.fade(65097, 65176, 1, 0);
+		
+		// ^ startTime + 1973, startTime + 2052
+		
+		//  every loop
+		startTime = startTime + oneFourthBar;
+		startX = startX + 200;
+	}
+}
+// vertArrow(2091);
+// vertArrow(63124);
+
