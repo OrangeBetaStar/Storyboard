@@ -1,0 +1,286 @@
+var GLOBAL_ANGLE_LYRICS = 0;
+var piThing = 3.141592;
+
+function lyricsBubble (startTime, endTime, posX, posY, size, startAngle, direction) {
+
+	posX = posX + 64 + 50; //shift 50 right cuz i am lazy
+	posY = posY + 55 + 15; //shift 15 down cuz i am lazy
+
+	var angle = startAngle;
+	var duration = 403;
+	var durationHalf= 201;
+	var addAngle = 0.785398 / 2.00;
+	var ballSize = 0.7;
+	
+	
+	//endTime = endTime - duration;
+	//startTime = 
+	
+	var centreThing = new Sprite("SB/Onion0.png");
+	centreThing.move(startTime, startTime, posX, posY, posX, posY);
+	centreThing.scale(30, startTime, startTime + (duration * 1), 0, 1);
+	centreThing.fade(startTime, startTime + durationHalf, 0, 1);
+	centreThing.fade(endTime - duration, endTime, 1, 0);
+
+	for(var startThing = startTime; startThing < endTime; startThing++){
+	var load = new Sprite ("SB/w.png");
+	load.move(startThing, startThing + duration, posX + size * sin(angle), posY + size * cos(angle), posX + size * sin(angle),posY + size * cos(angle));
+	load.scale(startThing, startThing, ballSize, ballSize);
+	load.fade(startThing, startThing + durationHalf, 0, 1);
+	load.fade(startThing + durationHalf, startThing + duration * 2, 1, 0);
+	
+	if(direction == 0){
+		angle = angle + addAngle;
+	}
+	else{
+		angle = angle - addAngle;
+	}
+	startThing = startThing + (durationHalf - 1) / 2.00;
+	
+	}
+	
+	return angle;
+}
+/*
+GLOBAL_ANGLE_LYRICS = lyricsBubble(242884, 246106, 404, 32, 140, 0, 0);
+println(GLOBAL_ANGLE_LYRICS);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+println(GLOBAL_ANGLE_LYRICS);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(246106, 249327, 405, 310, 140, GLOBAL_ANGLE_LYRICS, 1);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(249327, 252549, 404, 32, 140, GLOBAL_ANGLE_LYRICS, 0);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(252549, 255770, 405, 310, 140, GLOBAL_ANGLE_LYRICS, 1);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(255770, 258992, 404, 32, 140, GLOBAL_ANGLE_LYRICS, 0);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(258992, 262213, 405, 310, 140, GLOBAL_ANGLE_LYRICS, 1);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(262213, 265434, 404, 32, 140, GLOBAL_ANGLE_LYRICS, 0);
+GLOBAL_ANGLE_LYRICS = GLOBAL_ANGLE_LYRICS - (piThing);
+GLOBAL_ANGLE_LYRICS = lyricsBubble(265434, 268656, 405, 310, 140, GLOBAL_ANGLE_LYRICS, 1);
+*/
+
+function smallExposion(startTime, posX, posY){
+
+	var randomAngle = 0;
+	posX = posX + 64;
+	posY = posY + 55;
+	var duration = 403;
+	var distance = 50;
+	var size = 0.5;
+	
+	for(var quantity = 0; quantity < 6; quantity++){
+	randomAngle = quantity;
+//	randomAngle = randomAngle / 10.0;
+	println(randomAngle);
+	var circOut = new Sprite("SB/dot.png");
+	circOut.move(1 ,startTime, startTime + (duration * 2), posX, posY, sin(randomAngle) * distance + posX, cos(randomAngle) * distance + posY);
+	circOut.color(startTime, startTime,0, 51, 102,0, 51, 102);
+	circOut.scale(startTime, startTime, size, size);
+	circOut.fade(startTime, startTime + (duration * 2), 1, 0);
+	}
+
+
+
+}
+
+//smallExposion(268656, 402, 197);
+
+/*
+Debug:
+6
+8
+7
+5
+10
+*/
+
+function petalFront2(startTime, endTime){
+	var flyDurSL = 1611 + 805;
+	var flyDur = 1611;
+	var startY = rand(0, 480);
+	startY = startY + 55;
+	var startX = -180 + 64;
+	var sizePetal = 0.8;
+	var randFade = 0;
+	var randSpinStart = 0;
+	var randSpinEnd = 3;
+	var petalSizeVarySM = 0.6;
+	var petalSizeVary = 0.9;
+	var colourPetal = 0;
+	 // Smaller, slower
+	for(var i=startTime; i < endTime + flyDur; i++){
+		colourPetal = rand(77, 200);
+		startY = rand(0, 480);
+		startY = startY + 55;
+		randFade = rand(-30, 30);
+		sizePetal = rand(100, 170);
+		randSpinStart = rand(0, 300);
+		randSpinStart = randSpinStart / 100.0;
+		randSpinEnd = rand(-400,400);
+		randSpinEnd = randSpinEnd / 100.0;
+		sizePetal = sizePetal / 100.0;
+		if(i < (endTime - 610)){
+		var petal1 = new Sprite("SB/dot.png");
+		petal1.moveX(0, i, i + flyDurSL, startX, startX + 900);
+		petal1.moveY(2, i, i + flyDurSL, startY, startY - 200);
+//		petal1.rotate(2, i, i + flyDurSL, randSpinStart, randSpinStart + randSpinEnd);
+		petal1.scale(i, i + (flyDurSL / 2), sizePetal - petalSizeVarySM, sizePetal);
+		petal1.scale(i + (flyDurSL / 2), i + flyDurSL, sizePetal, sizePetal - petalSizeVarySM);
+	//	petal1.color(colourPetal, 255, 255);
+		
+		
+		if(i > (endTime - 1219)){
+			petal1.fade(0, (endTime - 1219), (endTime - 1219) + (flyDurSL / 2), 0, 0);
+		}
+		else {
+			petal1.fade(0, i + (flyDurSL / 2) + randFade, i + (flyDurSL) + randFade, 1, 0);
+			if(i < (startTime + 609)){
+				petal1.fade(0, (startTime + 609), (startTime + 609) + (flyDurSL / 2), 0, 1);
+			}
+			else {
+				petal1.fade(0, i, i + (flyDurSL / 2) + randFade, 0, 1);
+			}
+		}
+		
+		}
+		i = i + 202;
+	}
+	 // Bigger, faster
+	 startTime = startTime - 76;
+	for(var i=startTime; i < endTime + flyDur; i++){
+		colourPetal = rand(77, 200);
+		startY = rand(0, 480);
+		startY = startY + 55;
+		randFade = rand(-30, 30);
+		sizePetal = rand(150, 230);
+		sizePetal = sizePetal / 100.0;
+		randSpinStart = rand(0, 300);
+		randSpinStart = randSpinStart / 100.0;
+		randSpinEnd = rand(-400,400);
+		randSpinEnd = randSpinEnd / 100.0;
+		if(i < (endTime - 610)){
+		var petal1 = new Sprite("SB/dot.png");
+		petal1.moveX(0, i, i + flyDur, startX, startX + 900);
+		petal1.moveY(2, i, i + flyDur, startY, startY - 200);
+//		petal1.rotate(2, i, i + flyDur, randSpinStart, randSpinStart + randSpinEnd);
+		petal1.scale(i, i + (flyDur / 2), sizePetal - petalSizeVary, sizePetal);
+		petal1.scale(i + (flyDur / 2), i + flyDur, sizePetal, sizePetal - petalSizeVary);
+	//	petal1.color(colourPetal, 255, 255);
+		
+		if(i > (endTime - 1219)){
+			petal1.fade(0, (endTime - 1219), (endTime - 1219) + (flyDur / 2), 0, 0);
+		}
+		else {
+			petal1.fade(0, i + (flyDur / 2) + randFade, i + (flyDur) + randFade, 1, 0);
+			if(i < (startTime + 609)){
+				petal1.fade(0, (startTime + 609), (startTime + 609) + (flyDur / 2), 0, 1);
+			}
+			else {
+				petal1.fade(0, i, i + (flyDur / 2) + randFade, 0, 1);
+			}
+		}
+		
+		}
+		i = i + 403;
+	}
+}
+
+function petalBack2(startTime, endTime){
+	var flyDurSL = 1611 + 805;
+	var flyDur = 1611;
+	var startY = rand(0, 480);
+	startY = startY + 55;
+	var startX = 740 + 64;
+	var sizePetal = 0.5;
+	var randFade = 0;
+	var randSpinStart = 0;
+	var randSpinEnd = 3;
+	var petalSizeVarySM = 0.1;
+	var petalSizeVary = 0.15;
+	var colourPetal = 0;
+	
+	 // Smaller, slower
+	for(var i=startTime; i < endTime + flyDur; i++){
+		colourPetal = rand(77, 200);
+		startY = rand(0, 480);
+		startY = startY + 55;
+		randFade = rand(-30, 30);
+		sizePetal = rand(30, 50);
+		randSpinStart = rand(0, 300);
+		randSpinStart = randSpinStart / 100.0;
+		randSpinEnd = rand(-500,500);
+		randSpinEnd = randSpinEnd / 100.0;
+		sizePetal = sizePetal / 100.0;
+		if(i < (endTime - 610)){
+		var petal1 = new Sprite("SB/dot.png", Background, Centre);
+		petal1.moveX(0, i, i + flyDurSL, startX, startX - 900);
+		petal1.moveY(2, i, i + flyDurSL, startY, startY + 200);
+//		petal1.rotate(2, i, i + flyDurSL, randSpinStart, randSpinStart + randSpinEnd);
+		petal1.scale(i, i + (flyDurSL / 2), sizePetal, sizePetal - petalSizeVarySM);
+		petal1.scale(i + (flyDurSL / 2), i + flyDurSL, sizePetal - petalSizeVarySM, sizePetal);
+	//	petal1.color(colourPetal, 255, 255);
+		
+		if(i > (endTime - 1219)){
+			petal1.fade(0, (endTime - 1219), (endTime - 1219) + (flyDurSL / 2), 0, 0);
+		}
+		else {
+			petal1.fade(0, i + (flyDurSL / 2) + randFade, i + (flyDurSL) + randFade, 1, 0);
+			if(i < (startTime + 609)){
+				petal1.fade(0, (startTime + 609), (startTime + 609) + (flyDurSL / 2), 0, 1);
+			}
+			else {
+				petal1.fade(0, i, i + (flyDurSL / 2) + randFade, 0, 1);
+			}
+		}
+		
+		}
+		i = i + 202;
+	}
+	 // Bigger, faster
+	 startTime = startTime - 76;
+	for(var i=startTime; i < endTime + flyDur; i++){
+		colourPetal = rand(77, 200);
+		startY = rand(0, 480);
+		startY = startY + 55;
+		randFade = rand(-30, 30);
+		sizePetal = rand(25, 50);
+		sizePetal = sizePetal / 100.0;
+		randSpinStart = rand(0, 300);
+		randSpinStart = randSpinStart / 100.0;
+		randSpinEnd = rand(-500, 500);
+		randSpinEnd = randSpinEnd / 100.0;
+		if(i < (endTime - 610)){
+		var petal1 = new Sprite("SB/dot.png", Background, Centre);
+		petal1.moveX(0, i, i + flyDur, startX, startX - 900);
+		petal1.moveY(2, i, i + flyDur, startY, startY + 200);
+//		petal1.rotate(2, i, i + flyDur, randSpinStart, randSpinStart + randSpinEnd);
+		petal1.scale(i, i + (flyDur / 2), sizePetal, sizePetal - petalSizeVary);
+		petal1.scale(i + (flyDur / 2), i + flyDur, sizePetal - petalSizeVary, sizePetal);
+	//	petal1.color(colourPetal, 255, 255);
+		
+		if(i > (endTime - 1219)){
+			petal1.fade(0, (endTime - 1219), (endTime - 1219) + (flyDur / 2), 0, 0);
+		}
+		else {
+			petal1.fade(0, i + (flyDur / 2) + randFade, i + (flyDur) + randFade, 1, 0);
+			if(i < (startTime + 609)){
+				petal1.fade(0, (startTime + 609), (startTime + 609) + (flyDur / 2), 0, 1);
+			}
+			else {
+				petal1.fade(0, i, i + (flyDur / 2) + randFade, 0, 1);
+			}
+		}
+		
+		}
+		i = i + 202;
+	}
+}
+
+function petalAria2(startTime, endTime){
+	petalFront2(startTime, endTime);
+	petalBack2(startTime, endTime);
+}
+
+petalAria2(267851,294428);

@@ -1,0 +1,557 @@
+function bubbleUp(startTime, endTime){
+	var maxY = 60;
+	var startY = 550;
+	var leftX = -220;
+	var rightX = 850;
+	var speed = 3067;
+	var randomSize = rand(30,70);
+	var anyX = 0;
+	var randomXThing = 0;
+	randomSize = randomSize / 100.0;
+	
+	
+	for(var z=startTime; z<(endTime-speed+1022); z++){
+		anyX = rand(-200, 850);
+		maxY = maxY + rand(-60, 60);
+		randomXThing = rand(-40,40);
+		randomSize = rand(30,70);
+		randomSize = randomSize / 100.0;
+		var bubbleThing =  new Sprite ("SB/highlight.png");
+		bubbleThing.scale(z,z,randomSize, randomSize);
+		bubbleThing.move(z, z+speed, anyX, startY, anyX + randomXThing, maxY);
+		if((z+speed) < endTime){
+			bubbleThing.fade(z-85, z, 0, 1);
+			bubbleThing.fade(z, z+speed, 1, 0);
+		}
+		if((z+speed) > endTime){
+			bubbleThing.fade(z-85, z, 0, 1);
+			bubbleThing.fade(z, endTime, 1, 0);
+		}
+		z = z + 170;
+		maxY = 60;
+	}
+	
+}
+
+// bubbleUp(47207, 52661);
+
+function nameTagMichiru (startTime, endTime) {
+	var thickness = 2.5;
+	var wideness = 50;
+	var posY = 270;
+	var startX = -200;
+	var endX = 160;
+
+	var letterBox = new Sprite("SB/square.png");
+	letterBox.scaleVec(startTime, startTime, wideness, thickness, wideness, thickness);
+	letterBox.rotate(startTime, startTime, 0, -0.2);
+//	letterBox.move(1, startTime, endTime - 341, startX, posY, endX, posY);
+//	letterBox.move(2, endTime - 341, endTime, endX, posY, 700, posY);
+	letterBox.scaleVec(2, endTime - 341, endTime, wideness, thickness, thickness, thickness);
+	letterBox.fade(startTime, startTime + 341, 0, 1);
+	letterBox.fade(startTime + 341, endTime - 341, 1, 1);
+	letterBox.fade(endTime - 341, endTime, 1, 1);
+	letterBox.fade(endTime, endTime + 341, 1, 0);
+	// letterBox.color(startTime, startTime + (341 * 2), 255, 255, 255, 253, 253, 85);
+	letterBox.color(startTime, startTime + (341 * 2), 255, 255, 255, 255, 0, 0);
+}
+// nameTagMichiru(15843, 19252);
+// nameTagMichiru(25730, 27775);
+
+function nameTagKazuki (startTime, endTime) {
+	var thickness = 2.5;
+	var wideness = 50;
+	var posY = 410;
+	var startX = 700;
+	var endX = 540;
+
+	var letterBox = new Sprite("SB/square.png");
+	letterBox.scaleVec(startTime, startTime, wideness, thickness, wideness, thickness);
+	letterBox.move(1, startTime, endTime - 341, startX, posY, endX, posY);
+	letterBox.move(2, endTime - 341, endTime, endX, posY, -200, posY);
+	letterBox.scaleVec(2, endTime - 341, endTime, wideness, thickness, thickness, thickness);
+	letterBox.fade(startTime, startTime + 341, 0, 1);
+	letterBox.fade(startTime + 341, endTime - 341, 1, 1);
+	letterBox.fade(endTime - 341, endTime, 1, 1);
+	letterBox.fade(endTime, endTime + 341, 1, 0);
+	letterBox.color(startTime, startTime + (341 * 2), 255, 255, 255, 121, 202, 227);
+}
+//nameTagKazuki(21298, 24366);
+
+function grid(startTime, endTime){
+
+	startTime = startTime - 341;
+	
+	var startX = -140;
+	var startY = 30;
+	var vertiY = -100;
+	var horiX = -170;
+	var distanceApart = 50;
+	var thickness = 0.6;
+	var vertiLength = 24;
+	var horiLength = 48;
+	var duration = (341 / 2);
+	var endPosX = 256 + 50;
+	var endPosY = 192 + 30;
+	
+	var eachLatency = (341.0 / 6);
+	var eachLatencyy = (341.0 / 4);
+	
+	for(var f=0; f<=17; f++) {
+		var verticalLines = new Sprite("SB/square.png", Background, Centre);
+		verticalLines.scaleVec(startTime + eachLatency, startTime + eachLatency, thickness, vertiLength, thickness, vertiLength);
+		verticalLines.move(startTime + eachLatency, startTime + duration + eachLatency, startX, vertiY, startX, endPosY);
+		verticalLines.fade(startTime + eachLatency, startTime + duration + eachLatency, 0, 1);
+		verticalLines.fade(startTime + duration + eachLatency, endTime - duration - duration, 1, 1);
+		verticalLines.fade(endTime - duration - duration, endTime - duration, 1, 0);
+		startX = startX + 50;
+		eachLatency = eachLatency + (341.0 / 6);
+	}
+	
+	
+	for(var f=0; f<=8; f++) {
+		var verticalLines = new Sprite("SB/square.png", Background, Centre);
+		verticalLines.scaleVec(startTime + eachLatencyy, startTime + eachLatency, horiLength, thickness, horiLength, thickness);
+		verticalLines.move(startTime + eachLatencyy, startTime + duration + eachLatencyy, horiX, startY, endPosX, startY);
+		verticalLines.fade(startTime + eachLatencyy, startTime + duration + eachLatencyy, 0, 1);
+		verticalLines.fade(startTime + duration + eachLatencyy, endTime - duration - duration, 1, 1);
+		verticalLines.fade(endTime - duration - duration, endTime - duration, 1, 0);
+		startY = startY + 50;
+		eachLatencyy = eachLatencyy + (341.0 / 4);
+	}
+}
+/*
+grid(14480, 17207);
+grid(19934, 22661);
+*/
+
+function sparkleCorner(startTime, speed, endTime) {
+	var leftX = -140;
+	var rightX = 760;
+	var Y = 530;
+	var randomizePetal = 0;
+	var duration = (341 * 4) * speed;
+	var randomAngleLeft = 0;
+	var randomAngleRight = 0;
+	var distance = 500;
+	var randomSpinInit = 0;
+	var randomSpinAdd = 0;
+	var randomSpinDir = 0;
+	var randomizeColour = 0;
+	var fadeControl = 0;
+	var postFadeControl = 0;
+	
+	startTime = startTime - (341 * 2);
+	
+	for(var e = startTime; e < (endTime); e++) {
+		randomizePetal = rand(1, 4);
+		randomAngleLeft = rand(0, 157.0);
+		randomAngleLeft = randomAngleLeft / 100.0;
+		randomSpinInit = rand(0, 9);
+		randomSpinAdd = rand(0,3);
+		randomSpinDir = rand(0,1);
+		randomizeColour = rand(100, 255);
+		if(randomSpinDir == 1){
+			randomSpinAdd = randomSpinAdd * (-1);
+		}
+		randomAngleRight = rand(157.0, 314.00);
+		randomAngleRight = randomAngleRight / 100.0;
+		
+		fadeControl = 0;
+		postFadeControl = 341;
+		
+		
+		//println(randomAngleLeft);
+		
+		if((e % 25) == 0) {
+		
+			if(randomizePetal == 1) {
+				var petalThing1 = new Sprite("SB/petal1.png");
+				petalThing1.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing1.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing1.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing1.color(255, randomizeColour, 255);
+				petalThing1.scaleVec(e, e + duration, 1, 1, -1, 1);
+				petalThing1.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 2) {
+				var petalThing2 = new Sprite("SB/petal2.png");
+				petalThing2.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing2.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing2.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing2.color(255, randomizeColour, 255);
+				petalThing2.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 3) {
+				var petalThing3 = new Sprite("SB/petal3.png");
+				petalThing3.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing3.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing3.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing3.color(255, randomizeColour, 255);
+				petalThing3.scaleVec(e, e + duration, 1, 1, 1, -1);
+				petalThing3.fade(e + duration - postFadeControl, e + duration, 1, 0);
+				
+			}
+			if(randomizePetal == 4) {
+				var petalThing4 = new Sprite("SB/petal4.png");
+				petalThing4.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing4.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing4.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing4.color(255, randomizeColour, 255);
+				petalThing4.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+		}
+		
+		if((e % 20) == 0) {
+		
+			if(randomizePetal == 1) {
+				var petalThing1 = new Sprite("SB/petal1.png");
+				petalThing1.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing1.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing1.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing1.color(255, randomizeColour, 255);
+				petalThing1.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 2) {
+				var petalThing2 = new Sprite("SB/petal2.png");
+				petalThing2.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing2.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing2.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing2.color(255, randomizeColour, 255);
+				petalThing2.scaleVec(e, e + duration, 1, -1, 1, 1);
+				petalThing2.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 3) {
+				var petalThing3 = new Sprite("SB/petal3.png");
+				petalThing3.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing3.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing3.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing3.color(255, randomizeColour, 255);
+				petalThing3.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 4) {
+				var petalThing4 = new Sprite("SB/petal4.png");
+				petalThing4.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing4.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing4.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing4.color(255, randomizeColour, 255);
+				petalThing4.scaleVec(e, e + duration, -1, 1, 1, 1);
+				petalThing4.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+		}
+		
+	}
+	
+}
+
+// one full block before endTime
+
+//sparkleCorner(74480, 1, 79252); // first kiai
+// sparkleCorner(74480, 1, 83343);
+//sparkleCorner(85389, 1, 89480); // second kiai
+
+
+
+
+
+
+function sparkleCornerNew(startTime, speed, endTime) {
+	var leftX = -140;
+	var rightX = 760;
+	var Y = 530;
+	var randomizePetal = 0;
+	var duration = (341 * 4) * speed;
+	var randomAngleLeft = 0;
+	var randomAngleRight = 0;
+	var distance = 500;
+	var randomSpinInit = 0;
+	var randomSpinAdd = 0;
+	var randomSpinDir = 0;
+	var randomizeColour = 0;
+	var fadeControl = 0;
+	var postFadeControl = 0;
+	
+	startTime = startTime - (341 * 2);
+	
+	for(var e = startTime; e < (endTime); e++) {
+		randomizePetal = rand(1, 4);
+		randomAngleLeft = rand(0, 157.0);
+		randomAngleLeft = randomAngleLeft / 100.0;
+		randomSpinInit = rand(0, 9);
+		randomSpinAdd = rand(0,3);
+		randomSpinDir = rand(0,1);
+		randomizeColour = rand(100, 200);
+		if(randomSpinDir == 1){
+			randomSpinAdd = randomSpinAdd * (-1);
+		}
+		randomAngleRight = rand(157.0, 314.00);
+		randomAngleRight = randomAngleRight / 100.0;
+		
+		fadeControl = 0;
+		postFadeControl = 341;
+		
+		
+		//println(randomAngleLeft);
+		
+		if((e % 25) == 0) {
+		
+			if(randomizePetal == 1) {
+				var petalThing1 = new Sprite("SB/music.png");
+				petalThing1.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing1.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing1.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing1.color(randomizeColour - 50, 255, randomizeColour);
+				petalThing1.scaleVec(e, e + duration, 1, 1, -1, 1);
+				petalThing1.scale(e, e, 0.7, 0.7);
+				petalThing1.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 2) {
+				var petalThing2 = new Sprite("SB/star2.png");
+				petalThing2.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing2.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing2.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing2.color(randomizeColour, 255, 255);
+				petalThing2.scale(e, e, 0.7, 0.7);
+				petalThing2.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 3) {
+				var petalThing3 = new Sprite("SB/music.png");
+				petalThing3.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing3.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing3.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing3.color(randomizeColour - 50, 255, randomizeColour);
+				petalThing3.scaleVec(e, e + duration, 1, 1, 1, -1);
+				petalThing3.scale(e, e, 0.7, 0.7);
+				petalThing3.fade(e + duration - postFadeControl, e + duration, 1, 0);
+				
+			}
+			if(randomizePetal == 4) {
+				var petalThing4 = new Sprite("SB/star2.png");
+				petalThing4.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing4.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing4.move(2, e, e + duration, leftX, Y, distance * sin(randomAngleLeft) + leftX, distance * cos(randomAngleRight) + Y);
+				petalThing4.color(randomizeColour, 255, 255);
+				petalThing4.scale(e, e, 0.7, 0.7);
+				petalThing4.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+		}
+		
+		if((e % 20) == 0) {
+		
+			if(randomizePetal == 1) {
+				var petalThing1 = new Sprite("SB/star2.png");
+				petalThing1.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing1.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing1.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing1.color(randomizeColour, 255, 255);
+				petalThing1.scale(e, e, 0.7, 0.7);
+				petalThing1.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 2) {
+				var petalThing2 = new Sprite("SB/music.png");
+				petalThing2.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing2.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing2.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing2.color(randomizeColour - 50, 255, randomizeColour);
+				petalThing2.scaleVec(e, e + duration, 1, -1, 1, 1);
+				petalThing2.scale(e, e, 0.7, 0.7);
+				petalThing2.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 3) {
+				var petalThing3 = new Sprite("SB/star2.png");
+				petalThing3.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing3.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing3.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing3.color(randomizeColour, 255, 255);
+				petalThing3.scale(e, e, 0.7, 0.7);
+				petalThing3.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+			if(randomizePetal == 4) {
+				var petalThing4 = new Sprite("SB/music.png");
+				petalThing4.fade(2, e + fadeControl, e + duration - postFadeControl, 0, 1);
+				petalThing4.rotate(e, e + duration, randomSpinInit, randomSpinInit + randomSpinAdd);
+				petalThing4.move(2, e, e + duration, rightX, Y, (-(distance * sin(randomAngleRight))) + rightX, distance * cos(randomAngleRight) + Y);
+				petalThing4.color(randomizeColour - 50, 255, randomizeColour);
+				petalThing4.scaleVec(e, e + duration, -1, 1, 1, 1);
+				petalThing4.scale(e, e, 0.7, 0.7);
+				petalThing4.fade(e + duration - postFadeControl, e + duration, 1, 0);
+			}
+		}
+		
+	}
+	
+}
+
+//sparkleCornerNew(85389, 1, 93570);
+
+function kiaiSpin(startTime, endTime){
+	var randomizeSpin = rand(0,4);
+	
+	var saveLeLoad = 341 * 2;
+	
+	var bgSpin = new Sprite("SB/loadingCircleAxis.png", Background, Centre);
+	bgSpin.move(startTime, endTime,  256 + 64, 192 + 55, 256 + 64, 192 + 55);
+	bgSpin.scale(startTime, endTime, 0.9, 0.9);
+	bgSpin.fade(startTime + saveLeLoad, startTime + 341 + saveLeLoad, 0, 1);
+	bgSpin.fade(startTime + 341 + saveLeLoad, endTime - 341, 1, 1);
+	bgSpin.fade(endTime - 341, endTime, 1, 0);
+	bgSpin.rotate(startTime, endTime, 2 + randomizeSpin, 6 + randomizeSpin);
+	
+	var bgSpinSm = new Sprite("SB/loadingCircleAxis.png", Background, Centre);
+	bgSpinSm.move(startTime, endTime,  256 + 64, 192 + 55, 256 + 64, 192 + 55);
+	bgSpinSm.scale(startTime, endTime, 0.6, 0.6);
+	bgSpinSm.fade(startTime + saveLeLoad, startTime + 341 + saveLeLoad, 0, 1);
+	bgSpinSm.fade(startTime + 341 + saveLeLoad, endTime - 341, 1, 1);
+	bgSpinSm.fade(endTime - 341, endTime, 1, 0);
+	bgSpinSm.rotate(startTime, endTime, -2 + randomizeSpin, -6 + randomizeSpin);
+	
+	var bgSpinTn = new Sprite("SB/loadingCircleAxis.png", Background, Centre);
+	bgSpinTn.move(startTime, endTime,  256 + 64, 192 + 55, 256 + 64, 192 + 55);
+	bgSpinTn.scale(startTime, endTime, 0.3, 0.3);
+	bgSpinTn.fade(startTime + saveLeLoad, startTime + 341 + saveLeLoad, 0, 1);
+	bgSpinTn.fade(startTime + 341 + saveLeLoad, endTime - 341, 1, 1);
+	bgSpinTn.fade(endTime - 341, endTime, 1, 0);
+	bgSpinTn.rotate(startTime, endTime, 2 + randomizeSpin, 6 + randomizeSpin);
+}
+
+/*
+kiaiSpin(74480, 84025);
+kiaiSpin(85389, 94934);
+*/
+
+function past(startTime, endTime){
+
+	var border = new Sprite("SB/vignette.png");
+	border.move(startTime, endTime, 256 + 64, 192 + 55, 256 + 64, 192 + 55);
+	border.scale(startTime, endTime, 0.65, 0.65);
+	border.fade(startTime, startTime + 341, 0, 1);
+	border.fade(startTime + 341, endTime - 341, 1, 1);
+	border.fade(endTime - 341, endTime, 1, 0);
+	
+
+	// These eat too much load...
+	/*
+	var borderBottom = new Sprite("SB/flashh.png");
+	borderBottom.move(startTime, endTime, 256 + 64, 260 + 55, 256 + 64, 260 + 55);
+	borderBottom.fade(startTime, startTime + 341, 0, 1);
+	borderBottom.fade(startTime + 341, endTime - 341, 1, 1);
+	borderBottom.fade(endTime - 341, endTime, 1, 0);
+	
+	var borderTop = new Sprite("SB/flashh.png");
+	borderTop.move(startTime, endTime, 256 + 64, 50 + 55, 256 + 64, 50 + 55);
+	borderTop.fade(startTime, startTime + 341, 0, 1);
+	borderTop.fade(startTime + 341, endTime - 341, 1, 1);
+	borderTop.fade(endTime - 341, endTime, 1, 0);
+	borderTop.rotate(startTime, endTime, 3.14159, 3.14159);
+	*/
+}
+
+/*
+past(28116,30843);
+past(32036,34423);
+past(35786,38514);
+*/
+
+function confetti(startTime, speed, endTime, amount) {
+
+	startTime = startTime - (341 * 3);
+	// endTime = endTime - (341 * 6);
+	
+	var TOP_Y = -60;
+	var BOTTOM_Y = 490;
+	var randomX = 256;
+	var randomXEnd = 256;
+	var randomYEnd = 0;
+	var randomRotation = 0;
+	var randomRotErr = 0;
+	var randomNum = 0;
+	var randomNumCol = 0;
+	var sizeY = 1.3;
+	var sizeX = 0.9;
+	
+	endTime = endTime - 1364;
+
+	for(var c=startTime; c<endTime; c++){
+		
+		if(c % amount == 0){
+		randomX = rand(-136,648);
+		randomX = randomX + 64;
+		randomXEnd = rand(-50, 50);
+		randomYEnd = rand(-30, 30);
+		randomRotation = rand(0, 6.283185307);
+		randomRotErr = rand(0, 3);
+		randomNum = rand(0, 4);
+		randomNumCol = rand(0, 5);
+		var confettiThing = new Sprite("SB/square.png", Background, Centre);
+		confettiThing.scaleVec(c, c, sizeX, sizeY, sizeX, sizeY);
+		confettiThing.move(2, c, c + (1364 * 2), randomX, TOP_Y, randomX + randomXEnd, BOTTOM_Y + randomYEnd);
+		confettiThing.rotate(c, c + (1364 * 2), randomRotation, randomRotation + randomRotErr);
+		confettiThing.fade(c - 42, c, 0, 1);
+		confettiThing.fade(c, c + 2046, 1, 1);
+		confettiThing.fade(c + 2046, c + 2728, 1, 0);
+		
+		// le flips
+		if(randomNum == 0) {
+			confettiThing.scaleVec(c, c + (1364 * 2), sizeX, sizeY, sizeX, sizeY);
+		}
+		if(randomNum == 1) {
+			confettiThing.scaleVec(c, c + (1364 * 2), sizeX, sizeY, -sizeX, sizeY);
+	 	}
+	 	if(randomNum == 2) {
+	 		confettiThing.scaleVec(c, c + 1364, sizeX, sizeY, -sizeX, sizeY);
+	 		confettiThing.scaleVec(c + 1364, c + (1364 * 2), -sizeX, sizeY, sizeX, sizeY);
+	 	}
+	 	if(randomNum == 3) {
+	 		confettiThing.scaleVec(c, c + 909, sizeX, sizeY, -sizeX, sizeY);
+	 		confettiThing.scaleVec(c + 909, c + (909 * 2), -sizeX, sizeY, sizeX, sizeY);
+	 		confettiThing.scaleVec(c + (909 * 2), c + (909 * 3), sizeX, sizeY, -sizeX, sizeY);
+	 	}
+	 	if(randomNum == 4) {
+	 		confettiThing.scaleVec(c, c + 682, sizeX, sizeY, -sizeX, sizeY);
+	 		confettiThing.scaleVec(c + 682, c + (682 * 2), -sizeX, sizeY, sizeX, sizeY);
+	 		confettiThing.scaleVec(c + (682 * 2), c + (682 * 3), sizeX, sizeY, -sizeX, sizeY);
+	 		confettiThing.scaleVec(c + (682 * 3), c + (682 * 4), -sizeX, sizeY, sizeX, sizeY);
+	 	}
+	 	
+	 	// le colour
+	 	if(randomNumCol == 0){ // red
+	 		var randomizeColour = rand(46, 110);
+	 		confettiThing.color(255, randomizeColour, randomizeColour);
+	 	}
+	 	if(randomNumCol == 1){ // dark blue
+	 		var randomizeColour = rand(55, 255);
+	 		confettiThing.color(randomizeColour, randomizeColour, 255);
+	 	}
+	 	if(randomNumCol == 2){ // light blue
+	 		var randomizeColour = rand(137, 255);
+	 		confettiThing.color(randomizeColour, 255, 255);
+	 	}
+	 	if(randomNumCol == 3){ // green
+	 		var randomizeColour = rand(90, 255);
+	 		confettiThing.color(randomizeColour, 255, randomizeColour);
+	 	}
+	 	if(randomNumCol == 4){ // yellow
+	 		var randomizeColour = rand(90, 255);
+	 		confettiThing.color(255, 255, randomizeColour);
+	 	}
+	 	if(randomNumCol == 4){ // yellow
+	 		var randomizeColour = rand(90, 255);
+	 		confettiThing.color(255, 255, randomizeColour);
+	 	}
+	 	if(randomNumCol == 5){ // randomize
+	 		var randomizeColour1 = rand(0, 255);
+	 		var randomizeColour2 = rand(0, 255);
+	 		var randomizeColour3 = rand(0, 255);
+	 		confettiThing.color(randomizeColour1, randomizeColour2, randomizeColour3);
+	 	}
+	 	
+		}
+	}
+}
+
+// confetti(start, speed, endTime, amount(higher = less));
+
+// confetti(74480, 1, 84025, 70); // first kiai front
+// confetti(74480, 1, 84025, 100); // first kiai back
+// confetti(85389, 1, 96298, 70); // second kiai front
+// confetti(85389, 1, 96298, 100); // second kiai back
