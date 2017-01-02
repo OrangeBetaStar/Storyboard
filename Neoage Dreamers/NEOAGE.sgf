@@ -1,0 +1,435 @@
+function circleflake(x, startTime, speed) {
+	var circleflake = new Sprite("SB BG/circle.png");
+	var randomize = rand(5, 10);
+	var randomizeCircleSize = rand(0, 50);
+	var randomColourChangeONE = rand(-20, 50);
+	var randomColourChangeTWO = rand(-40, 10);
+	var randomSlant = rand(-10, 10);
+	var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000); 
+	circleflake.move(startTime, startTime + speed, x, 500, x + randomSlant, 200);
+	circleflake.fade(startTime - 200, startTime, 0, 1);
+	circleflake.fade(startTime, startTime + speed, 1, 0);
+	if((decCircleSize - 1) > 1){
+		circleflake.scale(startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+	}
+	else {
+		circleflake.scale(startTime, startTime + speed, 1 + decCircleSize, 1);
+	}
+	circleflake.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+}
+
+function randomCircleflake(startTime, speed) {
+	var x = rand(-100, 700);
+	if(x < 50) {
+		circleflake(x, startTime, speed);
+	}
+	if(x > 200) {
+		circleflake(x, startTime, speed);
+	}
+}
+
+function randomNCircleflakes(startTime, n, speed) {
+	for (var i = 1; i<= n; i++) {
+	randomCircleflake(startTime, speed);
+	}
+}
+
+function circleflakeGenerator(startTime, n, t, i, speed) {
+	for (var a = 0; a < i; a++) {
+	randomNCircleflakes(startTime + t*a, n, speed);
+	}
+}
+
+function starConfetti(startTime, howManyStars, speed) {
+	// var circleflake = new Sprite("SB BG/circle.png");
+	
+	for (var q = 0; q < howManyStars; q++){
+		var circleflake = new Sprite("SB BG/circle.png");
+		var randomizeLeft = rand(-400,256);
+		var randomizeLeftY = rand(-100,100);
+		var randomizeCircleSize = rand(0, 50);
+		var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000);
+		circleflake.move(1, startTime, startTime + speed, 300, 500, randomizeLeft, randomizeLeftY);
+		if((decCircleSize - 1) > 1){
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+		}
+		else {
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, 1);
+		}
+		var randomColourChangeONE = rand(0,255);
+		var randomColourChangeTWO = rand(0,255);
+		circleflake.color(randomColourChangeONE, randomColourChangeTWO, 255);
+		circleflake.fade(startTime - 50, startTime, 0, 0.8);
+		circleflake.fade(startTime, startTime + speed, 0.8, 0);
+		
+	}
+	for (var w = 0; w < howManyStars; w++){
+		var circleflake = new Sprite("SB BG/circle.png");
+		var randomizeRight = rand(256,1000);
+		var randomizeRightY = rand(-100,100);
+		var randomizeCircleSize = rand(0, 50);
+		var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000); 
+		circleflake.move(1, startTime, startTime + speed, 300, 500, randomizeRight, randomizeRightY);
+		if((decCircleSize - 1) > 1){
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+		}
+		else {
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, 1);
+		}
+		var randomColourChangeONE = rand(0,255);
+		var randomColourChangeTWO = rand(0,255);
+		var randomColourChangeTHREE = rand(0,255);
+		circleflake.color(randomColourChangeONE, randomColourChangeTWO, 255);
+		circleflake.fade(startTime - 50, startTime, 0, 0.8);
+		circleflake.fade(startTime, startTime + speed, 0.8, 0);
+	}
+}
+
+function sunStar(startTime, speed, centerX, centerY, colour) {
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+	var dotflake = new Sprite("SB BG/dot.png");
+	var speedDur = speed * 368;
+	dotflake.fade(startTime - 92, startTime, 0, 1);
+	dotflake.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY);
+	var randomColourChangeONE = rand(-20, 50);
+	var randomColourChangeTWO = rand(-40, 10);
+	var randomColourChangeTHREE = rand(0,255);
+	dotflake.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+	dotflake.scale(startTime, startTime + speedDur, 1, 1.5);
+	dotflake.fade(startTime, (startTime + (speedDur - 92)), 1, 0.9);
+	dotflake.fade((startTime + (speedDur - 92)), (startTime + speedDur), 0.9, 0);
+	
+	// OPEN (12 Tentacles = 30 degrees)
+	var degreeThings = 0.785398163;
+	
+	//for (var y = 0; y <= 12; y++){
+	
+	var thickNess = 0.3;
+	
+		var tentaclesL = new Sprite("SB BG/square.png");
+		tentaclesL.fade(startTime - 92, startTime, 0, 1);
+		tentaclesL.move(startTime, startTime + speedDur, centerX, centerY, centerX - 70, centerY);
+		tentaclesL.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesL.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesL.rotate(startTime - 46, startTime, 0, degreeThings * 0);
+	//	tentaclesL.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesLT = new Sprite("SB BG/square.png");
+		tentaclesLT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesLT.move(startTime, startTime + speedDur, centerX, centerY, centerX - 50, centerY - 50);
+		tentaclesLT.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesLT.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesLT.rotate(startTime - 46, startTime, 0, degreeThings * 1);
+	//	tentaclesLT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesT = new Sprite("SB BG/square.png");
+		tentaclesT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesT.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY - 70);
+		tentaclesT.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesT.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesT.rotate(startTime - 46, startTime, 0, degreeThings * 2);
+	//	tentaclesT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesRT = new Sprite("SB BG/square.png");
+		tentaclesRT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesRT.move(startTime, startTime + speedDur, centerX, centerY, centerX + 50, centerY - 50);
+		tentaclesRT.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesRT.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesRT.rotate(startTime - 46, startTime, 0, degreeThings * 3);
+	//	tentaclesRT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesR = new Sprite("SB BG/square.png");
+		tentaclesR.fade(startTime - 92, startTime, 0, 1);
+		tentaclesR.move(startTime, startTime + speedDur, centerX, centerY, centerX + 70, centerY);
+		tentaclesR.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesR.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesR.rotate(startTime - 46, startTime, 0, degreeThings * 4);
+	//	tentaclesR.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesRB = new Sprite("SB BG/square.png");
+		tentaclesRB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesRB.move(startTime, startTime + speedDur, centerX, centerY, centerX + 50, centerY + 50);
+		tentaclesRB.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesRB.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesRB.rotate(startTime - 46, startTime, 0, degreeThings * 5);
+	//	tentaclesRB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesB = new Sprite("SB BG/square.png");
+		tentaclesB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesB.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY + 70);
+		tentaclesB.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesB.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesB.rotate(startTime - 46, startTime, 0, degreeThings * 6);
+	//	tentaclesB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesLB = new Sprite("SB BG/square.png");
+		tentaclesLB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesLB.move(startTime, startTime + speedDur, centerX, centerY, centerX - 50, centerY + 50);
+		tentaclesLB.scaleVec(startTime, startTime + 184, 0.5, thickNess, 5, thickNess);
+		tentaclesLB.scaleVec(startTime + 184, startTime + speedDur, 5, thickNess, 0.5, thickNess);
+		tentaclesLB.rotate(startTime - 46, startTime, 0, degreeThings * 7);
+	//	tentaclesLB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+	//}
+	
+//	Error: 35 for centerX - 35
+	
+// Left: 		centerX, centerY, centerX - 70, centerY
+// Left-top:	centerX, centerY, centerX - 50, centerY - 50
+// Top:			centerX, centerY, centerX, centerY - 70
+// Right-top:	centerX, centerY, centerX + 50, centerY - 50
+// Right:		centerX, centerY, centerX + 70, centerY
+// Right-bottom:centerX, centerY, centerX + 50, centerY + 50
+// Bottom:		centerX, centerY, centerX, centerY + 70
+// Left-bottom: centerX, centerY, centerX - 50, centerY + 50
+
+
+	// Highlight
+	
+	var speedFade = 368;
+	var darkness = 1;
+	
+	var highlight = new Sprite("SB BG/highlight");
+	
+	if(colour == 1) {
+		highlight.color(0,255,255); // Cyan
+		darkness = 0.7;
+	}
+	if(colour == 2) {
+		highlight.color(0,128,255); // Blue
+		darkness = 0.5;
+	}
+	if(colour == 3) {
+		highlight.color(0,255,128); // Green
+		darkness = 0.6;
+	}
+	if(colour == 4) {
+		highlight.color(252,230,182); // Peach
+		darkness = 0.7;
+	}
+	if(colour == 5) {
+		highlight.color(251,133,62); // Apricot
+		darkness = 0.5;
+	}
+	highlight.fade(2, startTime - 92, startTime, 0, darkness + 0.05);
+	highlight.move(startTime, startTime + speedFade, centerX, centerY, centerX, centerY);
+	highlight.fade(1, startTime, startTime + speedFade, darkness + 0.05, 0);
+
+
+}
+
+function leHighlight(centerX, centerY, startTime, colour) {
+
+	/*
+	
+	Combo1 : 0,255,255
+	Combo2 : 0,128,255
+	Combo3 : 0,255,128
+	Combo4 : 252,230,182
+	Combo5 : 251,133,62
+	
+	*/
+
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+
+	var speed = 368;
+	var darkness = 1;
+
+	var highlight = new Sprite("SB BG/highlight");
+	if(colour == 1) {
+		highlight.color(0,255,255); // Cyan
+		darkness = 0.7;
+	}
+	if(colour == 2) {
+		highlight.color(0,128,255); // Blue
+		darkness = 0.5;
+	}
+	if(colour == 3) {
+		highlight.color(0,255,128); // Green
+		darkness = 0.6;
+	}
+	if(colour == 4) {
+		highlight.color(252,230,182); // Peach
+		darkness = 0.7;
+	}
+	if(colour == 5) {
+		highlight.color(251,133,62); // Apricot
+		darkness = 0.5;
+	}
+	highlight.fade(2, startTime - 92, startTime, 0, darkness);
+	highlight.move(startTime, startTime + speed, centerX, centerY, centerX, centerY);
+	highlight.fade(1, startTime, startTime + speed, darkness, 0);
+
+}
+
+//(Starting Point / How Many at ONE line / Duration between line / quantity / speed of going up [seconds])
+
+// Main
+circleflakeGenerator(13086, 1, 184, 680, 5000);
+// Fast
+circleflakeGenerator(28546, 1, 92, 615, 2000); //Beginning
+circleflakeGenerator(87257, 1, 92, 190, 1500); //Start of Kiai
+circleflakeGenerator(113944, 1, 92, 295, 2000);
+
+
+
+
+// Effects
+
+//starExplode (StartTime, Quantity, Speed)
+starConfetti(87257, 15, 1000);
+starConfetti(99036, 15, 1000);
+starConfetti(113944, 15, 1000);
+
+/*
+
+ 1: Cyan
+ 2: Blue
+ 3: Green
+ 4: Peach
+ 5: Apricot
+ 
+*/
+
+//sunStar (StartTime, Speed, X, Y)
+sunStar(126091, 1, 328, 128,2);
+sunStar(126459, 1, 252, 232,2);
+sunStar(126827, 1, 196, 144,2);
+sunStar(127196, 1, 64, 152,3);
+sunStar(127564, 1, 164, 236,3);
+sunStar(127932, 1, 288, 280,3);
+sunStar(128300, 1, 264, 52,3);
+sunStar(128668, 1, 196, 144,4);
+sunStar(129036, 1, 344, 76,4);
+sunStar(129404, 1, 332, 324,4);
+sunStar(129772, 1, 208, 276,4);
+sunStar(130140, 1, 192, 132,5);
+sunStar(130508, 1, 176, 276,5);
+sunStar(130876, 1, 272, 112,5);
+sunStar(131245, 1, 208, 276,5);
+sunStar(131613, 1, 84, 120,1);
+sunStar(131981, 1, 272, 112,1);
+sunStar(132349, 1, 156, 288,1);
+sunStar(132717, 1, 360, 88,1);
+sunStar(133085, 1, 160, 164,2);
+sunStar(133452, 1, 136, 280,2);
+sunStar(133821, 1, 0, 208,2);
+sunStar(134189, 1, 216, 188,2);
+sunStar(134557, 1, 320, 216,3);
+sunStar(134926, 1, 408, 152,3);
+sunStar(135294, 1, 400, 276,3);
+sunStar(135662, 1, 212, 280,3);
+sunStar(136030, 1, 36, 312,4);
+sunStar(136398, 1, 256, 356,4);
+sunStar(136582, 1, 375, 284,4);
+sunStar(136766, 1, 192, 204,4);
+sunStar(136950, 1, 394, 365,4);
+sunStar(137134, 1, 472, 152,4);
+sunStar(137318, 1, 272, 120,4);
+sunStar(137502, 2, 344, 224,5);
+sunStar(138607, 2, 256, 192,1);
+sunStar(139711, 2, 168, 160,2);
+
+// X:256 Y:400 (Bottom middle) for confetti
+
+// ONLY HIGHLIGHTS!
+
+// Start: 109,895
+// End: 125,723
+
+/*
+ 1: Cyan
+ 2: Blue
+ 3: Green
+ 4: Peach
+ 5: Apricot
+*/
+
+leHighlight(480,156,109895,4);
+leHighlight(348,60,110079,4);
+leHighlight(310,76,110171,4);
+leHighlight(292,112,110263,4);
+leHighlight(292,152,110355,4);
+leHighlight(317,183,110447,4);
+leHighlight(353,199,110539,4);
+leHighlight(380,228,110631,4);
+leHighlight(394,265,110723,4);
+leHighlight(387,304,110815,4);
+leHighlight(358,332,110907,4);
+leHighlight(312,324,110999,1);
+leHighlight(224,196,111183,1);
+leHighlight(88,260,111367,1);
+leHighlight(200,168,111735,1);
+leHighlight(88,76,112104,1);
+leHighlight(272,116,112288,2);
+leHighlight(352,232,112840,2);
+leHighlight(60,168,113576,3);
+leHighlight(156,244,113944,4);
+leHighlight(368,108,114312,4);
+leHighlight(384,272,114496,4);
+leHighlight(384,272,114588,4);
+leHighlight(384,272,114680,4);
+leHighlight(476,160,114864,4);
+leHighlight(272,204,115048,4);
+leHighlight(140,204,115416,5);
+leHighlight(296,28,115785,5);
+leHighlight(240,180,115969,5);
+leHighlight(240,180,116061,5);
+leHighlight(240,180,116153,5);
+leHighlight(140,80,116337,5);
+leHighlight(348,108,116521,5);
+leHighlight(164,276,116889,1);
+leHighlight(256,84,117257,1);
+leHighlight(340,252,117441,1);
+leHighlight(340,252,117533,1);
+leHighlight(340,252,117625,1);
+leHighlight(240,180,117993,1);
+leHighlight(148,288,118177,1);
+leHighlight(148,288,118269,1);
+leHighlight(148,288,118361,2);
+leHighlight(72,136,118545,2);
+leHighlight(48,252,118729,2);
+leHighlight(176,96,118913,2);
+leHighlight(188,104,119005,2);
+leHighlight(200,112,119097,2);
+leHighlight(336,160,119465,2);
+leHighlight(396,216,119834,3);
+leHighlight(396,344,120202,3);
+leHighlight(276,216,120386,3);
+leHighlight(276,216,120478,3);
+leHighlight(276,216,120570,3);
+leHighlight(156,320,120754,3);
+leHighlight(114,338,120846,3);
+leHighlight(70,328,120938,3);
+leHighlight(30,306,121030,3);
+leHighlight(7,266,121122,3);
+leHighlight(7,221,121214,3);
+leHighlight(39,180,121306,4);
+leHighlight(136,64,121490,4);
+leHighlight(0,48,121674,4);
+leHighlight(108,168,12185,4);
+leHighlight(108,168,121950,4);
+leHighlight(108,168,122042,4);
+leHighlight(404,216,122410,4);
+leHighlight(236,256,122686,4);
+leHighlight(236,256,122778,5);
+leHighlight(312,144,123146,5);
+leHighlight(132,184,123330,5);
+leHighlight(132,184,123423,5);
+leHighlight(132,184,123515,5);
+leHighlight(232,84,123699,5);
+leHighlight(236,256,123883,5);
+leHighlight(100,160,124067,5);
+leHighlight(100,160,124159,5);
+leHighlight(100,160,124251,1);
+leHighlight(96,316,124619,1);
+leHighlight(236,256,124895,1);
+leHighlight(236,256,124987,1);
+leHighlight(112,116,125171,1);
+leHighlight(112,116,125263,1);
+leHighlight(112,116,125355,1);
+leHighlight(52,300,125539,1);
+leHighlight(52,300,125631,1);
+leHighlight(52,300,125723,2);
+*/
