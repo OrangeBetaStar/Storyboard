@@ -1,0 +1,34 @@
+[Events]
+//Background and Video events
+//Storyboard Layer 0 (Background)
+Sprite,Background,Centre,"BG.jpg",320,240
+ M,0,77160,,320,240
+ F,0,77160,,0.01
+ S,0,77160,,0.63
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+Sprite,Foreground,Centre,"SB\azunyan5.jpg",320,240
+ F,0,18226,,0,1
+ S,0,18226,,0.8586597
+ M,1,18226,18357,310.8023,237,339.8751,237
+ M,0,18357,26574,339.8751,237,356.8751,237
+ F,0,26052,,0
+Sprite,Foreground,Centre,"SB\azunyan4.jpg",320,240
+ M,0,26313,26444,351.7462,240,334.0853,240
+ F,0,26313,27096,0,0.968735
+ M,0,26444,34922,334.0853,240,278.7049,240
+ S,0,26574,,0.5051855
+ F,0,33878,,0
+Sprite,Foreground,Centre,"SB\azunyan2.jpg",320,240
+ S,0,34661,,0.509041
+ M,0,34661,34791,271,201,302,201
+ F,0,34661,34922,0,1
+ M,0,34791,44313,302,201,339,201
+ F,2,44313,,0
+Sprite,Foreground,Centre,"SB\azunyan1.jpg",320,240
+ F,0,45357,,1
+ S,0,45357,,0.5370958
+ M,0,45357,45487,367,178,330,178
+ M,0,45487,62052,330,178,258,178
+//Storyboard Sound Samples

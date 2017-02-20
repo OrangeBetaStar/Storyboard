@@ -1,0 +1,20 @@
+visual novel style
+- all elements
+	- skip
+	- auto
+	- next
+	- prev
+	- q.save
+	- q.load
+	- spinning thing
+
+circle on side
+- 2 circle
+	- one circle for ripple
+	- one stays
+
+transition
+- 4 lines bars
+	- moving other side
+
+- octogonal
