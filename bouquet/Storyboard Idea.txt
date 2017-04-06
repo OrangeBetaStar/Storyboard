@@ -1,0 +1,4 @@
+Storyboard idea:
+
+lines of dots appearing from end to end
+- and expand

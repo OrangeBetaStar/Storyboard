@@ -1,0 +1,1101 @@
+function circleflake(x, startTime, speed) {
+	var circleflake = new Sprite("SB BG/circle.png");
+	var randomize = rand(5, 10);
+	var randomizeCircleSize = rand(0, 50);
+	var randomColourChangeONE = rand(-20, 50);
+	var randomColourChangeTWO = rand(-40, 10);
+	var randomSlant = rand(-10, 10);
+	var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000); 
+	circleflake.move(startTime, startTime + speed, x, 500, x + randomSlant, 200);
+	circleflake.fade(startTime - 200, startTime, 0, 1);
+	circleflake.fade(startTime, startTime + speed, 1, 0);
+	if((decCircleSize - 1) > 1){
+		circleflake.scale(startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+	}
+	else {
+		circleflake.scale(startTime, startTime + speed, 1 + decCircleSize, 1);
+	}
+	circleflake.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+}
+
+function randomCircleflake(startTime, speed) {
+	var x = rand(-100, 700);
+	if(x < 50) {
+		circleflake(x, startTime, speed);
+	}
+	if(x > 200) {
+		circleflake(x, startTime, speed);
+	}
+}
+
+function randomNCircleflakes(startTime, n, speed) {
+	for (var i = 1; i<= n; i++) {
+	randomCircleflake(startTime, speed);
+	}
+}
+
+function circleflakeGenerator(startTime, n, t, i, speed) {
+	for (var a = 0; a < i; a++) {
+	randomNCircleflakes(startTime + t*a, n, speed);
+	}
+}
+
+function starConfetti(startTime, howManyStars, speed) {
+	// var circleflake = new Sprite("SB BG/circle.png");
+	
+	for (var q = 0; q < howManyStars; q++){
+		var circleflake = new Sprite("SB BG/circle.png");
+		var randomizeLeft = rand(-400,256);
+		var randomizeLeftY = rand(-100,100);
+		var randomizeCircleSize = rand(0, 50);
+		var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000);
+		circleflake.move(1, startTime, startTime + speed, 300, 500, randomizeLeft, randomizeLeftY);
+		if((decCircleSize - 1) > 1){
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+		}
+		else {
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, 1);
+		}
+		var randomColourChangeONE = rand(0,255);
+		var randomColourChangeTWO = rand(0,255);
+		circleflake.color(randomColourChangeONE, randomColourChangeTWO, 255);
+		circleflake.fade(startTime - 50, startTime, 0, 0.8);
+		circleflake.fade(startTime, startTime + speed, 0.8, 0);
+		
+	}
+	for (var w = 0; w < howManyStars; w++){
+		var circleflake = new Sprite("SB BG/circle.png");
+		var randomizeRight = rand(256,1000);
+		var randomizeRightY = rand(-100,100);
+		var randomizeCircleSize = rand(0, 50);
+		var decCircleSize = ((randomizeCircleSize * randomizeCircleSize) / 1000); 
+		circleflake.move(1, startTime, startTime + speed, 300, 500, randomizeRight, randomizeRightY);
+		if((decCircleSize - 1) > 1){
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, decCircleSize - 1);
+		}
+		else {
+			circleflake.scale(1, startTime, startTime + speed, 1 + decCircleSize, 1);
+		}
+		var randomColourChangeONE = rand(0,255);
+		var randomColourChangeTWO = rand(0,255);
+		var randomColourChangeTHREE = rand(0,255);
+		circleflake.color(randomColourChangeONE, randomColourChangeTWO, 255);
+		circleflake.fade(startTime - 50, startTime, 0, 0.8);
+		circleflake.fade(startTime, startTime + speed, 0.8, 0);
+	}
+}
+
+//function sunStar(centerX, centerY, startTime, colour) {
+function sunStar(startTime, speed, centerX, centerY, colour) {
+
+	//var speed = 1;
+
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+	
+	var speedDur = speed * 368;
+	
+	// OPEN (12 Tentacles = 30 degrees)
+	var degreeThings = 0.785398163;
+	
+	//for (var y = 0; y <= 12; y++){
+	
+	var thickNess = 0.3;
+	var armLength = 70;
+	
+	var randomOne = rand(1,10);
+	var randomTwo = rand(1,10);
+	var randomThree = rand(1,10);
+	var randomFour = rand(1,10);
+	
+	var longestLengthOne = randomOne;
+	var longestLengthTwo = randomTwo;
+	var longestLengthThree = randomThree;
+	var longestLengthFour = randomFour;
+	var longestLengthFive = randomOne;
+	var longestLengthSix = randomTwo;
+	var longestLengthSeven = randomThree;
+	var longestLengthEight = randomFour;
+	var shortestLength = 0.5;
+	
+	/*
+	var degreeArmOne = (sin(90 * rand(-20, 20)));
+	var degreeArmTwo
+	var degreeArmThree
+	var degreeArmFour
+	var degreeArmFive
+	var degreeArmSix
+	var degreeArmSeven
+	var degreeArmEight
+	
+	
+	var firstArm = (armLength * degreenArmOne);
+	var secondArm = 
+	var thirdArm =
+	var fourthArm =
+	var fifthArm =
+	var sixthArm =
+	var seventhArm =
+	var eighthArm =
+	*/
+	
+		var tentaclesL = new Sprite("SB BG/square.png");
+		tentaclesL.fade(startTime - 92, startTime, 0, 1);
+		tentaclesL.move(startTime, startTime + speedDur, centerX, centerY, centerX - 70, centerY);
+		tentaclesL.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthOne, thickNess);
+		tentaclesL.scaleVec(startTime + 184, startTime + speedDur, longestLengthOne, thickNess, shortestLength, thickNess);
+		tentaclesL.rotate(startTime - 46, startTime, 0, degreeThings * 0);
+	//	tentaclesL.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesLT = new Sprite("SB BG/square.png");
+		tentaclesLT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesLT.move(startTime, startTime + speedDur, centerX, centerY, centerX - 50, centerY - 50);
+		tentaclesLT.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthTwo, thickNess);
+		tentaclesLT.scaleVec(startTime + 184, startTime + speedDur, longestLengthTwo, thickNess, shortestLength, thickNess);
+		tentaclesLT.rotate(startTime - 46, startTime, 0, degreeThings * 1);
+	//	tentaclesLT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesT = new Sprite("SB BG/square.png");
+		tentaclesT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesT.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY - 70);
+		tentaclesT.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthThree, thickNess);
+		tentaclesT.scaleVec(startTime + 184, startTime + speedDur, longestLengthThree, thickNess, shortestLength, thickNess);
+		tentaclesT.rotate(startTime - 46, startTime, 0, degreeThings * 2);
+	//	tentaclesT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesRT = new Sprite("SB BG/square.png");
+		tentaclesRT.fade(startTime - 92, startTime, 0, 1);
+		tentaclesRT.move(startTime, startTime + speedDur, centerX, centerY, centerX + 50, centerY - 50);
+		tentaclesRT.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthFour, thickNess);
+		tentaclesRT.scaleVec(startTime + 184, startTime + speedDur, longestLengthFour, thickNess, shortestLength, thickNess);
+		tentaclesRT.rotate(startTime - 46, startTime, 0, degreeThings * 3);
+	// 	tentaclesRT.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesR = new Sprite("SB BG/square.png");
+		tentaclesR.fade(startTime - 92, startTime, 0, 1);
+		tentaclesR.move(startTime, startTime + speedDur, centerX, centerY, centerX + 70, centerY);
+		tentaclesR.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthFive, thickNess);
+		tentaclesR.scaleVec(startTime + 184, startTime + speedDur, longestLengthFive, thickNess, shortestLength, thickNess);
+		tentaclesR.rotate(startTime - 46, startTime, 0, degreeThings * 4);
+	//	tentaclesR.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesRB = new Sprite("SB BG/square.png");
+		tentaclesRB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesRB.move(startTime, startTime + speedDur, centerX, centerY, centerX + 50, centerY + 50);
+		tentaclesRB.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthSix, thickNess);
+		tentaclesRB.scaleVec(startTime + 184, startTime + speedDur, longestLengthSix, thickNess, shortestLength, thickNess);
+		tentaclesRB.rotate(startTime - 46, startTime, 0, degreeThings * 5);
+	//	tentaclesRB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesB = new Sprite("SB BG/square.png");
+		tentaclesB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesB.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY + 70);
+		tentaclesB.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthSeven, thickNess);
+		tentaclesB.scaleVec(startTime + 184, startTime + speedDur, longestLengthSeven, thickNess, shortestLength, thickNess);
+		tentaclesB.rotate(startTime - 46, startTime, 0, degreeThings * 6);
+	//	tentaclesB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+		
+		var tentaclesLB = new Sprite("SB BG/square.png");
+		tentaclesLB.fade(startTime - 92, startTime, 0, 1);
+		tentaclesLB.move(startTime, startTime + speedDur, centerX, centerY, centerX - 50, centerY + 50);
+		tentaclesLB.scaleVec(startTime, startTime + 184, shortestLength, thickNess, longestLengthEight, thickNess);
+		tentaclesLB.scaleVec(startTime + 184, startTime + speedDur, longestLengthEight, thickNess, shortestLength, thickNess);
+		tentaclesLB.rotate(startTime - 46, startTime, 0, degreeThings * 7);
+	//	tentaclesLB.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+	//}
+	
+	var dotflake = new Sprite("SB BG/dot.png");
+	dotflake.fade(startTime - 92, startTime, 0, 1);
+	dotflake.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY);
+//	var randomColourChangeONE = rand(-20, 50);
+//	var randomColourChangeTWO = rand(-40, 10);
+//	var randomColourChangeTHREE = rand(0,255);
+
+	//dotflake.color(152 + randomColourChangeONE, 245 + randomColourChangeTWO, 255);
+	dotflake.scale(startTime, startTime + speedDur, 1, 1.5);
+	dotflake.fade(startTime, (startTime + (speedDur - 92)), 1, 0.9);
+	dotflake.fade((startTime + (speedDur - 92)), (startTime + speedDur), 0.9, 0);
+	
+	
+//	Error: 35 for centerX - 35
+	
+// Left: 		centerX, centerY, centerX - 70, centerY
+// Left-top:	centerX, centerY, centerX - 50, centerY - 50
+// Top:			centerX, centerY, centerX, centerY - 70
+// Right-top:	centerX, centerY, centerX + 50, centerY - 50
+// Right:		centerX, centerY, centerX + 70, centerY
+// Right-bottom:centerX, centerY, centerX + 50, centerY + 50
+// Bottom:		centerX, centerY, centerX, centerY + 70
+// Left-bottom: centerX, centerY, centerX - 50, centerY + 50
+
+
+	// Highlight
+	
+	var speedFade = 1472;
+	var darkness = 1;
+	
+	var highlight = new Sprite("SB BG/highlight.png");
+	
+	if(colour == 1) {
+		highlight.color(0,255,255); // Cyan
+		darkness = 0.7;
+	}
+	if(colour == 2) {
+		highlight.color(0,128,255); // Blue
+		darkness = 0.5;
+	}
+	if(colour == 3) {
+		highlight.color(0,255,128); // Green
+		darkness = 0.6;
+	}
+	if(colour == 4) {
+		highlight.color(252,230,182); // Peach
+		darkness = 0.8;
+	}
+	if(colour == 5) {
+		highlight.color(251,133,62); // Apricot
+		darkness = 0.5;
+	}
+	highlight.fade(2, startTime - 92, startTime, 0, darkness + 0.05);
+	highlight.move(startTime, startTime + speedFade, centerX, centerY, centerX, centerY);
+	highlight.fade(1, startTime, startTime + speedFade, darkness + 0.05, 0);
+
+
+}
+
+function leHighlight(centerX, centerY, startTime, colour) {
+
+	centerX = centerX + 64;
+	centerY = centerY + 55;
+
+	var speed = 1376;
+	var darkness = 1;
+
+	var highlight = new Sprite("SB/highlight.png");
+	
+	/*
+	Combo1 : 227,130,49 ORANGE
+	Combo2 : 28,221,255 CYAN
+	Combo3 : 0,120,219 BLUE
+	Combo4 : 255,145,210 MAGENTA
+	*/
+	
+	if(colour == 1) {
+		highlight.color(227,130,49); // Orange
+		darkness = 0.8;
+	}
+	if(colour == 2) {
+		highlight.color(28,221,255); // Cyan
+		darkness = 0.8;
+	}
+	if(colour == 3) {
+		highlight.color(0,120,219); // Blue
+		darkness = 0.8;
+	}
+	if(colour == 4) {
+		highlight.color(255,145,210); // Pink
+		darkness = 0.8;
+	}
+	highlight.fade(2, startTime - 86, startTime, 0, darkness);
+	highlight.move(startTime, startTime + speed, centerX, centerY, centerX, centerY);
+	highlight.fade(1, startTime, startTime + speed, darkness, 0);
+
+}
+
+function ringBlast(centerX, centerY, startTime) {
+	centerX = centerX + 64;
+    centerY = centerY + 55;
+	var ringEffect = new Sprite("SB BG/ring.png");
+	var ringAppear = 92;
+	var ringSpeed = 736;
+	ringEffect.fade(2, startTime - ringAppear, startTime, 0, 1);
+	ringEffect.move(startTime, startTime + ringSpeed, centerX, centerY, centerX, centerY);
+	ringEffect.scale(startTime, startTime + ringSpeed, 0.2, 1);
+	ringEffect.fade(1, startTime, startTime + ringSpeed, 1, 0);
+
+}
+
+//function sunStarBeta(centerX, centerY, startTime, colour) {
+//	 var speed = 1;
+	 
+function sunStarBeta(centerX, centerY, startTime, colour, speed) {
+
+// The bottom one is for older parameters. (only for gaia's insane)
+// function sunStarBeta(startTime, speed, centerX, centerY, colour) {
+
+	centerX = centerX + 64;
+    centerY = centerY + 55;
+    var speedDur = speed * 368;
+    
+    // THE BOTTOM CODE IS FOR THE HIGHLIGHTS
+    var darkness = 0;
+    
+    var speedFade = 1472;
+    var highlights = new Sprite("SB BG/highlight.png");
+	highlights.move(startTime, startTime + speedFade, centerX, centerY, centerX, centerY);
+    highlights.fade(2, startTime - 92, startTime, 0, 1);
+    
+    if(colour == 1) {
+		highlights.color(0,255,255); // Cyan
+		darkness = 0.7;
+	}
+	if(colour == 2) {
+		highlights.color(0,128,255); // Blue
+		darkness = 0.5;
+	}
+	if(colour == 3) {
+		highlights.color(0,255,128); // Green
+		darkness = 0.6;
+	}
+	if(colour == 4) {
+		highlights.color(252,230,182); // Peach
+		darkness = 0.8;
+	}
+	if(colour == 5) {
+		highlights.color(251,133,62); // Apricot
+		darkness = 0.5;
+	}
+	
+    highlights.fade(1, startTime, startTime + speedFade, 1, 0);
+
+	// THE BOTTOM CODE IS FOR THE LEGS OF THE EFFECTS
+    
+    var fixedLengthOne = 200;
+    var fixedLengthTwo = 200;
+    var fixedLengthThree = 200;
+    var fixedLengthFour = 200;
+    var fixedLengthFive = 200;
+    
+    var pi = 3.14159265;
+    var angleDiff = 12;
+    
+    var randomQuadrantOne = rand(0 + angleDiff, 72 - angleDiff);
+    var randomQuadrantTwo = rand(72 + angleDiff, 144 - angleDiff);
+    var randomQuadrantThree = rand(144 + angleDiff, 216 - angleDiff);
+    var randomQuadrantFour = rand(216 + angleDiff, 288 - angleDiff); 
+    var randomQuadrantFive = rand(288 + angleDiff, 360 - angleDiff);
+    
+    var quadrantOneRad = ((randomQuadrantOne * pi) / 180);
+    var quadrantTwoRad = ((randomQuadrantTwo * pi) / 180);
+    var quadrantThreeRad = ((randomQuadrantThree * pi) / 180);
+    var quadrantFourRad = ((randomQuadrantFour * pi) / 180);
+    var quadrantFiveRad = ((randomQuadrantFive * pi) / 180);
+    
+    var quadrantOneLength = rand(8, 10);
+    var quadrantTwoLength = rand(8, 10);
+    var quadrantThreeLength = rand(8, 10);
+    var quadrantFourLength = rand(8, 10);
+    var quadrantFiveLength = rand(8, 10);
+    
+    var shortLength = 0.5;
+    var thickness = 0.5;
+    
+    // println(quadrantOneRad);
+    
+   	var legThingsQuadOne = new Sprite("SB BG/square.png");
+   	legThingsQuadOne.rotate(startTime - 92, startTime, 0, -quadrantOneRad);
+    legThingsQuadOne.fade(startTime - 92, startTime, 0, 1);
+    legThingsQuadOne.fade(startTime, startTime + speedDur, 1, 1);
+    legThingsQuadOne.move(startTime, startTime + speedDur, centerX, centerY, centerX + (fixedLengthOne * cos(quadrantOneRad)), centerY - (fixedLengthOne * sin(quadrantOneRad)));
+	legThingsQuadOne.scaleVec(startTime, startTime + 184, shortLength, thickness, quadrantOneLength, thickness);
+	legThingsQuadOne.scaleVec(startTime + 184, startTime + speedDur, quadrantOneLength, thickness, shortLength, thickness);
+	legThingsQuadOne.fade(startTime + speedDur, startTime + speedDur + 184, 1, 0);
+	
+	var legThingsQuadTwo = new Sprite("SB BG/square.png");
+   	legThingsQuadTwo.rotate(startTime - 92, startTime, 0, -quadrantTwoRad);
+    legThingsQuadTwo.fade(startTime - 92, startTime, 0, 1);
+    legThingsQuadTwo.fade(startTime, startTime + speedDur, 1, 1);
+    legThingsQuadTwo.move(startTime, startTime + speedDur, centerX, centerY, centerX + (fixedLengthTwo * cos(quadrantTwoRad)), centerY - (fixedLengthTwo * sin(quadrantTwoRad)));
+	legThingsQuadTwo.scaleVec(startTime, startTime + 184, shortLength, thickness, quadrantTwoLength, thickness);
+	legThingsQuadTwo.scaleVec(startTime + 184, startTime + speedDur, quadrantTwoLength, thickness, shortLength, thickness);
+	legThingsQuadTwo.fade(startTime + speedDur, startTime + speedDur + 184, 1, 0);
+	
+	var legThingsQuadThree = new Sprite("SB BG/square.png");
+   	legThingsQuadThree.rotate(startTime - 92, startTime, 0, -quadrantThreeRad);
+    legThingsQuadThree.fade(startTime - 92, startTime, 0, 1);
+    legThingsQuadThree.fade(startTime, startTime + speedDur, 1, 1);
+    legThingsQuadThree.move(startTime, startTime + speedDur, centerX, centerY, centerX + (fixedLengthThree * cos(quadrantThreeRad)), centerY - (fixedLengthThree * sin(quadrantThreeRad)));
+	legThingsQuadThree.scaleVec(startTime, startTime + 184, shortLength, thickness, quadrantThreeLength, thickness);
+	legThingsQuadThree.scaleVec(startTime + 184, startTime + speedDur, quadrantThreeLength, thickness, shortLength, thickness);
+	legThingsQuadThree.fade(startTime + speedDur, startTime + speedDur + 184, 1, 0);
+	
+	var legThingsQuadFour = new Sprite("SB BG/square.png");
+   	legThingsQuadFour.rotate(startTime - 92, startTime, 0, -quadrantFourRad);
+    legThingsQuadFour.fade(startTime - 92, startTime, 0, 1);
+    legThingsQuadFour.fade(startTime, startTime + speedDur, 1, 1);
+    legThingsQuadFour.move(startTime, startTime + speedDur, centerX, centerY, centerX + (fixedLengthFour * cos(quadrantFourRad)), centerY - (fixedLengthFour * sin(quadrantFourRad)));
+	legThingsQuadFour.scaleVec(startTime, startTime + 184, shortLength, thickness, quadrantFourLength, thickness);
+	legThingsQuadFour.scaleVec(startTime + 184, startTime + speedDur, quadrantFourLength, thickness, shortLength, thickness);
+	legThingsQuadFour.fade(startTime + speedDur, startTime + speedDur + 184, 1, 0);
+	
+	var legThingsQuadFive = new Sprite("SB BG/square.png");
+   	legThingsQuadFive.rotate(startTime - 92, startTime, 0, -quadrantFiveRad);
+    legThingsQuadFive.fade(startTime - 92, startTime, 0, 1);
+    legThingsQuadFive.fade(startTime, startTime + speedDur, 1, 1);
+    legThingsQuadFive.move(startTime, startTime + speedDur, centerX, centerY, centerX + (fixedLengthFive * cos(quadrantFiveRad)), centerY - (fixedLengthFive * sin(quadrantFiveRad)));
+	legThingsQuadFive.scaleVec(startTime, startTime + 184, shortLength, thickness, quadrantFiveLength, thickness);
+	legThingsQuadFive.scaleVec(startTime + 184, startTime + speedDur, quadrantFiveLength, thickness, shortLength, thickness);
+	legThingsQuadFive.fade(startTime + speedDur, startTime + speedDur + 184, 1, 0);
+	
+	// THE BOTTOM CODE IS FOR THE CENTER DOT
+    var centerPoint = new Sprite("SB BG/dot.png");
+    centerPoint.fade(2, startTime - 184, startTime, 0, 1);
+    centerPoint.move(startTime, startTime + speedDur, centerX, centerY, centerX, centerY);
+    centerPoint.scale(1, startTime, startTime + speedDur, 1, 2);
+    centerPoint.fade(2, startTime, startTime + speedDur, 1, 1);
+    centerPoint.fade(2, startTime + speedDur, startTime + speedDur + 184, 1, 0);
+    // println(quadrantOneRad);
+}
+
+/*
+ 1: Cyan
+ 2: Blue
+ 3: Green
+ 4: Peach
+ 5: Apricot
+*/
+
+//GAIA MADE A CHANGE IN INSANE AHHHHHHHHHHHHHHHH
+// sunStarBeta(252,296,127932,3,1);
+
+//GAIA ALSO MADE A CHANGE IN EASY AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+// sunStarBeta(360,32,138607,2,2);
+// sunStarBeta(348,320,139711,2,2);
+
+//OOPS I FORGOT SOMETHING TOO :(
+//ringBlast(152,212,83392);
+
+
+
+//ringBlast(295,220,121239);
+ringBlast(320,258,192554);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	Combo1 : 227,130,49 ORANGE
+	Combo2 : 28,221,255 CYAN
+	Combo3 : 0,120,219 BLUE
+	Combo4 : 255,145,210 MAGENTA
+	*/
+	
+
+/*
+leHighlight(320,256,129468,1);
+leHighlight(364,136,129639,1);
+leHighlight(257,64,129811,1);
+leHighlight(148,136,129982,1);
+leHighlight(192,256,130154,2);
+leHighlight(364,136,130325,2);
+leHighlight(148,136,130496,2);
+leHighlight(320,256,130668,2);
+leHighlight(257,64,130839,3);
+leHighlight(245,61,130925,3);
+leHighlight(233,59,131011,3);
+leHighlight(221,57,131096,3);
+leHighlight(209,56,131182,3);
+leHighlight(43,109,131354,3);
+leHighlight(256,160,131525,4);
+leHighlight(181,180,132211,1);
+leHighlight(256,229,132554,1);
+leHighlight(348,243,132725,1);
+leHighlight(256,229,133068,1);
+leHighlight(345,330,133239,1);
+leHighlight(421,305,133582,1);
+leHighlight(315,76,133754,1);
+leHighlight(446,123,133925,1);
+leHighlight(223,94,134268,1);
+leHighlight(157,192,134611,1);
+leHighlight(47,131,134954,2);
+leHighlight(223,151,135296,2);
+leHighlight(316,160,135468,2);
+leHighlight(262,233,135811,2);
+leHighlight(354,245,135982,2);
+leHighlight(500,150,136325,2);
+leHighlight(433,26,136496,2);
+leHighlight(285,210,136668,2);
+leHighlight(365,174,137011,2);
+leHighlight(253,89,137182,2);
+leHighlight(296,297,137354,2);
+leHighlight(164,137,137696,3);
+leHighlight(228,262,137868,3);
+leHighlight(244,76,138039,3);
+leHighlight(150,314,138211,3);
+leHighlight(302,205,138554,3);
+leHighlight(108,90,138725,3);
+leHighlight(221,250,139068,3);
+leHighlight(272,118,139239,3);
+leHighlight(101,176,139582,3);
+leHighlight(336,158,139754,3);
+leHighlight(295,321,140096,3);
+leHighlight(378,282,140439,4);
+leHighlight(272,118,140611,4);
+leHighlight(290,256,140782,4);
+leHighlight(340,75,140954,4);
+leHighlight(191,86,141296,4);
+leHighlight(115,122,141468,4);
+leHighlight(183,172,141811,4);
+leHighlight(259,38,141982,4);
+leHighlight(345,148,142154,4);
+leHighlight(256,336,142496,4);
+leHighlight(284,198,142668,4);
+leHighlight(345,323,142839,4);
+leHighlight(215,255,143182,1);
+leHighlight(354,236,143525,1);
+leHighlight(443,128,143696,1);
+leHighlight(366,145,144039,1);
+leHighlight(277,35,144211,1);
+leHighlight(364,245,144554,1);
+leHighlight(362,58,144725,1);
+leHighlight(273,222,144896,1);
+leHighlight(425,112,145068,1);
+leHighlight(241,145,145239,1);
+leHighlight(364,245,145582,1);
+leHighlight(384,336,145925,2);
+leHighlight(331,157,146096,2);
+leHighlight(287,339,146268,2);
+leHighlight(403,193,146439,2);
+leHighlight(267,242,146782,2);
+leHighlight(222,53,146954,2);
+leHighlight(223,158,147296,3);
+leHighlight(139,44,147468,3);
+leHighlight(109,228,147639,3);
+leHighlight(77,139,147811,3);
+leHighlight(190,286,147982,3);
+leHighlight(222,53,148154,3);
+leHighlight(161,200,148325,3);
+leHighlight(251,243,148668,4);
+leHighlight(116,287,149011,4);
+leHighlight(222,157,149182,4);
+leHighlight(389,268,149525,4);
+leHighlight(479,105,149696,4);
+leHighlight(396,127,150039,4);
+leHighlight(286,38,150211,4);
+leHighlight(259,222,150382,4);
+leHighlight(212,89,150554,4);
+leHighlight(195,274,150725,4);
+leHighlight(322,171,151068,4);
+leHighlight(166,332,154154,3);
+leHighlight(232,94,154496,3);
+leHighlight(140,265,154668,3);
+leHighlight(80,70,155011,3);
+leHighlight(231,189,155182,3);
+leHighlight(95,98,155525,4);
+leHighlight(159,274,155696,4);
+leHighlight(353,200,155868,4);
+leHighlight(333,334,156382,4);
+leHighlight(241,173,156554,4);
+leHighlight(140,223,156896,1);
+leHighlight(244,79,157068,1);
+leHighlight(97,246,157239,1);
+leHighlight(244,79,157411,1);
+leHighlight(323,244,157754,1);
+leHighlight(180,143,157925,1);
+leHighlight(397,148,158268,2);
+leHighlight(149,266,158611,2);
+leHighlight(156,107,158954,2);
+leHighlight(156,107,159125,2);
+leHighlight(258,302,159296,2);
+leHighlight(245,149,159639,3);
+leHighlight(112,14,159982,3);
+leHighlight(30,139,160154,3);
+leHighlight(151,228,160496,3);
+leHighlight(337,115,160668,3);
+leHighlight(248,239,161011,4);
+leHighlight(195,63,161182,4);
+leHighlight(83,208,161354,4);
+leHighlight(171,354,161868,4);
+leHighlight(253,138,162039,4);
+leHighlight(349,213,162382,1);
+leHighlight(186,248,162554,1);
+leHighlight(402,200,162725,1);
+leHighlight(186,248,162896,1);
+leHighlight(234,352,163239,1);
+leHighlight(253,138,163411,1);
+leHighlight(186,248,163754,2);
+leHighlight(140,106,163925,2);
+leHighlight(81,242,164096,2);
+leHighlight(68,62,164268,2);
+leHighlight(190,253,164439,2);
+leHighlight(222,72,164611,2);
+leHighlight(85,246,164782,2);
+leHighlight(68,62,164954,2);
+leHighlight(248,169,165125,3);
+leHighlight(180,288,165468,3);
+leHighlight(80,124,165639,3);
+leHighlight(3,219,165982,3);
+leHighlight(173,156,166154,3);
+leHighlight(173,156,166325,3);
+leHighlight(216,338,166496,4);
+leHighlight(349,280,166668,4);
+leHighlight(181,192,166839,4);
+leHighlight(251,120,167182,4);
+leHighlight(176,289,167354,4);
+leHighlight(273,95,167525,4);
+leHighlight(368,181,167868,1);
+leHighlight(165,135,168039,1);
+leHighlight(368,181,168211,1);
+leHighlight(239,290,168382,1);
+leHighlight(8,341,168725,1);
+leHighlight(51,149,168896,1);
+leHighlight(221,345,169239,2);
+leHighlight(174,48,169582,2);
+leHighlight(276,135,169925,2);
+leHighlight(276,135,170096,2);
+leHighlight(115,227,170268,2);
+leHighlight(173,139,170611,3);
+leHighlight(279,186,170954,3);
+leHighlight(95,258,171125,3);
+leHighlight(164,155,171468,3);
+leHighlight(260,321,171639,3);
+leHighlight(124,121,171982,4);
+leHighlight(155,277,172154,4);
+leHighlight(243,142,172325,4);
+leHighlight(364,244,172839,4);
+leHighlight(432,91,173011,4);
+leHighlight(364,161,238839,1);
+leHighlight(256,42,239011,1);
+leHighlight(148,161,239182,2);
+leHighlight(192,280,239354,2);
+leHighlight(320,280,239525,2);
+leHighlight(364,161,239696,2);
+leHighlight(256,91,239868,3);
+leHighlight(192,280,240039,3);
+leHighlight(364,161,240211,3);
+leHighlight(148,161,240382,3);
+leHighlight(320,280,240554,4);
+leHighlight(328,282,240639,4);
+leHighlight(336,283,240725,4);
+leHighlight(344,283,240811,4);
+leHighlight(352,283,240896,4);
+leHighlight(438,199,241068,4);
+leHighlight(213,26,241239,1);
+leHighlight(292,166,241411,1);
+leHighlight(316,23,241582,1);
+leHighlight(160,283,241754,1);
+leHighlight(160,283,241839,1);
+leHighlight(160,283,241925,2);
+leHighlight(340,127,242268,2);
+leHighlight(193,242,242439,2);
+leHighlight(365,86,242782,2);
+leHighlight(230,0,242954,2);
+leHighlight(284,221,243296,3);
+leHighlight(165,111,243468,3);
+leHighlight(234,304,243639,3);
+leHighlight(336,141,244154,3);
+leHighlight(403,330,244325,3);
+leHighlight(498,174,244668,4);
+leHighlight(336,141,244839,4);
+leHighlight(486,252,245011,4);
+leHighlight(300,114,245182,4);
+leHighlight(356,30,245525,4);
+leHighlight(317,214,245696,4);
+leHighlight(170,181,246039,1);
+leHighlight(93,258,246382,1);
+leHighlight(172,338,246725,1);
+leHighlight(172,338,246896,1);
+leHighlight(284,187,247068,1);
+leHighlight(192,143,247411,2);
+leHighlight(349,351,247754,2);
+leHighlight(151,322,247925,2);
+leHighlight(232,252,248268,2);
+leHighlight(24,191,248439,2);
+leHighlight(290,136,248782,3);
+leHighlight(232,252,248954,3);
+leHighlight(165,103,249125,3);
+leHighlight(217,278,249639,3);
+leHighlight(371,164,249811,3);
+leHighlight(438,106,250154,4);
+leHighlight(407,274,250325,4);
+leHighlight(277,165,250496,4);
+leHighlight(237,330,250668,4);
+leHighlight(307,257,251011,4);
+leHighlight(100,121,251182,4);
+leHighlight(199,243,251525,1);
+leHighlight(147,326,251868,1);
+leHighlight(236,78,252211,1);
+leHighlight(236,78,252382,1);
+leHighlight(370,194,252554,1);
+leHighlight(295,268,252896,2);
+leHighlight(360,48,253239,2);
+leHighlight(370,194,253411,2);
+leHighlight(295,268,253754,2);
+leHighlight(220,108,253925,2);
+leHighlight(337,167,254268,3);
+leHighlight(168,203,254439,3);
+leHighlight(168,203,254611,3);
+leHighlight(203,304,254954,3);
+leHighlight(16,237,255125,3);
+leHighlight(203,304,255296,3);
+leHighlight(156,154,255811,4);
+leHighlight(336,220,255982,4);
+leHighlight(169,329,256154,4);
+leHighlight(286,67,256496,4);
+leHighlight(120,173,256668,4);
+leHighlight(15,135,257011,1);
+leHighlight(127,266,257182,1);
+leHighlight(127,266,257354,1);
+leHighlight(398,314,257696,1);
+leHighlight(290,361,257868,1);
+leHighlight(201,216,258039,1);
+leHighlight(398,149,258382,2);
+leHighlight(122,95,258725,2);
+leHighlight(171,257,258896,2);
+leHighlight(132,345,259239,2);
+leHighlight(166,160,259411,2);
+leHighlight(260,225,259754,3);
+leHighlight(102,277,259925,3);
+leHighlight(102,277,260096,3);
+leHighlight(242,149,260611,3);
+leHighlight(398,261,260782,3);
+leHighlight(337,22,261125,4);
+leHighlight(106,168,261468,4);
+leHighlight(182,114,261811,4);
+leHighlight(329,114,262154,4);
+leHighlight(209,244,262325,1);
+leHighlight(110,311,262839,1);
+leHighlight(110,311,263182,1);
+leHighlight(182,114,263525,1);
+*/
+
+
+
+
+
+
+// function leHighlight(centerX, centerY, startTime, colour) {
+/*
+leHighlight(364,161,238839,2);
+leHighlight(256,42,239011,2);
+leHighlight(148,161,239182,3);
+leHighlight(192,280,239354,3);
+leHighlight(320,280,239525,3);
+leHighlight(364,161,239696,3);
+leHighlight(256,91,239868,3);
+leHighlight(192,280,240039,3);
+leHighlight(364,161,240211,3);
+leHighlight(148,161,240382,3);
+leHighlight(320,280,240554,4);
+leHighlight(328,282,240639,4);
+leHighlight(336,283,240725,4);
+leHighlight(344,283,240811,4);
+leHighlight(352,283,240896,4);
+leHighlight(438,199,241068,4);
+leHighlight(341,68,241239,1);
+leHighlight(171,68,241411,1);
+leHighlight(74,199,241582,2);
+leHighlight(160,283,241754,2);
+leHighlight(160,283,241839,2);
+leHighlight(160,283,241925,3);
+leHighlight(340,127,242268,3);
+leHighlight(193,242,242439,3);
+leHighlight(365,86,242782,3);
+leHighlight(230,0,242954,3);
+leHighlight(284,221,243296,4);
+leHighlight(165,111,243468,4);
+leHighlight(234,304,243639,4);
+leHighlight(336,141,244154,4);
+leHighlight(403,330,244325,4);
+leHighlight(498,174,244668,1);
+leHighlight(336,141,244839,1);
+leHighlight(486,252,245011,1);
+leHighlight(300,114,245182,1);
+leHighlight(356,30,245525,1);
+leHighlight(317,214,245696,1);
+leHighlight(170,181,246039,2);
+leHighlight(93,258,246382,2);
+leHighlight(172,338,246725,2);
+leHighlight(172,338,246896,2);
+leHighlight(284,187,247068,2);
+leHighlight(192,143,247411,3);
+leHighlight(349,351,247754,3);
+leHighlight(151,322,247925,3);
+leHighlight(232,252,248268,3);
+leHighlight(24,191,248439,3);
+leHighlight(290,136,248782,4);
+leHighlight(232,252,248954,4);
+leHighlight(165,103,249125,4);
+leHighlight(217,278,249639,4);
+leHighlight(371,164,249811,4);
+leHighlight(438,106,250154,1);
+leHighlight(407,274,250325,1);
+leHighlight(277,165,250496,1);
+leHighlight(237,330,250668,1);
+leHighlight(307,257,251011,1);
+leHighlight(100,121,251182,1);
+leHighlight(199,243,251525,2);
+leHighlight(147,326,251868,2);
+leHighlight(236,78,252211,2);
+leHighlight(236,78,252382,2);
+leHighlight(370,194,252554,2);
+leHighlight(295,268,252896,2);
+leHighlight(360,48,253239,3);
+leHighlight(370,194,253411,3);
+leHighlight(295,268,253754,3);
+leHighlight(220,108,253925,3);
+leHighlight(337,167,254268,4);
+leHighlight(168,203,254439,4);
+leHighlight(168,203,254611,4);
+leHighlight(203,304,254954,4);
+leHighlight(16,237,255125,4);
+leHighlight(203,304,255296,4);
+leHighlight(156,154,255811,1);
+leHighlight(336,220,255982,1);
+leHighlight(169,329,256154,1);
+leHighlight(286,67,256496,1);
+leHighlight(120,173,256668,1);
+leHighlight(15,135,257011,2);
+leHighlight(127,266,257182,2);
+leHighlight(127,266,257354,2);
+leHighlight(398,314,257696,2);
+leHighlight(290,361,257868,2);
+leHighlight(201,216,258039,2);
+leHighlight(398,149,258382,3);
+leHighlight(122,95,258725,3);
+leHighlight(171,257,258896,3);
+leHighlight(132,345,259239,3);
+leHighlight(166,160,259411,3);
+leHighlight(260,225,259754,4);
+leHighlight(102,277,259925,4);
+leHighlight(102,277,260096,4);
+leHighlight(242,149,260611,4);
+leHighlight(398,261,260782,4);
+leHighlight(337,22,261125,1);
+leHighlight(106,168,261468,1);
+leHighlight(182,114,261811,1);
+leHighlight(329,114,262154,1);
+leHighlight(209,244,262325,2);
+leHighlight(110,311,262839,2);
+leHighlight(110,311,263182,2);
+leHighlight(182,114,263525,2);
+*/
+
+
+
+/* First / Second Kiai
+leHighlight(320,256,129468,4);
+leHighlight(364,136,129639,4);
+leHighlight(257,64,129811,4);
+leHighlight(148,136,129982,4);
+leHighlight(192,256,130154,4);
+leHighlight(364,136,130325,4);
+leHighlight(148,136,130496,4);
+leHighlight(320,256,130668,4);
+leHighlight(257,64,130839,1);
+leHighlight(245,61,130925,1);
+leHighlight(233,59,131011,1);
+leHighlight(221,57,131096,1);
+leHighlight(209,56,131182,1);
+leHighlight(43,109,131354,1);
+leHighlight(256,160,131525,2);
+leHighlight(181,180,132211,3);
+leHighlight(256,229,132554,3);
+leHighlight(348,243,132725,3);
+leHighlight(256,229,133068,3);
+leHighlight(348,243,133239,3);
+leHighlight(421,305,133582,3);
+leHighlight(315,76,133754,4);
+leHighlight(446,123,133925,4);
+leHighlight(223,94,134268,4);
+leHighlight(157,192,134611,4);
+leHighlight(47,131,134954,1);
+leHighlight(223,151,135296,1);
+leHighlight(316,160,135468,1);
+leHighlight(262,233,135811,1);
+leHighlight(354,245,135982,1);
+leHighlight(500,150,136325,1);
+leHighlight(433,26,136496,1);
+leHighlight(285,210,136668,2);
+leHighlight(365,174,137011,2);
+leHighlight(253,89,137182,2);
+leHighlight(296,297,137354,2);
+leHighlight(164,137,137696,3);
+leHighlight(228,262,137868,3);
+leHighlight(244,76,138039,3);
+leHighlight(150,314,138211,3);
+leHighlight(302,205,138554,3);
+leHighlight(108,90,138725,3);
+leHighlight(195,170,139068,3);
+leHighlight(272,118,139239,3);
+leHighlight(101,176,139582,3);
+leHighlight(336,158,139754,4);
+leHighlight(295,321,140096,4);
+leHighlight(378,282,140439,4);
+leHighlight(272,118,140611,4);
+leHighlight(290,256,140782,4);
+leHighlight(340,75,140954,4);
+leHighlight(191,86,141296,4);
+leHighlight(124,34,141468,4);
+leHighlight(183,172,141811,4);
+leHighlight(259,38,141982,1);
+leHighlight(345,148,142154,1);
+leHighlight(256,336,142496,1);
+leHighlight(284,198,142668,1);
+leHighlight(345,323,142839,1);
+leHighlight(215,255,143182,2);
+leHighlight(354,236,143525,2);
+leHighlight(443,128,143696,2);
+leHighlight(366,145,144039,2);
+leHighlight(277,35,144211,2);
+leHighlight(364,245,144554,2);
+leHighlight(362,58,144725,2);
+leHighlight(273,222,144896,2);
+leHighlight(425,112,145068,2);
+leHighlight(241,145,145239,3);
+leHighlight(364,245,145582,3);
+leHighlight(384,336,145925,3);
+leHighlight(331,157,146096,3);
+leHighlight(287,339,146268,3);
+leHighlight(403,193,146439,3);
+leHighlight(267,242,146782,3);
+leHighlight(224,59,146954,3);
+leHighlight(223,158,147296,3);
+leHighlight(139,44,147468,4);
+leHighlight(109,228,147639,4);
+leHighlight(77,139,147811,4);
+leHighlight(190,286,147982,4);
+leHighlight(222,53,148154,4);
+leHighlight(161,200,148325,4);
+leHighlight(251,243,148668,1);
+leHighlight(116,287,149011,1);
+leHighlight(222,157,149182,1);
+leHighlight(389,268,149525,1);
+leHighlight(479,105,149696,1);
+leHighlight(396,127,150039,1);
+leHighlight(286,38,150211,2);
+leHighlight(259,222,150382,2);
+leHighlight(212,89,150554,2);
+leHighlight(195,274,150725,2);
+leHighlight(322,171,151068,2);
+leHighlight(166,332,154154,1);
+leHighlight(232,94,154496,1);
+leHighlight(140,265,154668,1);
+leHighlight(80,70,155011,1);
+leHighlight(231,189,155182,2);
+leHighlight(95,98,155525,2);
+leHighlight(159,274,155696,2);
+leHighlight(353,200,155868,2);
+leHighlight(333,334,156382,2);
+leHighlight(241,173,156554,2);
+leHighlight(140,223,156896,3);
+leHighlight(244,79,157068,3);
+leHighlight(97,246,157239,3);
+leHighlight(244,79,157411,3);
+leHighlight(323,244,157754,3);
+leHighlight(180,143,157925,3);
+leHighlight(397,148,158268,4);
+leHighlight(149,266,158611,4);
+leHighlight(156,107,158954,4);
+leHighlight(156,107,159125,4);
+leHighlight(258,302,159296,4);
+leHighlight(245,149,159639,1);
+leHighlight(112,14,159982,1);
+leHighlight(30,139,160154,1);
+leHighlight(151,228,160496,1);
+leHighlight(337,115,160668,1);
+leHighlight(248,239,161011,2);
+leHighlight(195,63,161182,2);
+leHighlight(83,208,161354,2);
+leHighlight(171,354,161868,2);
+leHighlight(253,138,162039,2);
+leHighlight(349,213,162382,3);
+leHighlight(186,248,162554,3);
+leHighlight(402,200,162725,3);
+leHighlight(186,248,162896,3);
+leHighlight(234,352,163239,3);
+leHighlight(253,138,163411,3);
+leHighlight(186,248,163754,4);
+leHighlight(140,106,163925,4);
+leHighlight(81,242,164096,4);
+leHighlight(68,62,164268,4);
+leHighlight(186,248,164439,4);
+leHighlight(222,72,164611,4);
+leHighlight(81,242,164782,4);
+leHighlight(68,62,164954,4);
+leHighlight(248,169,165125,1);
+leHighlight(180,288,165468,1);
+leHighlight(80,124,165639,1);
+leHighlight(3,219,165982,1);
+leHighlight(173,156,166154,1);
+leHighlight(173,156,166325,1);
+leHighlight(216,338,166496,2);
+leHighlight(349,280,166668,2);
+leHighlight(181,192,166839,2);
+leHighlight(251,120,167182,2);
+leHighlight(176,289,167354,2);
+leHighlight(273,95,167525,2);
+leHighlight(368,181,167868,3);
+leHighlight(165,135,168039,3);
+leHighlight(368,181,168211,3);
+leHighlight(239,290,168382,3);
+leHighlight(8,341,168725,3);
+leHighlight(51,149,168896,3);
+leHighlight(221,345,169239,4);
+leHighlight(174,48,169582,4);
+leHighlight(276,135,169925,4);
+leHighlight(276,135,170096,4);
+leHighlight(115,227,170268,4);
+leHighlight(173,139,170611,1);
+leHighlight(279,186,170954,1);
+leHighlight(95,258,171125,1);
+leHighlight(164,155,171468,1);
+leHighlight(260,321,171639,1);
+leHighlight(124,121,171982,2);
+leHighlight(155,277,172154,2);
+leHighlight(243,142,172325,2);
+leHighlight(364,244,172839,2);
+leHighlight(432,91,173011,2);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

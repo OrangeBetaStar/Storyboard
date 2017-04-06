@@ -1,0 +1,35 @@
+/*
+
+var bg = new Sprite("1.jpg");
+
+beginStar(2360, 8000);
+
+function beginStar(startTime, endTime) {
+
+var starSmall = new Sprite("SB/star2.png");
+
+var randomStart = rand(startTime, endTime);
+var xContinue = randomStart * 2;
+var randomEnd = randomStart * 4;
+
+
+starSmall.moveY(randomStart, randomEnd, 380, 0);
+for(var i=-150; i<150; i++) {
+curveStar(i);
+}
+starSmall.moveX(randomStart, randomEnd, -150,300);
+//starSmall.moveX(xContinue, randomEnd, 300, -150);
+starSmall.scale(randomStart, randomEnd, 1, 0.5);
+starSmall.rotate(randomStart, randomEnd, 0, 0.8);
+
+}
+
+function curveStar (startPos) {
+starSmall.moveX(randomStart, randomEnd, startPos,300);
+}
+
+*/
+
+
+
+// x: -120

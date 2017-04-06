@@ -1,0 +1,61 @@
+osu file format v14
+
+[General]
+AudioFilename: Sky is the limit.mp3
+AudioLeadIn: 0
+PreviewTime: 86440
+Countdown: 0
+SampleSet: Soft
+StackLeniency: 0.7
+Mode: 0
+LetterboxInBreaks: 1
+WidescreenStoryboard: 1
+
+[Editor]
+DistanceSpacing: 1
+BeatDivisor: 2
+GridSize: 4
+TimelineZoom: 1
+
+[Metadata]
+Title:Sky is the limit
+TitleUnicode:Sky is the limit
+Artist:Mami Kawada
+ArtistUnicode:川田まみ
+Creator:BetaStar
+Version:Hard
+Source:蒼の彼方のフォーリズム
+Tags:Ao no Kanata no Four Rhythm Shudaika Beyond the sky into the firmament
+BeatmapID:0
+BeatmapSetID:-1
+
+[Difficulty]
+HPDrainRate:5
+CircleSize:5
+OverallDifficulty:5
+ApproachRate:5
+SliderMultiplier:1.1
+SliderTickRate:1
+
+[Events]
+//Background and Video events
+0,0,"1.jpg",0,0
+//Break Periods
+//Storyboard Layer 0 (Background)
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+//Storyboard Sound Samples
+
+[TimingPoints]
+2360.2789059831,394.744707740916,4,2,0,30,1,0
+87625,-100,4,2,0,30,0,1
+112888,-100,4,2,0,30,0,0
+157100,-100,4,2,0,30,0,1
+177626,-100,4,2,0,30,0,0
+182363,-100,4,2,0,30,0,1
+196574,-100,4,2,0,30,0,0
+
+
+[HitObjects]
+272,320,2360,6,0,P|336:324|392:304,2,110

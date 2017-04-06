@@ -1,0 +1,43 @@
+function spinDisk(startTime, switch, endTime, setAngle, dist){
+	var centerX = 256 + 64;
+	var centerY = 192 + 55;
+	var initAngle = setAngle;
+	var oneTick = 79;
+	var radistance = dist;
+	var curAngle = setAngle;
+	var curAngleDiff = 0.0349066;
+	var thickness = 0.1;
+	var length = 0.3;
+	var rotateAngle = 0;
+	
+	// Angle apart from each other
+	var setIndiv = 0.174533;
+	
+	for(var quant = 0; quant < 36; quant++){
+		var petal = new Sprite("SB/square.jpg");
+		petal.fade(startTime, startTime + (oneTick * 2), 0, 1);
+//		petal.color(0,0,0);
+		petal.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		for(var a=startTime; a<=switch; a++){
+			rotateAngle = 0 - curAngle;
+			petal.move(a, a + oneTick, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, radistance * sin(curAngle + curAngleDiff) + centerX, radistance * cos(curAngle + curAngleDiff) + centerY);
+			petal.rotate(a, a + oneTick, rotateAngle, (0 - (curAngle + curAngleDiff)));
+			curAngle = curAngle + curAngleDiff;
+			rotateAngle = 0 - curAngle;
+			
+			a = a + (oneTick - 1); //79
+		}
+		initAngle = initAngle + setIndiv;
+		curAngle = initAngle;
+		
+		petal.color(switch, switch + (316 * 1), 0, 0, 0, 255, 255, 255);
+		petal.move(2, switch, switch + (316 * 1), radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, centerX, centerY);
+		petal.rotate(switch, switch, rotateAngle, (0 - (curAngle + curAngleDiff)));
+	//	petal.color(switch + (316 * 1), switch + (316 * 5), 0, 0, 0, 51, 51, 255);
+		petal.move(7, switch + (316 * 1), switch + (316 * 5), centerX, centerY, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY);
+		petal.fade(2, switch + (316 * 1), switch + (316 * 5), 1, 0);
+	}
+}
+
+spinDisk(188545, 198545 - 313, 199482, 0, 270);
+spinDisk(188545, 201045 - 313, 202295, 0.0872665, 250);

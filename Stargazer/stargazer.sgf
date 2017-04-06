@@ -1,0 +1,339 @@
+function guineaq(startTime, endTime){
+
+	var twoBars = 685;
+	
+	var size = 0.2;
+	var endSize = 0.05;
+
+	var	posX = -44 + 64;
+	var posY = 192 + 55;
+	
+	var startX = -176 + 64;
+
+	var layerRand0 = rand(0, 10);
+	layerRand0 = layerRand0 / 10.0;
+	var layerRand1 = rand(0, 10);
+	layerRand1 = layerRand1 / 10.0;
+	var layerRand2 = rand(0, 10);
+	layerRand2 = layerRand2 / 10.0;
+	var layerRand3 = rand(0, 10);
+	layerRand3 = layerRand3 / 10.0;
+
+	var layer0 = new Sprite("SB/pacman/layer0.png");
+	var layer1 = new Sprite("SB/pacman/layer1.png");
+	var layer2 = new Sprite("SB/pacman/layer2.png");
+	var layer3 = new Sprite("SB/pacman/layer3.png");
+	
+	layer0.scale(startTime, startTime + (twoBars * 3), size, size);
+	layer1.scale(startTime, startTime + (twoBars * 3), size + 0.02, size + 0.02);
+	layer2.scale(startTime, startTime + (twoBars * 3), size + 0.035, size + 0.035);
+	layer3.scale(startTime, startTime + (twoBars * 3), size + 0.047, size + 0.047);
+	
+	layer0.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size, endSize);
+	layer1.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.02, endSize);
+	layer2.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.035, endSize);
+	layer3.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.047, endSize);
+	
+	layer0.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer1.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer2.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer3.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	
+	layer0.fade(startTime, startTime + twoBars, 0, 1);
+	layer1.fade(startTime, startTime + twoBars, 0, 1);
+	layer2.fade(startTime, startTime + twoBars, 0, 1);
+	layer3.fade(startTime, startTime + twoBars, 0, 1);
+	
+	layer0.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer1.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer2.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer3.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	
+	layer0.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer1.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer2.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer3.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	
+	layer0.rotate(1, startTime, startTime + (twoBars * 4), layerRand0, layerRand0 + 10);
+	layer1.rotate(1, startTime, startTime + (twoBars * 4), layerRand1, layerRand1 - 7);
+	layer2.rotate(1, startTime, startTime + (twoBars * 4), layerRand2, layerRand2 + 6);
+	layer3.rotate(1, startTime, startTime + (twoBars * 4), layerRand3, layerRand3 - 4);
+
+	var nameDot = new Sprite("SB/pacman/core.png");
+	nameDot.move(startTime, startTime, posX, posY, posX, posY);
+	nameDot.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	nameDot.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	nameDot.fade(startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	nameDot.scale(25, startTime + (twoBars * 3), startTime + (twoBars * 5), size, size * 3);
+	nameDot.scale(startTime + (twoBars * 5), startTime + (twoBars * 7), size * 3, size * 3);
+	nameDot.scale(33, startTime + (twoBars * 7), startTime + (twoBars * 8.5), size * 3, endSize);
+	
+	
+	var charG = new Sprite("SB/asdf/g_1.png");
+	var charU = new Sprite("SB/asdf/u_1.png");
+	var charI = new Sprite("SB/asdf/i_1.png");
+	var charN = new Sprite("SB/asdf/n_1.png");
+	var charE = new Sprite("SB/asdf/e_1.png");
+	var charA = new Sprite("SB/asdf/a_1.png");
+	var charQ = new Sprite("SB/asdf/q_2.png");
+	
+	charG.scale(startTime, startTime, size, size);
+	charU.scale(startTime, startTime, size, size);
+	charI.scale(startTime, startTime, size, size);
+	charN.scale(startTime, startTime, size, size);
+	charE.scale(startTime, startTime, size, size);
+	charA.scale(startTime, startTime, size, size);
+	charQ.scale(startTime, startTime, size, size);
+	
+	charG.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charU.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charI.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charN.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charE.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charA.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charQ.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	
+	charG.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charU.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charI.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charN.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charE.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charA.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charQ.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	
+	charG.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charU.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charI.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charN.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charE.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charA.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charQ.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	
+	charG.color(0,0,0);
+	charU.color(0,0,0);
+	charI.color(0,0,0);
+	charN.color(0,0,0);
+	charE.color(0,0,0);
+	charA.color(0,0,0);
+	charQ.color(0,0,0);
+	
+	charG.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY + 1, posX - 32, posY + 1);
+	charU.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX - 20, posY);
+	charI.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY - 1, posX - 10, posY - 1);
+	charN.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX, posY);
+	charE.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX + 10, posY);
+	charA.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX + 20, posY);
+	charQ.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX + 33, posY);
+	
+	var underLineX = 0.1;
+	var underLineY = 0.01;
+	
+	var underLine = new Sprite("SB/square.jpg");
+	underLine.scaleVec(startTime + (twoBars * 4), startTime + (twoBars * 7), underLineX, underLineY, underLineX * 5, underLineY);
+	underLine.color(0,0,0);
+	underLine.fade(2, startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	underLine.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	underLine.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	underLine.move(startTime, startTime, posX, posY + 11, posX, posY + 11);
+	
+	
+	/*
+	charG
+	charU
+	charI
+	charN
+	charE
+	charA
+	charQ
+	*/
+}
+
+
+/*
+guineaq(554,66382);
+guineaq(154154,174725);
+guineaq(196668,230954);
+guineaq(241925,263868);
+guineaq(285811,311525);
+*/
+
+function ongaku(startTime, endTime){
+
+
+	var twoBars = 685;
+	
+	var size = 0.2;
+	var endSize = 0.05;
+
+	var	posX = 564 + 64;
+	var posY = 192 + 55;
+	
+	var startX = 676 + 64;
+
+	var layerRand0 = rand(0, 10);
+	layerRand0 = layerRand0 / 10.0;
+	var layerRand1 = rand(0, 10);
+	layerRand1 = layerRand1 / 10.0;
+	var layerRand2 = rand(0, 10);
+	layerRand2 = layerRand2 / 10.0;
+	var layerRand3 = rand(0, 10);
+	layerRand3 = layerRand3 / 10.0;
+
+	var layer0 = new Sprite("SB/pacman/layer0.png");
+	var layer1 = new Sprite("SB/pacman/layer1.png");
+	var layer2 = new Sprite("SB/pacman/layer2.png");
+	var layer3 = new Sprite("SB/pacman/layer3.png");
+	
+	layer0.scale(startTime, startTime + (twoBars * 3), size, size);
+	layer1.scale(startTime, startTime + (twoBars * 3), size + 0.02, size + 0.02);
+	layer2.scale(startTime, startTime + (twoBars * 3), size + 0.035, size + 0.035);
+	layer3.scale(startTime, startTime + (twoBars * 3), size + 0.047, size + 0.047);
+	
+	layer0.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size, endSize);
+	layer1.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.02, endSize);
+	layer2.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.035, endSize);
+	layer3.scale(29, startTime + (twoBars * 3), startTime + (twoBars * 4), size + 0.047, endSize);
+	
+	layer0.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer1.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer2.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	layer3.move(1, startTime, startTime + twoBars, startX, posY, posX, posY);
+	
+	layer0.fade(startTime, startTime + twoBars, 0, 1);
+	layer1.fade(startTime, startTime + twoBars, 0, 1);
+	layer2.fade(startTime, startTime + twoBars, 0, 1);
+	layer3.fade(startTime, startTime + twoBars, 0, 1);
+	
+	layer0.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer1.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer2.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	layer3.fade(startTime + twoBars, startTime + (twoBars * 3), 1, 1);
+	
+	layer0.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer1.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer2.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	layer3.fade(1, startTime + (twoBars * 3), startTime + (twoBars * 4), 1, 0);
+	
+	layer0.rotate(1, startTime, startTime + (twoBars * 4), layerRand0, layerRand0 + 10);
+	layer1.rotate(1, startTime, startTime + (twoBars * 4), layerRand1, layerRand1 - 7);
+	layer2.rotate(1, startTime, startTime + (twoBars * 4), layerRand2, layerRand2 + 6);
+	layer3.rotate(1, startTime, startTime + (twoBars * 4), layerRand3, layerRand3 - 4);
+
+	var nameDot = new Sprite("SB/pacman/core.png");
+	nameDot.move(startTime, startTime, posX, posY, posX, posY);
+	nameDot.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	nameDot.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	nameDot.fade(startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	nameDot.scale(25, startTime + (twoBars * 3), startTime + (twoBars * 5), size, size * 3);
+	nameDot.scale(startTime + (twoBars * 5), startTime + (twoBars * 7), size * 3, size * 3);
+	nameDot.scale(33, startTime + (twoBars * 7), startTime + (twoBars * 8.5), size * 3, endSize);
+	
+	
+	var charG = new Sprite("SB/asdf/o_2.png");
+	var charU = new Sprite("SB/asdf/n_1.png");
+	var charI = new Sprite("SB/asdf/g_1.png");
+	var charN = new Sprite("SB/asdf/a_1.png");
+	var charE = new Sprite("SB/asdf/k_1.png");
+	var charA = new Sprite("SB/asdf/u_1.png");
+	
+	charG.scale(startTime, startTime, size, size);
+	charU.scale(startTime, startTime, size, size);
+	charI.scale(startTime, startTime, size, size);
+	charN.scale(startTime, startTime, size, size);
+	charE.scale(startTime, startTime, size, size);
+	charA.scale(startTime, startTime, size, size);
+		
+	charG.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charU.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charI.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charN.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charE.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	charA.fade(startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+
+	
+	charG.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charU.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charI.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charN.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charE.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	charA.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+
+	
+	charG.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charU.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charI.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charN.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charE.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	charA.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+
+
+	charG.color(0,0,0);
+	charU.color(0,0,0);
+	charI.color(0,0,0);
+	charN.color(0,0,0);
+	charE.color(0,0,0);
+	charA.color(0,0,0);
+
+	
+	charG.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY - 1, posX - 26, posY - 1);
+	charU.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX - 15, posY);
+	charI.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY + 1, posX - 5, posY + 1);
+	charN.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX + 5, posY);
+	charE.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY - 2, posX + 15, posY - 2);
+	charA.move(31, startTime + (twoBars * 3), startTime + (twoBars * 4), posX, posY, posX + 25, posY);
+	
+	var underLineX = 0.1;
+	var underLineY = 0.01;
+	
+	var underLine = new Sprite("SB/square.jpg");
+	underLine.scaleVec(startTime + (twoBars * 4), startTime + (twoBars * 7), underLineX, underLineY, underLineX * 5, underLineY);
+	underLine.color(0,0,0);
+	underLine.fade(2, startTime + (twoBars * 3), startTime + (twoBars * 4), 0, 1);
+	underLine.fade(startTime + (twoBars * 4), startTime + (twoBars * 7), 1, 1);
+	underLine.fade(1, startTime + (twoBars * 7), startTime + (twoBars * 8), 1, 0);
+	underLine.move(startTime, startTime, posX, posY + 11, posX, posY + 11);
+	
+	
+	/*
+	charO
+	charN
+	charG
+	charA
+	charK
+	charU
+	*/
+
+}
+
+/*
+ongaku(66382,154154);
+ongaku(174725,196668);
+ongaku(230954,241925);
+ongaku(263868,285811);
+*/
+
+function flash(time){
+
+	var preFlash = 86;
+	var postFlash = 342;
+	
+	var scaleX = 7.3;
+	var scaleY = 4.1;
+	
+	var square = new Sprite("SB/square.jpg");
+	square.scaleVec(time - preFlash, time + postFlash, scaleX, scaleY, scaleX, scaleY);
+	square.fade(time - preFlash, time, 0, 0.7);
+	square.fade(2, time, time + postFlash, 0.7, 0);
+
+}
+flash(263868);
+flash(241925);
+flash(252868);
+flash(240554);
+flash(165125);
+flash(143182);
+flash(132211);
+flash(154154);
+flash(173354);
+flash(173868);
+flash(174382);

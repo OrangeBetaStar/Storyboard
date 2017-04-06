@@ -1,0 +1,114 @@
+function shootingStars(startTime) {
+
+	var startPosX = 825;
+	var startPosY = rand(100, 160);
+	
+	var endPosX = rand(120, 230);
+	var endPosY = -20;
+	
+	var endTime = startTime + 3553;
+	
+	var tick = 98;
+	
+	var pi = 3.1415926535;
+	var halfPi = pi / 2;
+	var dPi = (pi * 2);
+	var fPi = -(pi * 3);
+	
+	var initialRotation = pi / 2;
+	
+	var headBrightness = 0.8;
+
+	var starUnderLay = new Sprite("SB/comet_head.png");
+	var starOverLay = new Sprite("SB/comet_head_overlay.png");
+	var starTrail = new Sprite("SB/comet_tail.png");
+	
+	// Bottom rotating head
+	starUnderLay.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starUnderLay.rotate(1, startTime, endTime, 0, dPi);
+	starUnderLay.fade(2, startTime, startTime + (tick * 4), 0, headBrightness + 0.1);
+	starUnderLay.fade(1, startTime + (tick * 4), endTime, headBrightness + 0.1, 0);
+	starUnderLay.scale(startTime, startTime, 0.5, 0.4);
+	
+	// Upper rotating head
+	starOverLay.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starOverLay.rotate(1, startTime, endTime, 0, fPi);
+	starOverLay.fade(2, startTime, startTime + (tick * 4), 0, headBrightness);
+	starOverLay.fade(1, startTime + (tick * 4), endTime, headBrightness, 0);
+	starOverLay.scale(startTime, startTime, 0.5, 0.4);
+	
+	// Pythagoras function to find angle.
+	var hypotenuse = (((startPosY - endPosY)*(startPosY - endPosY)) + ((startPosX - endPosX)*
+(startPosX - endPosX)));
+	// hypotenus = sqr(hypotenus);
+	println(hypotenuse);
+	// RIP NO TAN FUNCTION IN SGL EDITOR WTF
+	//var angle = tan((startTimeY - endPosY)/(startPosX - endPosX));
+	//println(angle);
+	
+	// Tail.
+	starTrail.scaleVec(2, startTime, endTime, 0.8, 1, 0.8, 0.5);
+	starTrail.fade(startTime, endTime, 1, 0.3);
+	starTrail.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starTrail.rotate(startTime, startTime, 0, initialRotation);
+}
+
+function shootingStarsRev(startTime) {
+
+	var endPosX = 825;
+	var endPosY = rand(100, 160);
+	
+	var startPosX = rand(120, 230);
+	var startPosY = -20;
+	
+	var endTime = startTime + 3553;
+	
+	var tick = 98;
+	
+	var pi = 3.1415926535;
+	var halfPi = pi / 2;
+	var dPi = (pi * 2);
+	var fPi = -(pi * 3);
+	
+	var initialRotation = pi / 2;
+	
+	var headBrightness = 0.8;
+
+	var starUnderLay = new Sprite("SB/comet_head.png");
+	var starOverLay = new Sprite("SB/comet_head_overlay.png");
+	var starTrail = new Sprite("SB/comet_tail.png");
+	
+	// Bottom rotating head
+	starUnderLay.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starUnderLay.rotate(1, startTime, endTime, 0, dPi);
+	starUnderLay.fade(2, startTime, startTime + (tick * 4), 0, headBrightness + 0.1);
+	starUnderLay.fade(1, startTime + (tick * 4), endTime, headBrightness + 0.1, 0);
+	starUnderLay.scale(startTime, startTime, 0.5, 0.4);
+	
+	// Upper rotating head
+	starOverLay.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starOverLay.rotate(1, startTime, endTime, 0, fPi);
+	starOverLay.fade(2, startTime, startTime + (tick * 4), 0, headBrightness);
+	starOverLay.fade(1, startTime + (tick * 4), endTime, headBrightness, 0);
+	starOverLay.scale(startTime, startTime, 0.5, 0.4);
+	
+	// Pythagoras function to find angle.
+	var hypotenuse = (((startPosY - endPosY)*(startPosY - endPosY)) + ((startPosX - endPosX)*
+(startPosX - endPosX)));
+	// hypotenus = sqr(hypotenus);
+	println(hypotenuse);
+	// RIP NO TAN FUNCTION IN SGL EDITOR WTF
+	//var angle = tan((startTimeY - endPosY)/(startPosX - endPosX));
+	//println(angle);
+	
+	// Tail.
+	starTrail.scaleVec(2, startTime, endTime, 0.8, 1, 0.8, 0.5);
+	starTrail.fade(startTime, endTime, 1, 0.3);
+	starTrail.move(2, startTime, endTime, startPosX, startPosY, endPosX, endPosY);
+	starTrail.rotate(startTime, startTime, 0, initialRotation);
+}
+
+// shootingStars(71438);
+//shootingStars(74202);
+//shootingStarsRev(77359);
+shootingStarsRev(81307);

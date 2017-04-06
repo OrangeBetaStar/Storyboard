@@ -1,0 +1,2077 @@
+function smallExposionRed(randomX, randomY, startTime){
+	randomX = randomX + 65;
+	randomY = randomY + 55;
+
+	var randomAngle = rand(0,100);
+	var posX = randomX;
+	var posY = randomY;
+	var duration = 403;
+	var distance = 70;
+	var size = 0.5;
+	var randomColour = rand(0,80);
+	var colourR = 255;
+	var colourG = randomColour;
+	var colourB = randomColour;
+	var pipi = 3.14159;
+	
+	for(var quantity = 0; quantity < 6; quantity++){
+	var circOut = new Sprite("SB/dot.png");
+		circOut.move(1 ,startTime, startTime + (duration * 2), posX, posY, sin(randomAngle + quantity) * distance + posX, cos(randomAngle + quantity) * distance + posY);
+		circOut.color(startTime, startTime,colourR, colourG, colourB,colourR, colourG, colourB);
+		circOut.scale(startTime, startTime, size, size);
+		circOut.fade(startTime, startTime + (duration * 2), 1, 0);
+	}
+	for(var quantity = 0; quantity < 6; quantity++){
+		var ee = new Sprite("SB/dot.png");
+		randomAngle = randomAngle + pipi / 12;
+		ee.move(1 ,startTime, startTime + (duration * 2), posX, posY, sin(randomAngle + ((pipi / 6)* quantity)) * distance + posX, cos(randomAngle + ((pipi / 3)* quantity)) * distance + posY);
+		ee.scale(startTime, startTime, 0.2, 0.2);
+		ee.fade(startTime, startTime + (duration * 2), 1, 0);
+	}
+}
+/*
+smallExposionRed(135,188,254795);
+smallExposionRed(219,48,254951);
+smallExposionRed(210,295,255107);
+smallExposionRed(304,89,255263);
+smallExposionRed(388,328,255420);
+smallExposionRed(395,59,255576);
+smallExposionRed(395,59,255654);
+smallExposionRed(395,59,255732);
+smallExposionRed(492,290,255888);
+smallExposionRed(261,158,256045);
+smallExposionRed(494,264,256201);
+smallExposionRed(494,264,256279);
+smallExposionRed(494,264,256357);
+smallExposionRed(260,307,256513);
+smallExposionRed(505,146,256670);
+smallExposionRed(371,352,256826);
+smallExposionRed(371,352,256904);
+smallExposionRed(371,352,256982);
+smallExposionRed(261,158,257138);
+smallExposionRed(344,241,257295);
+smallExposionRed(315,211,257373);
+smallExposionRed(276,195,257451);
+smallExposionRed(234,197,257529);
+smallExposionRed(196,215,257607);
+smallExposionRed(157,231,257685);
+smallExposionRed(115,229,257763);
+smallExposionRed(78,209,257841);
+smallExposionRed(53,175,257920);
+smallExposionRed(46,133,257998);
+smallExposionRed(57,93,258076);
+smallExposionRed(84,61,258154);
+*/
+/*
+smallExposionRed(209,126,254795);
+smallExposionRed(220,357,254951);
+smallExposionRed(362,182,255107);
+smallExposionRed(168,196,255263);
+smallExposionRed(270,31,255420);
+smallExposionRed(285,152,255576);
+smallExposionRed(285,152,255654);
+smallExposionRed(285,152,255732);
+smallExposionRed(96,86,255888);
+smallExposionRed(59,330,256045);
+smallExposionRed(251,228,256201);
+smallExposionRed(251,228,256279);
+smallExposionRed(251,228,256357);
+smallExposionRed(81,170,256513);
+smallExposionRed(207,355,256670);
+smallExposionRed(298,116,256826);
+smallExposionRed(448,299,256982);
+smallExposionRed(411,138,257138);
+smallExposionRed(321,344,257295);
+smallExposionRed(314,315,257373);
+smallExposionRed(309,287,257451);
+smallExposionRed(308,258,257529);
+smallExposionRed(314,232,257607);
+smallExposionRed(265,72,257763);
+smallExposionRed(179,203,257920);
+smallExposionRed(214,191,257998);
+smallExposionRed(251,186,258076);
+smallExposionRed(288,186,258154);
+*/
+/*
+smallExposionRed(240,212,254795);
+smallExposionRed(472,260,255107);
+smallExposionRed(472,260,255263);
+smallExposionRed(272,328,255420);
+smallExposionRed(388,152,255732);
+smallExposionRed(152,248,256045);
+smallExposionRed(280,44,256357);
+smallExposionRed(0,172,256670);
+smallExposionRed(224,132,256982);
+smallExposionRed(224,132,257138);
+smallExposionRed(88,68,257295);
+smallExposionRed(88,68,257451);
+smallExposionRed(224,132,257607);
+smallExposionRed(304,152,257920);
+smallExposionRed(304,152,258076);
+*/
+/*
+smallExposionRed(201,136,254795);
+smallExposionRed(107,221,255107);
+smallExposionRed(247,266,255420);
+smallExposionRed(309,211,255576);
+smallExposionRed(358,276,255888);
+smallExposionRed(425,227,256045);
+smallExposionRed(459,74,256357);
+smallExposionRed(308,48,256670);
+smallExposionRed(246,102,256826);
+smallExposionRed(181,50,257138);
+smallExposionRed(118,104,257295);
+smallExposionRed(346,157,257607);
+smallExposionRed(101,196,257920);
+*/
+/*
+smallExposionRed(345,74,254795);
+smallExposionRed(274,240,255420);
+smallExposionRed(185,186,255732);
+smallExposionRed(89,226,256045);
+smallExposionRed(167,384,256670);
+smallExposionRed(263,346,256982);
+smallExposionRed(256,192,257295);
+*/
+/*
+smallExposionRed(393,177,254795);
+smallExposionRed(384,48,255420);
+smallExposionRed(256,192,256045);
+*/
+
+function tsubomi(startTime, bloom, endTime){
+
+	var centreX = 256 + 65;
+	var centreY = 192 + 55;
+	var shortBar = 313;
+	var tsuboWingX = 0.6;
+	var tsuboWingY = 0.6;
+	var borderSize = 1.2;
+	
+	var apart = 200;
+	var tick = 79;
+	var angle = 0;
+	var angleAdd = 0.02;
+	var anglePlacement = 0.31415926;
+	var pi = 3.141592;
+
+	var border = new Sprite("SB/wingring.png");
+	border.scale(startTime, startTime, borderSize, borderSize);
+	border.move(startTime, startTime, centreX, centreY, centreX, centreY);
+	border.fade(startTime, startTime + shortBar, 0, 1);
+	border.fade(startTime + shortBar, endTime - shortBar, 1, 1);
+	border.fade(endTime - shortBar, endTime, 1, 0);
+	border.scale(1, bloom + shortBar, bloom + (shortBar * 2), borderSize, borderSize - 0.2);
+	
+	for(var asdf = 0; asdf <= 20; asdf++){
+		var tsuboWing = new Sprite("SB/wing.png", Foreground, CentreLeft);
+		tsuboWing.scaleVec(startTime, startTime, tsuboWingX, tsuboWingY, tsuboWingX, tsuboWingY);
+		for(var moveTime = startTime; moveTime < bloom + shortBar; moveTime++) {
+			tsuboWing.rotate(moveTime, moveTime + tick, -angle - (pi / 2), -(angle + angleAdd) - (pi / 2));
+			tsuboWing.move(moveTime, moveTime + tick, sin(angle) * apart + centreX, cos(angle) * apart + centreY, sin(angle + angleAdd) * apart + centreX, cos(angle + angleAdd) * apart + centreY);
+			
+			
+			moveTime = moveTime + (tick - 1);
+			angle = angle + angleAdd;
+		}
+		tsuboWing.fade(startTime, startTime + shortBar, 0 , 1);
+		tsuboWing.fade(startTime + shortBar, bloom + shortBar, 1, 1);
+		angle = anglePlacement * asdf;
+		tsuboWing.scaleVec(bloom, bloom + shortBar, tsuboWingX, tsuboWingY, 0, tsuboWingY);
+		//tsuboWing.scaleVec(bloom + shortBar, bloom + (shortBar * 2), 0, tsuboWingY, -tsuboWingX, tsuboWingY);
+		tsuboWing.fade(bloom + shortBar,bloom + shortBar,0,0);
+	}
+	
+	angle = 0.1; //Set angle here
+	apart = 160;
+	
+	for(var repeattt = 0; repeattt < 19; repeattt++){
+		var bladeWing = new Sprite("SB/wing2.png", Foreground, CentreRight);
+		for(var outSpin = bloom; outSpin < endTime; outSpin++){
+			bladeWing.move(outSpin, outSpin + tick, sin(angle) * apart + centreX, cos(angle) * apart + centreY, sin(angle + angleAdd) * apart + centreX, cos(angle + angleAdd) * apart + centreY);
+			bladeWing.rotate(outSpin, outSpin + tick,  -angle - (pi / 2), -(angle + angleAdd) - (pi / 2));
+		
+			outSpin = outSpin + (tick - 1);
+			angle = angle + angleAdd;
+		} 
+		bladeWing.scaleVec(bloom + (repeattt * tick), bloom + shortBar + (repeattt * tick), 0, 1, 1, 1);
+		bladeWing.fade(endTime - shortBar, endTime, 1, 0);
+	}
+
+}
+
+//tsubomi(173388, 183388, 188545);
+
+function spinThing (startTime, endTime, startX, startY, endX, endY, size) {
+
+	startX = startX + 65;
+	startY = startY + 55;
+
+	var angle = rand(0.00, 10.00);
+	var anglePlus = rand(0.00, 20.00);
+	var layer0 = new Sprite("SB/layer0");
+	var layer1 = new Sprite("SB/layer1");
+	var layer2 = new Sprite("SB/layer2");
+	var layer3 = new Sprite("SB/layer3");
+	
+	layer0.rotate(startTime, endTime, angle, angle + anglePlus);
+	layer0.scale(startTime, startTime, size, size);
+	layer0.move(startTime, endTime, startX, startY, endX, endY);
+	layer0.color(0, 0, 0);
+	anglePlus = rand(0.00, 20.00);
+	layer1.rotate(startTime, endTime, angle, angle - anglePlus);
+	layer1.scale(startTime, startTime, size, size);
+	layer1.move(startTime, endTime, startX, startY, endX, endY);
+	layer1.color(0, 0, 0);
+	anglePlus = rand(0.00, 20.00);
+	layer2.rotate(startTime, endTime, angle, angle + anglePlus);
+	layer2.scale(startTime, startTime, size, size);
+	layer2.move(startTime, endTime, startX, startY, endX, endY);
+	layer2.color(0, 0, 0);
+	anglePlus = rand(0.00, 20.00);
+	layer3.rotate(startTime, endTime, angle, angle - anglePlus);
+	layer3.scale(startTime, startTime, size, size);
+	layer3.move(startTime, endTime, startX, startY, endX, endY);
+	layer3.color(0, 0, 0);
+
+}
+/*
+spinThing(173388, 183388, 256,192, 250, 180, 0.5);
+spinThing(173388, 183388, 32,300, 40, 320, 0.3);
+spinThing(173388, 183388, 512,312,490, 320, 0.4);
+*/
+
+function smallExposion(randomX, randomY, startTime){
+
+//derived from echoes
+
+	randomX = randomX + 65;
+	randomY = randomY + 55;
+
+	var randomAngle = rand(0,100);
+	var posX = randomX;
+	var posY = randomY;
+	var duration = 403;
+	var distance = 70;
+	var size = 0.5;
+	var randomColour = rand(77,179);
+	var colourR = randomColour;
+	var colourG = randomColour;
+	var colourB = 255;
+	var pipi = 3.14159;
+	
+	for(var quantity = 0; quantity < 6; quantity++){
+//	randomAngle = quantity;
+//	randomAngle = randomAngle / 10.0;
+//	println(randomAngle);
+	var circOut = new Sprite("SB/dot.png");
+		circOut.move(1 ,startTime, startTime + (duration * 2), posX, posY, sin(randomAngle + quantity) * distance + posX, cos(randomAngle + quantity) * distance + posY);
+		circOut.color(startTime, startTime,colourR, colourG, colourB,colourR, colourG, colourB);
+		circOut.scale(startTime, startTime, size, size);
+		circOut.fade(startTime, startTime + (duration * 2), 1, 0);
+	}
+	for(var quantity = 0; quantity < 6; quantity++){
+		var ee = new Sprite("SB/dot.png");
+		randomAngle = randomAngle + pipi / 12;
+		ee.move(1 ,startTime, startTime + (duration * 2), posX, posY, sin(randomAngle + ((pipi / 6)* quantity)) * distance + posX, cos(randomAngle + ((pipi / 3)* quantity)) * distance + posY);
+		ee.scale(startTime, startTime, 0.2, 0.2);
+		ee.fade(startTime, startTime + (duration * 2), 1, 0);
+	}
+	
+
+}
+
+// EXTRA
+/*
+smallExposion(336,175,163545);
+smallExposion(160,64,163701);
+smallExposion(72,215,163857);
+smallExposion(156,156,164013);
+smallExposion(140,376,164170);
+smallExposion(143,104,164326);
+smallExposion(336,175,164482);
+smallExposion(208,240,164638);
+smallExposion(359,268,164795);
+smallExposion(319,91,165107);
+smallExposion(228,328,165420);
+smallExposion(155,155,165576);
+smallExposion(424,200,165732);
+smallExposion(248,216,165888);
+smallExposion(332,272,166045);
+smallExposion(120,240,166201);
+smallExposion(318,91,166357);
+smallExposion(204,35,166591);
+smallExposion(52,168,166826);
+smallExposion(108,12,166982);
+smallExposion(248,216,167138);
+smallExposion(155,155,167295);
+smallExposion(256,104,167451);
+smallExposion(336,256,167607);
+smallExposion(156,304,167763);
+smallExposion(156,304,167841);
+smallExposion(156,304,167920);
+smallExposion(336,168,168232);
+smallExposion(72,192,168545);
+smallExposion(248,212,168701);
+smallExposion(40,272,168857);
+smallExposion(264,112,169013);
+smallExposion(4,120,169170);
+smallExposion(192,44,169326);
+smallExposion(104,144,169482);
+smallExposion(104,144,169560);
+smallExposion(104,144,169638);
+smallExposion(92,168,169951);
+smallExposion(92,168,170029);
+smallExposion(92,168,170107);
+smallExposion(208,280,170263);
+smallExposion(208,280,170341);
+smallExposion(208,280,170420);
+smallExposion(318,84,170576);
+smallExposion(336,220,170732);
+smallExposion(375,238,170810);
+smallExposion(420,236,170888);
+smallExposion(457,213,170966);
+smallExposion(480,175,171045);
+smallExposion(200,360,171513);
+smallExposion(280,12,171982);
+smallExposion(400,320,172451);
+smallExposion(104,144,172920);
+*/
+
+// SOTARKS
+/*
+smallExposion(171,118,163545);
+smallExposion(267,137,163701);
+smallExposion(130,188,163857);
+smallExposion(319,217,164013);
+smallExposion(90,118,164482);
+smallExposion(170,294,164638);
+smallExposion(170,117,165029);
+smallExposion(170,117,165107);
+smallExposion(251,238,165263);
+smallExposion(87,295,165420);
+smallExposion(39,360,165732);
+smallExposion(160,336,166045);
+smallExposion(224,168,166201);
+smallExposion(138,123,166513);
+smallExposion(315,209,166670);
+smallExposion(69,232,166826);
+smallExposion(365,131,167138);
+smallExposion(202,325,167451);
+smallExposion(376,118,167763);
+smallExposion(204,229,168076);
+smallExposion(204,229,168154);
+smallExposion(204,229,168232);
+smallExposion(237,61,168388);
+smallExposion(350,192,168545);
+smallExposion(212,327,168701);
+smallExposion(257,149,168857);
+smallExposion(441,94,169013);
+smallExposion(443,297,169170);
+smallExposion(259,242,169326);
+smallExposion(331,34,169482);
+smallExposion(366,217,169638);
+smallExposion(171,24,169795);
+smallExposion(66,282,169951);
+smallExposion(187,98,170107);
+smallExposion(149,322,170263);
+smallExposion(227,161,170420);
+smallExposion(238,348,170576);
+smallExposion(292,207,170732);
+smallExposion(336,346,170888);
+smallExposion(402,76,171045);
+smallExposion(433,345,171513);
+smallExposion(393,66,171982);
+smallExposion(443,332,172451);
+smallExposion(291,70,172920);
+*/
+
+//Kalibe
+/*
+smallExposion(409,178,163545);
+smallExposion(360,56,163701);
+smallExposion(260,160,163857);
+smallExposion(116,88,164013);
+smallExposion(212,340,164482);
+smallExposion(344,128,164795);
+smallExposion(448,240,165263);
+smallExposion(448,240,165420);
+smallExposion(252,136,165732);
+smallExposion(452,340,166045);
+smallExposion(96,276,166513);
+smallExposion(96,276,166591);
+smallExposion(96,276,166670);
+smallExposion(287,207,166982);
+smallExposion(128,176,167138);
+smallExposion(408,176,167607);
+smallExposion(340,44,167763);
+smallExposion(340,44,167841);
+smallExposion(340,44,167920);
+smallExposion(364,248,168232);
+smallExposion(424,144,168388);
+smallExposion(287,207,168545);
+smallExposion(460,264,168701);
+smallExposion(356,372,168857);
+smallExposion(230,131,169170);
+smallExposion(100,240,169326);
+smallExposion(248,53,169795);
+smallExposion(352,200,170107);
+smallExposion(118,161,170420);
+smallExposion(266,306,170732);
+smallExposion(124,136,171045);
+smallExposion(272,332,171513);
+smallExposion(256,32,171982);
+smallExposion(348,228,172451);
+smallExposion(92,264,172920);
+*/
+
+// HARD
+/*
+smallExposion(354,39,163545);
+smallExposion(354,39,163701);
+smallExposion(288,89,163857);
+smallExposion(217,36,164170);
+smallExposion(217,36,164326);
+smallExposion(152,86,164482);
+smallExposion(8,26,164795);
+smallExposion(64,239,165263);
+smallExposion(142,212,165420);
+smallExposion(285,159,165732);
+smallExposion(349,296,166045);
+smallExposion(414,246,166201);
+smallExposion(477,108,166513);
+smallExposion(436,35,166826);
+smallExposion(363,73,166982);
+smallExposion(218,34,167295);
+smallExposion(140,152,167607);
+smallExposion(179,294,167920);
+smallExposion(325,317,168232);
+smallExposion(396,275,168388);
+smallExposion(377,194,168545);
+smallExposion(400,42,168857);
+smallExposion(211,43,169326);
+smallExposion(103,107,169638);
+smallExposion(149,175,169795);
+smallExposion(104,244,169951);
+smallExposion(181,271,170263);
+smallExposion(246,220,170420);
+smallExposion(347,273,170732);
+smallExposion(454,229,171045);
+smallExposion(454,77,171513);
+smallExposion(307,30,171982);
+smallExposion(213,150,172451);
+smallExposion(308,267,172920);
+*/
+
+//NORMAL
+/*
+smallExposion(44,231,163545);
+smallExposion(132,283,164170);
+smallExposion(173,252,164638);
+smallExposion(221,270,164795);
+smallExposion(411,210,165420);
+smallExposion(420,101,165732);
+smallExposion(329,50,166045);
+smallExposion(182,111,166513);
+smallExposion(136,85,166670);
+smallExposion(91,111,167138);
+smallExposion(125,245,167607);
+smallExposion(218,289,167920);
+smallExposion(227,185,168545);
+smallExposion(405,99,169170);
+smallExposion(405,99,169326);
+smallExposion(199,125,169951);
+smallExposion(76,196,171045);
+*/
+
+//EASY
+/*
+smallExposion(284,249,163545);
+smallExposion(368,217,163857);
+smallExposion(185,48,165107);
+smallExposion(36,130,166045);
+smallExposion(35,39,167295);
+smallExposion(256,192,168545);
+smallExposion(256,192,171045);
+*/
+
+function lineFlipVert(startTime, endTime){
+
+	var thickness = 0.1;
+	var length = 7.5;
+	var left = -110;
+	var right = 750;
+	var apart = 20;
+	var centreY = 192 + 55;
+	var centreX = 256 + 65;
+	var longTick = 313;
+	var tick = 68 / 2;
+	var bottom = 520;
+	var top = -30; 
+	var count = 0;
+	
+	for(var ahh = bottom; ahh > top; ahh--){
+		var line = new Sprite("SB/square.jpg");
+		line.moveX(startTime, startTime, centreX, centreX);
+		line.moveY(startTime, startTime, ahh, ahh);
+		line.scaleVec(startTime, startTime, length, thickness, length, thickness);
+		line.fade(startTime + (count * tick), startTime + tick + (count * tick), 0, 1);
+		line.fade(startTime + tick + (count * tick), endTime, 1, 1);
+		line.color(255, 255, 255); // 128, 128, 255
+		
+		line.scaleVec(startTime + (tick * 16) + (count * tick), startTime + (16 * tick) + (count * tick) + (tick * 8), length, thickness, length, thickness * 2);
+		
+		count ++;
+	
+		ahh = ahh - apart;
+	}
+}
+
+
+
+function lineFlip(startTime, endTime){
+
+	var thickness = 0.1;
+	var length = 4.5;
+	var left = -110;
+	var right = 750;
+	var apart = 20;
+	var centreY = 192 + 55;
+	var mid = (endTime + startTime) / 2;
+	var longTick = 313;
+	var tick = 72 / 2;
+	var count = 0;
+	var colourR = 0;
+	var colourG = 0;
+	var colourB = 0;
+	
+	var expand = 781;
+
+	for(var nya = left; nya < right; nya++){
+		var line = new Sprite("SB/square.jpg");
+		line.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		line.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB); //WAS 0,0,0 UNTIL END
+		line.moveX(startTime, startTime, left + (apart * count), left + (apart * count));
+		line.moveY(startTime, startTime, centreY, centreY);
+		line.fade(startTime + (tick * count), startTime + tick + (tick * count), 0, 1);
+		line.fade(startTime + tick + (tick * count), endTime, 1, 1);
+		
+		line.scaleVec(startTime + (tick * count) + (tick), startTime + tick + (tick * count) + (tick * 4), thickness, length, thickness * 2, length);
+		
+		count++;
+	
+		nya = nya + (tick - 1);
+	}
+	
+	count = 0;
+	
+	for(var nya = right; nya > left; nya--){
+		var line = new Sprite("SB/square.jpg");
+		line.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		line.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB); //WAS 0,0,0 UNTIL END
+		line.moveX(startTime, startTime, right - (apart * count), right - (apart * count));
+		line.moveY(startTime, startTime, centreY, centreY);
+		line.fade(startTime + (tick * count), startTime + tick + (tick * count), 0, 1);
+		line.fade(startTime + tick + (tick * count), endTime, 1, 1);
+		
+		line.scaleVec(startTime + (tick * count) + (tick), startTime + tick + (tick * count) + (tick * 4), thickness, length, thickness * 2, length);
+
+		
+		count++;
+	
+		nya = nya - (tick - 1);
+	}
+}
+
+//lineFlip(114795, 116045);
+
+//KIAI PART LIKE PART BUT NOT KIAI
+/*
+lineFlip(161045,162295);
+lineFlipVert(161670, 163545);
+*/
+ //Final END
+/*
+lineFlip(257295,258545); //4 bars
+lineFlipVert(257920, 259638); //starts 2 bars after lineFlip (6 bars) 257451
+*/
+
+
+
+
+
+//First Set
+/*
+linePetal(131045,133545,256,192,70,1);
+linePetal(131045,133545,-40,300,50,0);
+linePetal(131045,133545,-20,-40,60,1);
+linePetal(131045,133545,540,50,50,0);
+linePetal(131045,133545,570,400,80,0);
+spinDisk(130732,130732,133545,256,192,0, 240); //-313 on start
+*/
+
+//Second Set
+/*
+linePetal(133545,136045,472,350,40,1);
+linePetal(133545,136045,120,-10,50,0);
+linePetal(133545,136045,0,200,40,0);
+linePetal(133545,136045,400,109,60,1);
+linePetal(133545,136045,200,374,65,1);
+spinDisk(133545-313,133545-313,136045,200,374,0, 240);
+*/
+
+//Third Set
+/*
+linePetal(136045,138545,280,280,65,1);
+linePetal(136045,138545,60,10,60,1);
+linePetal(136045,138545,0,300,40,0);
+linePetal(136045,138545,520,220,30,1);
+linePetal(136045,138545,450,20,50,0);
+spinDisk(136045-313,136045-313,138545,280,280,0, 240);
+*/
+
+//Fourth Set
+/*
+linePetal(138545,141045,290,220,45,1);
+linePetal(138545,141045,228,-70,50,0);
+linePetal(138545,141045,550,370,60,0);
+linePetal(138545,141045,120,410,50,1);
+linePetal(138545,141045,0,127,65,1);
+linePetal(138545,141045,512,36,60,1);
+spinDisk(138545-313,138545-313,141045,0,127,0, 240);
+*/
+
+//Fifth Set
+/*
+linePetal(141045,143545,70,-20,70,1);
+linePetal(141045,143545,50,295,50,0);
+linePetal(141045,143545,272,184,40,1);
+linePetal(141045,143545,473,50,50,0);
+linePetal(141045,143545,536,400,80,0);
+spinDisk(141045-313,141045-313,143545,70,-20,0, 240);
+*/
+
+//Sixth Set
+/*
+linePetal(143545,146045,360,72,50,0);
+linePetal(143545,146045,550,330,70,0);
+linePetal(143545,146045,-20,268,60,0);
+linePetal(143545,146045,260,310,40,1);
+linePetal(143545,146045,100,-10,50,1);
+spinDisk(143545-313,143545-313,146045,360,72,0, 240);
+*/
+
+/*
+spinDisk(58232,58232,59170,473,50,0, 180);
+spinDisk(60732,60732,61670,0,200,0,170);
+spinDisk(63232,63232,64170,290,220,0,220);
+spinDisk(65732,65732,66670,550,330,0,200);
+spinDisk(68232,68232,69170,280,280,0,220);
+*/
+
+function circlePetalBlade(startTime, endTime, distance) {
+
+
+	var fadeInStart = startTime;
+	var fadeInFinish = startTime + (1250 / 2);
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var pi = 3.141592;
+	var degToRad = 3.141592 / 180.0;
+	var tick = 79;
+	var angle = 0;
+	var addAngle = 0.0349066;
+	var petalSize = 0.4;
+	var masterAngle = 0;
+	var randomC = rand(77, 128);
+	var colourR = 255;
+	var colourG = 255;
+	var colourB = randomC;
+	var beginScope = 0;
+	var once = false;
+	var upRight = pi / 2 + pi;
+	
+
+	
+	for(var petalQuan = 0; petalQuan < 18; petalQuan++){
+	
+	var petal = new Sprite("SB/wing.png");
+	petal.scale(startTime, startTime, petalSize, petalSize);
+	petal.fade(fadeInStart, fadeInFinish, 0, 1);
+	petal.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+	for(var begin = startTime; begin < endTime; begin++){
+		petal.move(begin, begin + tick, distance * sin(angle) + centreX, distance * cos(angle) + centreY, distance * sin(angle+addAngle) + centreX, distance * cos(angle + addAngle) + centreY);
+		petal.rotate(begin, begin + tick, pi - angle + upRight, pi - (angle + addAngle)+ upRight);
+		begin = begin + (tick - 1);
+		angle = angle + addAngle;
+		beginScope = begin;
+	}
+	petal.move(1, beginScope, beginScope + (8 * tick), distance * sin(angle) + centreX, (distance) * cos(angle) + centreY, (distance + 100) * sin(angle + addAngle) + centreX, (distance + 100) * cos(angle + addAngle) + centreY);
+	petal.rotate(1, beginScope, beginScope + (8 * tick) + upRight, pi - angle, pi - (angle + (addAngle * 4))+ upRight);
+	if(once == false){
+//		tsubomi.fade(2, beginScope, beginScope + (8 * tick), 1, 0);
+		once = true;
+	}
+	petal.fade(beginScope, beginScope + (8 * tick), 1, 0);
+	petal.color(1, beginScope - (4 * tick), beginScope + (3 * tick), colourR, colourG, colourB, colourR, colourG, colourB);
+	randomC = rand(77, 128);
+	colourB = randomC;
+	masterAngle = masterAngle + (20 * degToRad);
+	angle = masterAngle;
+	}
+	
+	var tsubomi = new Sprite("SB/wingring.png");
+	tsubomi.fade(1, startTime - 313, startTime, 0 ,1);
+	tsubomi.fade(startTime, endTime - 313, 1, 1);
+	tsubomi.fade(endTime - 313, endTime, 1, 0);
+}
+
+//circlePetalBlade(151045, 161045, 200);
+
+
+
+function circlePetalBlue(startTime, endTime, distance) {
+
+
+	var fadeInStart = startTime;
+	var fadeInFinish = startTime + (1250 / 2);
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var pi = 3.141592;
+	var degToRad = 3.141592 / 180.0;
+	var tick = 79;
+	var angle = 0;
+	var addAngle = 0.0349066;
+	var petalSize = 0.15;
+	var masterAngle = 0;
+	var randomC = rand(77, 180);
+	var colourR = randomC;
+	var colourG = randomC;
+	var colourB = 255;
+	var beginScope = 0;
+	
+	var tsubomi = new Sprite("SB/w.png");
+	tsubomi.scale(startTime, endTime, 1, 1);
+	
+	for(var petalQuan = 0; petalQuan < 18; petalQuan++){
+	
+	var petal = new Sprite("SB/leaf.png");
+	petal.scale(startTime, startTime, petalSize, petalSize);
+	petal.fade(fadeInStart, fadeInFinish, 0, 1);
+	petal.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+	for(var begin = startTime; begin < endTime; begin++){
+		petal.move(begin, begin + tick, distance * sin(angle) + centreX, distance * cos(angle) + centreY, distance * sin(angle+addAngle) + centreX, distance * cos(angle + addAngle) + centreY);
+		petal.rotate(begin, begin + tick, pi - angle, pi - (angle + addAngle));
+		begin = begin + (tick - 1);
+		angle = angle + addAngle;
+		beginScope = begin;
+	}
+	petal.move(1, beginScope, beginScope + (8 * tick), distance * sin(angle) + centreX, (distance) * cos(angle) + centreY, (distance + 100) * sin(angle + addAngle) + centreX, (distance + 100) * cos(angle + addAngle) + centreY);
+	petal.rotate(1, beginScope, beginScope + (8 * tick), pi - angle, pi - (angle + (addAngle * 4)));
+	tsubomi.fade(2, beginScope, beginScope + (8 * tick), 1, 0);
+	petal.fade(beginScope, beginScope + (8 * tick), 1, 0);
+	petal.color(1, beginScope - (4 * tick), beginScope + (3 * tick), colourR, colourG, colourB, 255,50,50);
+	randomC = rand(77, 180);
+	colourR = randomC;
+	colourG = randomC;
+	masterAngle = masterAngle + (20 * degToRad);
+	angle = masterAngle;
+	}
+}
+
+function circlePetalRed(startTime, endTime, distance) {
+
+
+	var fadeInStart = startTime;
+	var fadeInFinish = startTime + (1250 / 2);
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var pi = 3.141592;
+	var degToRad = 3.141592 / 180.0;
+	var tick = 79;
+	var angle = 0;
+	var addAngle = 0.0349066;
+	var petalSize = 0.15;
+	var masterAngle = 0;
+	var randomC = rand(0, 102);
+	var colourR = 255;
+	var colourG = randomC;
+	var colourB = randomC;
+	var beginScope = 0;
+	
+	var tsubomi = new Sprite("SB/w.png");
+	tsubomi.scale(startTime, endTime, 1, 1);
+	
+	for(var petalQuan = 0; petalQuan < 18; petalQuan++){
+	
+	var petal = new Sprite("SB/leaf.png");
+	petal.scale(startTime, startTime, petalSize, petalSize);
+	petal.fade(fadeInStart, fadeInFinish, 0, 1);
+	petal.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+	for(var begin = startTime; begin < endTime; begin++){
+		petal.move(begin, begin + tick, distance * sin(angle) + centreX, distance * cos(angle) + centreY, distance * sin(angle+addAngle) + centreX, distance * cos(angle + addAngle) + centreY);
+		petal.rotate(begin, begin + tick, pi - angle, pi - (angle + addAngle));
+		begin = begin + (tick - 1);
+		angle = angle + addAngle;
+		beginScope = begin;
+	}
+	petal.move(1, beginScope, beginScope + (8 * tick), distance * sin(angle) + centreX, (distance) * cos(angle) + centreY, (distance + 100) * sin(angle + addAngle) + centreX, (distance + 100) * cos(angle + addAngle) + centreY);
+	petal.rotate(1, beginScope, beginScope + (8 * tick), pi - angle, pi - (angle + (addAngle * 4)));
+	tsubomi.fade(2, beginScope, beginScope + (8 * tick), 1, 0);
+	petal.fade(beginScope, beginScope + (8 * tick), 1, 0);
+	petal.color(1, beginScope - (4 * tick), beginScope + (3 * tick), colourR, colourG, colourB, 255,255,255);
+	randomC = rand(0, 102);
+	colourG = randomC;
+	colourB = randomC;
+	masterAngle = masterAngle + (20 * degToRad);
+	angle = masterAngle;
+	}
+}
+
+function gridDia(buffer, startTime, twistStart, twistEnd, endTime) {
+
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var angle = 0.785398;
+	var thickness = 0.1;
+	var length = 6.5;
+	var apart = 60;//how much lines are apart the from each other.
+	var tick = 79;
+	var bar = 1250;
+	var revAngle = 0;
+	var revAngleAdd = 0.1256637;
+	var rotationTimeMid = (twistEnd + twistStart) / 2;
+	var revTick = 25;
+	var fadeOutEasing = 1;
+	
+	for(var ii = -11; ii <= 11; ii++){
+		
+		var line = new Sprite("SB/square.jpg");
+		line.rotate(buffer, buffer, angle, angle);
+		line.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		line.move(buffer, buffer, centreX + (apart * ii), centreY, centreX + (apart * ii), centreY);
+		for(var rotationTime = twistStart; rotationTime < twistEnd; rotationTime++){
+		
+	//		line.move(rotationTime, rotationTime + revTick, (centreX + (apart * ii)) * sin(revAngle), centreY * cos(revAngle), centreX + (apart * ii) * sin(revAngle + revAngleAdd), centreY * cos(revAngle + revAngleAdd));
+			line.rotate(rotationTime, rotationTime + revTick,  - revAngle, -(revAngle + revAngleAdd));
+			rotationTime = rotationTime + (revTick - 1);
+			revAngle = revAngle + revAngleAdd;
+		}
+		if(ii != 0){
+		line.scaleVec(1, twistStart, rotationTimeMid, thickness, length, thickness, length / abs(ii * 3));
+		line.scaleVec(19, rotationTimeMid, twistEnd, thickness, length / abs(ii * 3), thickness, length - 2);
+		}
+		else{
+		line.scaleVec(1, twistStart, rotationTimeMid, thickness, length, thickness, length - 2);
+		line.scaleVec(19, rotationTimeMid, twistEnd, thickness, length - 2, thickness, length - 2);
+		}
+		
+		revAngle = 0;
+		
+		line.fade(buffer + abs(ii * (tick / 2)), buffer + abs(ii * (tick / 2)) + tick, 0, 1);
+		if((centreX + (apart * ii)) < -100 || (centreX + (apart * ii)) > 750){
+			line.fade(buffer + abs(ii * (tick / 2)) + tick, twistEnd, 1, 1);
+			line.fade(twistEnd, twistEnd + tick, 1, 0);
+		}
+		else{
+		line.fade(buffer + abs(ii * (tick / 2)) + tick, endTime - (bar / 2), 1, 1);
+		line.fade(fadeOutEasing, endTime - (bar / 2), endTime, 1 ,0);
+		}
+		
+	}
+	
+	for(var ii = -11; ii <= 11; ii++){
+	
+		var lineThing = new Sprite("SB/square.jpg");
+		lineThing.rotate(buffer, buffer, angle, angle);
+		lineThing.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		lineThing.move(buffer, buffer, centreX + (apart * ii) + (apart / 2), centreY, centreX + (apart * ii) + (apart / 2), centreY);
+		for(var repeat = 0; repeat <6; repeat++){
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + ((bar * 2) * repeat), buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat), 0, 1);
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat), buffer + abs(ii * (tick / 1.5)) + (tick * 2) + ((bar * 2) * repeat), 1 , 0);
+		}
+	}
+	
+	
+	for(var ii = -11; ii <= 11; ii++){
+	
+		var lineThing = new Sprite("SB/square.jpg");
+		lineThing.rotate(buffer, buffer, angle, angle);
+		lineThing.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		lineThing.move(buffer, buffer, centreX + (apart * ii) - (apart / 2), centreY, centreX + (apart * ii) - (apart / 2), centreY);
+		for(var repeat = 0; repeat <6; repeat++){
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + ((bar * 2) * repeat)+bar, buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat)+bar, 0, 1);
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat)+bar, buffer + abs(ii * (tick / 1.5)) + (tick * 2) + ((bar * 2) * repeat)+bar, 1 , 0);
+		}
+	}
+	
+	
+	var startX = -120;
+	var startY = 0;
+	var vertiY = -100;
+	var horiX = -170;
+	var distanceApart = 60;
+	var horiLength = 7.5;
+	var duration = (341 / 2);
+	var eachLatency = (341.0 / 6);
+	var eachLatencyy = (341.0 / 4);
+	var endPosX = 256 + 65;
+	var endPosY = 192 + 30;
+	
+	twistEnd  = twistEnd - (tick * 2);
+	
+	for(var f=0; f<=8; f++) {
+		var verticalLines = new Sprite("SB/square.jpg");
+		verticalLines.scaleVec(twistEnd, twistEnd + eachLatency, horiLength, thickness, horiLength, thickness);
+		verticalLines.move(twistEnd + eachLatencyy, twistEnd + duration + eachLatencyy, horiX, startY, endPosX, startY);
+		verticalLines.fade(twistEnd + eachLatencyy, twistEnd + duration + eachLatencyy, 0, 1);
+		verticalLines.fade(twistEnd + duration + eachLatencyy, endTime - (bar / 2), 1, 1);
+		verticalLines.fade(fadeOutEasing, endTime - (bar / 2), endTime, 1, 0);
+		startY = startY + 60;
+		eachLatencyy = eachLatencyy + (341.0 / 4);
+	}
+	
+	//Circle wave
+
+	
+	var circleSize = 0.1;
+	var circleSizeInc = 0.1;
+	//use apart as distance
+	
+	//-136, -40 is first circle
+	
+	var circleStart = twistEnd - (tick * 2);
+	
+	var left = -135 + 65;
+	var top = -25 + 55;
+	var right = 645 + 65;
+	var bottom = 400 + 55;
+	
+	var xCount = 1;
+	var yCount = 1;
+	
+	for(var yAxis = top; yAxis <= bottom; yAxis++){
+		for(var xAxis = left; xAxis <= right; xAxis++){
+			var circle = new Sprite ("SB/w.png");
+			circle.scale(twistEnd, endTime, circleSize, circleSize);
+			circle.moveX(twistEnd, twistEnd, xAxis, xAxis);
+			circle.moveY(twistEnd, twistEnd, yAxis, yAxis);
+			for(var asdf = 0; asdf<6; asdf++){
+				circle.fade(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), 0, 1);
+				circle.fade(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), 1, 0);
+				circle.scale(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize, circleSize + circleSizeInc);
+				circle.scale(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize + circleSizeInc, circleSize);
+			}
+			xCount++;
+			
+			xAxis = xAxis + (apart - 1);
+		}
+		xCount = 1;
+		yCount++;
+		yAxis = yAxis + (apart - 1);
+	}
+	yCount = 1;
+	
+	for(var yAxis = top; yAxis <= bottom; yAxis++){
+		for(var xAxis = right; xAxis >= left; xAxis--){
+			var circle = new Sprite ("SB/w.png");
+			circle.scale(twistEnd, endTime, circleSize, circleSize);
+			circle.moveX(twistEnd, twistEnd, xAxis, xAxis);
+			circle.moveY(twistEnd, twistEnd, yAxis, yAxis);
+			for(var asdf = 0; asdf<6; asdf++){
+				circle.fade(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), 0, 1);
+				circle.fade(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), 1, 0);
+				circle.scale(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize, circleSize + circleSizeInc);
+				circle.scale(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize + circleSizeInc, circleSize);
+			}
+			xCount++;
+			
+			xAxis = xAxis - (apart - 1);
+		}
+		xCount = 1;
+		yCount++;
+		yAxis = yAxis + (apart - 1);
+	}
+	yCount = 0;
+}
+
+/*
+gridDia(75888, 76045, 90732, 91357,  106045);
+circlePetalBlue(75888, 91045, 200);
+circlePetalRed(91357, 106045 ,200);
+*/
+
+
+
+function gridDia2(buffer, startTime, twistStart, twistEnd, endTime) {
+
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var angle = 0.785398 + (3.14159 / 2);
+	var thickness = 0.1;
+	var length = 6.5;
+	var apart = 60;//how much lines are apart the from each other.
+	var tick = 79;
+	var bar = 1250;
+	var revAngle = 0;
+	var revAngleAdd = 0.1256637;
+	var rotationTimeMid = (twistEnd + twistStart) / 2;
+	var revTick = 25;
+	var fadeOutEasing = 1;
+	
+	for(var ii = -11; ii <= 11; ii++){
+		
+		var line = new Sprite("SB/square.jpg");
+		line.rotate(buffer, buffer, angle, angle);
+		line.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		line.move(buffer, buffer, centreX + (apart * ii), centreY, centreX + (apart * ii), centreY);
+		for(var rotationTime = twistStart; rotationTime < twistEnd; rotationTime++){
+		
+	//		line.move(rotationTime, rotationTime + revTick, (centreX + (apart * ii)) * sin(revAngle), centreY * cos(revAngle), centreX + (apart * ii) * sin(revAngle + revAngleAdd), centreY * cos(revAngle + revAngleAdd));
+			line.rotate(rotationTime, rotationTime + revTick, revAngle, (revAngle + revAngleAdd));
+			rotationTime = rotationTime + (revTick - 1);
+			revAngle = revAngle + revAngleAdd;
+		}
+		if(ii != 0){
+		line.scaleVec(1, twistStart, rotationTimeMid, thickness, length, thickness, length / abs(ii * 3));
+		line.scaleVec(19, rotationTimeMid, twistEnd, thickness, length / abs(ii * 3), thickness, length - 2);
+		}
+		else{
+		line.scaleVec(1, twistStart, rotationTimeMid, thickness, length, thickness, length - 2);
+		line.scaleVec(19, rotationTimeMid, twistEnd, thickness, length - 2, thickness, length - 2);
+		}
+		
+		revAngle = 0;
+		
+		line.fade(buffer + abs(ii * (tick / 2)), buffer + abs(ii * (tick / 2)) + tick, 0, 1);
+		if((centreX + (apart * ii)) < -100 || (centreX + (apart * ii)) > 750){
+			line.fade(buffer + abs(ii * (tick / 2)) + tick, twistEnd, 1, 1);
+			line.fade(twistEnd, twistEnd + tick, 1, 0);
+		}
+		else{
+		line.fade(buffer + abs(ii * (tick / 2)) + tick, endTime - (bar / 2), 1, 1);
+		line.fade(fadeOutEasing, endTime - (bar / 2), endTime, 1 ,0);
+		}
+		
+	}
+	
+	for(var ii = -11; ii <= 11; ii++){
+	
+		var lineThing = new Sprite("SB/square.jpg");
+		lineThing.rotate(buffer, buffer, angle, angle);
+		lineThing.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		lineThing.move(buffer, buffer, centreX + (apart * ii) + (apart / 2), centreY, centreX + (apart * ii) + (apart / 2), centreY);
+		for(var repeat = 0; repeat <6; repeat++){
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + ((bar * 2) * repeat), buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat), 0, 1);
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat), buffer + abs(ii * (tick / 1.5)) + (tick * 2) + ((bar * 2) * repeat), 1 , 0);
+		}
+	}
+	
+	
+	for(var ii = -11; ii <= 11; ii++){
+	
+		var lineThing = new Sprite("SB/square.jpg");
+		lineThing.rotate(buffer, buffer, angle, angle);
+		lineThing.scaleVec(buffer, twistStart, thickness, length, thickness, length);
+		lineThing.move(buffer, buffer, centreX + (apart * ii) - (apart / 2), centreY, centreX + (apart * ii) - (apart / 2), centreY);
+		for(var repeat = 0; repeat <6; repeat++){
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + ((bar * 2) * repeat)+bar, buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat)+bar, 0, 1);
+			lineThing.fade(buffer + abs(ii * (tick / 1.5)) + tick + ((bar * 2) * repeat)+bar, buffer + abs(ii * (tick / 1.5)) + (tick * 2) + ((bar * 2) * repeat)+bar, 1 , 0);
+		}
+	}
+	
+	
+	var startX = -120;
+	var startY = 0;
+	var vertiY = -100;
+	var horiX = -170;
+	var distanceApart = 60;
+	var horiLength = 7.5;
+	var duration = (341 / 2);
+	var eachLatency = (341.0 / 6);
+	var eachLatencyy = (341.0 / 4);
+	var endPosX = 256 + 65;
+	var endPosY = 192 + 30;
+	
+	twistEnd  = twistEnd - (tick * 2);
+	
+	for(var f=0; f<=8; f++) {
+		var verticalLines = new Sprite("SB/square.jpg");
+		verticalLines.scaleVec(twistEnd, twistEnd + eachLatency, horiLength, thickness, horiLength, thickness);
+		verticalLines.move(twistEnd + eachLatencyy, twistEnd + duration + eachLatencyy, horiX, startY, endPosX, startY);
+		verticalLines.fade(twistEnd + eachLatencyy, twistEnd + duration + eachLatencyy, 0, 1);
+		verticalLines.fade(twistEnd + duration + eachLatencyy, endTime - (bar / 2), 1, 1);
+		verticalLines.fade(fadeOutEasing, endTime - (bar / 2), endTime, 1, 0);
+		startY = startY + 60;
+		eachLatencyy = eachLatencyy + (341.0 / 4);
+	}
+	
+	//Circle wave
+
+	
+	var circleSize = 0.1;
+	var circleSizeInc = 0.1;
+	//use apart as distance
+	
+	//-136, -40 is first circle
+	
+	var circleStart = twistEnd - (tick * 2);
+	
+	var left = -135 + 65;
+	var top = -25 + 55;
+	var right = 645 + 65;
+	var bottom = 400 + 55;
+	
+	var xCount = 1;
+	var yCount = 1;
+	
+	for(var yAxis = top; yAxis <= bottom; yAxis++){
+		for(var xAxis = left; xAxis <= right; xAxis++){
+			var circle = new Sprite ("SB/w.png");
+			circle.scale(twistEnd, endTime, circleSize, circleSize);
+			circle.moveX(twistEnd, twistEnd, xAxis, xAxis);
+			circle.moveY(twistEnd, twistEnd, yAxis, yAxis);
+			for(var asdf = 0; asdf<6; asdf++){
+				circle.fade(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), 0, 1);
+				circle.fade(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), 1, 0);
+				circle.scale(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize, circleSize + circleSizeInc);
+				circle.scale(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize + circleSizeInc, circleSize);
+			}
+			xCount++;
+			
+			xAxis = xAxis + (apart - 1);
+		}
+		xCount = 1;
+		yCount++;
+		yAxis = yAxis + (apart - 1);
+	}
+	yCount = 1;
+	
+	for(var yAxis = top; yAxis <= bottom; yAxis++){
+		for(var xAxis = right; xAxis >= left; xAxis--){
+			var circle = new Sprite ("SB/w.png");
+			circle.scale(twistEnd, endTime, circleSize, circleSize);
+			circle.moveX(twistEnd, twistEnd, xAxis, xAxis);
+			circle.moveY(twistEnd, twistEnd, yAxis, yAxis);
+			for(var asdf = 0; asdf<6; asdf++){
+				circle.fade(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), 0, 1);
+				circle.fade(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), 1, 0);
+				circle.scale(circleStart + (tick * (xCount - 1)) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize, circleSize + circleSizeInc);
+				circle.scale(circleStart + (tick * xCount) + (tick * (yCount - 1)) + (asdf * bar * 2), circleStart + ((tick * 2) * (xCount + 1)) + (tick * (yCount - 1)) + (asdf * bar * 2),circleSize + circleSizeInc, circleSize);
+			}
+			xCount++;
+			
+			xAxis = xAxis - (apart - 1);
+		}
+		xCount = 1;
+		yCount++;
+		yAxis = yAxis + (apart - 1);
+	}
+	yCount = 0;
+}
+
+/*
+gridDia2(209638, 209795, 224482, 225107, 239795);
+circlePetalRed(209638, 224795, 200);
+circlePetalBlue(224795, 239795, 200);
+*/
+
+function abs (number){ //absolute value... lmao
+
+	if(number > 0){
+	
+		return number;
+	
+	}
+	else{
+	
+		number = number * -1;
+		return number;
+	
+	}
+
+}
+
+function rainDrop (startTime, rep) {
+
+	var screenDimension_Left = -92 + 64;
+	var screenDimension_Right = 604 + 64;
+	var screenDimension_Top = -252 + 55;
+	var screenDimension_Bottom = 324 + 55;
+	var duration = 313;
+	var size = 1.2;
+	var addSize = 0.2;
+	
+	if(rep == 1){
+		for(var asdf = 0; asdf < 4; asdf++) {
+	
+			var posX = rand(screenDimension_Left, screenDimension_Right);
+			
+			var rain = new Sprite("SB/rain.png");
+			rain.move(startTime - duration + (duration * asdf), startTime + (duration * asdf), posX, screenDimension_Top, posX, screenDimension_Bottom);
+			rain.scale(startTime - duration + (duration * asdf), startTime + (duration * asdf), size, size + addSize);
+			rain.color(startTime + (duration * asdf), startTime + (duration * asdf), 0,0,0,0,0,0);
+			rain.fade(2,startTime - duration + (duration * asdf), startTime + (duration * asdf),1,0);
+			
+			var ripple = new Sprite("SB/drop.png");
+			ripple.move(startTime + (duration * asdf), startTime + (duration * asdf), posX, screenDimension_Bottom, posX, screenDimension_Bottom);
+			ripple.scale(startTime + (duration * asdf), startTime + (duration * 1.5) + (duration * asdf), 0, 1);
+			ripple.fade(startTime + (duration * asdf), startTime + (duration * 1.5) + (duration * asdf), 1, 0);
+			ripple.color(startTime + (duration * asdf), startTime + (duration * asdf), 0,0,0,0,0,0);
+		}
+	}
+	else{
+	
+		var posX = 256 + 64;
+			
+		var rain = new Sprite("SB/rain.png");
+		rain.move(startTime - duration, startTime, posX, screenDimension_Top, posX, screenDimension_Bottom);
+		rain.scale(startTime - duration, startTime, size, size + addSize);
+		rain.color(startTime - duration, startTime, 0,0,0,255,255,255);
+		rain.fade(2,startTime - duration, startTime,1,0);
+			
+		var ripple = new Sprite("SB/drop.png");
+		ripple.move(startTime, startTime, posX, screenDimension_Bottom, posX, screenDimension_Bottom);
+		ripple.scale(2, startTime, startTime + (duration * 3), 0, 1);
+		ripple.fade(startTime, startTime + (duration * 3), 1, 0);
+		ripple.color(startTime, startTime + (duration * 3), 0,0,0,255,255,255);
+	
+	}
+	
+	
+
+}
+/*
+rainDrop(71045,1);
+rainDrop(72295,1);
+rainDrop(73545,1);
+rainDrop(74795,0);
+*/
+ /*
+rainDrop(146045,1);
+rainDrop(147295,1);
+rainDrop(148545,1);
+rainDrop(149795,0);
+*/
+
+function linePetal(startTime, endTime, posX, posY, size, turnWay) {
+	var addSpin = 0.04;
+	posX = posX + 64.0;
+	posY = posY + 55.0;
+	var radius = size * 1.4;
+	var sizeX = (size / 200.0) / 4;
+	var sizeY = (size / 50.0);
+	var spin = 0.0;
+	var pi = 3.1415925;
+//	var addSpin = 0.06;
+	var scopeSize = size / 100.0;
+	var totalSpin = 0;
+	var durationBar = 313;
+	var durationTick = 79;
+	
+	var randX = rand(0, 30);
+	var randY = rand(0, 30);
+	var randNeg = rand(0, 3);
+	
+	if(randNeg == 1){
+		randX = randX * -1;
+	}
+	if(randNeg == 2){
+		randY = randY * -1;
+	}
+	if(randNeg == 3){
+		randX = randX * -1;
+		randY = randY * -1;
+	}
+	
+	if(turnWay == 1){
+	for(var quantity=1; quantity<25; quantity++){ //25 petals
+			var wing = new Sprite("SB/square.jpg",Foreground, Centre);
+			wing.scaleVec(1, startTime, startTime + durationBar, sizeX, 0, sizeX, sizeY/1);
+			wing.scaleVec(startTime + durationBar, endTime - durationBar * 2, sizeX, sizeY/1, sizeX, sizeY/1.4);
+			wing.scaleVec(2, endTime - durationBar * 2, endTime, sizeX, sizeY/1.4, sizeX, 0);
+			wing.fade(startTime, startTime + durationBar, 0, 1);
+			wing.fade(startTime + durationBar, endTime - durationBar * 2, 1, 1);
+			wing.fade(endTime - durationBar * 2, endTime, 1, 0);
+			// wing.move(startTime, endTime, posX, posY, posX + randX, posY + randY);
+			for(var i=startTime; i<endTime; i++){
+				wing.move(i, i + durationTick, (radius * sin(spin)) + posX, (radius * cos(spin)) + posY, (radius * sin(spin - addSpin)) + posX, (radius * cos(spin - addSpin)) + posY);
+				wing.rotate(i, i + durationTick, -spin, -spin + (addSpin));
+				spin = spin - addSpin;
+				i = i + durationTick;
+			}
+			spin = (0.261799 * quantity); //petal location
+		}
+	}
+	
+	if(turnWay == 0){
+	for(var quantity=1; quantity<25; quantity++){ //25 petals
+			var wing = new Sprite("SB/square.jpg",Foreground, Centre);
+			wing.scaleVec(1, startTime, startTime + durationBar, sizeX, 0, sizeX, sizeY/1);
+			wing.scaleVec(startTime + durationBar, endTime - durationBar * 2, sizeX, sizeY/1, sizeX, sizeY/1.4);
+			wing.scaleVec(2, endTime - durationBar * 2, endTime, sizeX, sizeY/1.4, sizeX, 0);
+			wing.fade(startTime, startTime + durationBar, 0, 1);
+			wing.fade(startTime + durationBar, endTime - durationBar * 2, 1, 1);
+			wing.fade(endTime - durationBar * 2, endTime, 1, 0);
+			// wing.move(startTime, endTime, posX, posY, posX + randX, posY + randY);
+			for(var i=startTime; i<endTime; i++){
+				wing.move(i, i + durationTick, (radius * sin(spin)) + posX, (radius * cos(spin)) + posY, (radius * sin(spin + addSpin)) + posX, (radius * cos(spin + addSpin)) + posY);
+				wing.rotate(i, i + durationTick, -spin, -spin - (addSpin));
+				spin = spin + addSpin;
+				i = i + durationTick;
+			}
+			spin = (0.261799 * quantity); //petal location
+		}
+	}
+	
+}
+
+//linePetal(177928, 186608, -100, 68, 70, 1, 0.04);
+//linePetal(177928, 186608, 450, 130, 40, 0, 0.04);
+//linePetal(177928, 186608, 236, 380, 50, 0, 0.04);
+
+//function linePetal(startTime, endTime, posX, posY, size, turnWay, addSpin) {
+
+//First Set
+/*
+linePetal(56045,58545,256,192,70,1);
+linePetal(56045,58545,10,350,50,0);
+linePetal(56045,58545,-20,100,40,1);
+linePetal(56045,58545,540,50,50,0);
+linePetal(56045,58545,570,400,80,0);
+*/
+
+//Second Set
+/*
+linePetal(58545,61045,70,-20,70,1);
+linePetal(58545,61045,50,295,50,0);
+linePetal(58545,61045,272,184,40,1);
+linePetal(58545,61045,473,50,50,0);
+linePetal(58545,61045,536,400,80,0);
+*/
+
+//Third Set
+/*
+linePetal(61045,63545,472,350,40,1);
+linePetal(61045,63545,120,-10,50,0);
+linePetal(61045,63545,0,200,40,0);
+linePetal(61045,63545,400,109,60,1);
+linePetal(61045,63545,200,374,65,1);
+*/
+
+//Fourth Set
+/*
+linePetal(63545,66045,290,220,45,1);
+linePetal(63545,66045,228,-70,50,0);
+linePetal(63545,66045,550,370,60,0);
+linePetal(63545,66045,120,410,50,1);
+linePetal(63545,66045,0,127,65,1);
+linePetal(63545,66045,512,36,60,1);
+*/
+
+//Fifth Set
+/*
+linePetal(66045,68545,360,72,50,0);
+linePetal(66045,68545,550,330,70,0);
+linePetal(66045,68545,-20,268,60,0);
+linePetal(66045,68545,260,310,40,1);
+linePetal(66045,68545,100,-10,50,1);
+*/
+
+//Sixth Set
+/*
+linePetal(68545,71045,280,280,65,1);
+linePetal(68545,71045,60,10,60,1);
+linePetal(68545,71045,0,300,40,0);
+linePetal(68545,71045,520,220,30,1);
+linePetal(68545,71045,450,20,50,0);
+*/
+
+function linePetalModded(startTime, endTime, posX, posY, size, turnWay, startRad) {
+	var addSpin = 0.04;
+	posX = posX + 64.0;
+	posY = posY + 55.0;
+	var radius = size * 1.4;
+	var sizeX = (size / 200.0) / 4;
+	var sizeY = (size / 50.0);
+	var spin = startRad;
+	var pi = 3.1415925;
+//	var addSpin = 0.06;
+	var scopeSize = size / 100.0;
+	var totalSpin = 0;
+	var durationBar = 313;
+	var durationTick = 79;
+	
+	var randX = rand(0, 30);
+	var randY = rand(0, 30);
+	var randNeg = rand(0, 3);
+	
+	if(randNeg == 1){
+		randX = randX * -1;
+	}
+	if(randNeg == 2){
+		randY = randY * -1;
+	}
+	if(randNeg == 3){
+		randX = randX * -1;
+		randY = randY * -1;
+	}
+	
+	if(turnWay == 1){
+	for(var quantity=1; quantity<25; quantity++){ //25 petals
+			var wing = new Sprite("SB/square.jpg",Foreground, Centre);
+			wing.scaleVec(1, startTime, startTime + durationBar, sizeX, 0, sizeX, sizeY/1);
+			wing.scaleVec(startTime + durationBar, endTime - durationBar * 2, sizeX, sizeY/1, sizeX, sizeY/1.4);
+			wing.scaleVec(2, endTime - durationBar * 2, endTime, sizeX, sizeY/1.4, sizeX, 0);
+			wing.fade(startTime, startTime + durationBar, 0, 1);
+			wing.fade(startTime + durationBar, endTime - durationBar * 2, 1, 1);
+			wing.fade(endTime - durationBar * 2, endTime, 1, 0);
+			for(var i=startTime; i<endTime; i++){
+				wing.move(i, i + durationTick, (radius * sin(spin)) + posX, (radius * cos(spin)) + posY, (radius * sin(spin - addSpin)) + posX, (radius * cos(spin - addSpin)) + posY);
+				wing.rotate(i, i + durationTick, -spin + (pi / 2), -spin + (addSpin) + (pi / 2));
+				spin = spin - addSpin;
+				i = i + durationTick;
+			}
+			spin = startRad + (0.261799 * quantity); //petal location
+		}
+	}
+	
+	if(turnWay == 0){
+	for(var quantity=1; quantity<25; quantity++){ //25 petals
+			var wing = new Sprite("SB/square.jpg",Foreground, Centre);
+			wing.scaleVec(1, startTime, startTime + durationBar, sizeX, 0, sizeX, sizeY/1);
+			wing.scaleVec(startTime + durationBar, endTime - durationBar * 2, sizeX, sizeY/1, sizeX, sizeY/1.4);
+			wing.scaleVec(2, endTime - durationBar * 2, endTime, sizeX, sizeY/1.4, sizeX, 0);
+			wing.fade(startTime, startTime + durationBar, 0, 1);
+			wing.fade(startTime + durationBar, endTime - durationBar * 2, 1, 1);
+			wing.fade(endTime - durationBar * 2, endTime, 1, 0);
+			for(var i=startTime; i<endTime; i++){
+				wing.move(i, i + durationTick, (radius * sin(spin)) + posX, (radius * cos(spin)) + posY, (radius * sin(spin + addSpin)) + posX, (radius * cos(spin + addSpin)) + posY);
+				wing.rotate(i, i + durationTick, -spin + (pi / 2), -spin - (addSpin) + (pi / 2));
+				spin = spin + addSpin;
+				i = i + durationTick;
+			}
+			spin = startRad + (0.261799 * quantity); //petal location
+		}
+	}
+	
+}
+/*
+linePetalModded(188545, 208545, 256, 192, 80, 0, 0);
+linePetalModded(188545, 208545, 256, 192, 50, 0, 0.135);
+linePetalModded(188545, 208545, 256, 192, 25, 0, 0);
+*/
+
+function spinDisk(startTime, switch, endTime, centreX, centreY, setAngle, dist){
+
+//Modified function
+
+	var centerX = centreX + 64;
+	var centerY = centreY + 55;
+	var initAngle = setAngle;
+	var oneTick = 79;
+	var radistance = dist;
+	var curAngle = setAngle;
+	var curAngleDiff = 0.0349066;
+	var thickness = 0.1;
+	var length = 0.3;
+	var rotateAngle = 0;
+	
+	// Angle apart from each other
+	var setIndiv = 0.174533;
+	
+	for(var quant = 0; quant < 36; quant++){
+		var petal = new Sprite("SB/square.jpg");
+		petal.fade(startTime, startTime + (oneTick * 2), 0, 0);
+	//	petal.color(0,0,0);
+		petal.scaleVec(startTime, startTime, thickness, length, thickness, length);
+		for(var a=startTime; a<=switch; a++){
+			rotateAngle = 0 - curAngle;
+	//		petal.move(a, a + oneTick, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, radistance * sin(curAngle + curAngleDiff) + centerX, radistance * cos(curAngle + curAngleDiff) + centerY);
+			petal.rotate(a, a + oneTick, rotateAngle, (0 - (curAngle + curAngleDiff)));
+			curAngle = curAngle + curAngleDiff;
+			rotateAngle = 0 - curAngle;
+			
+			a = a + (oneTick - 1); //79
+		}
+		initAngle = initAngle + setIndiv;
+		curAngle = initAngle;
+		
+	//	petal.color(switch, switch + (316 * 1), 0, 0, 0, 255, 64, 0);
+	//	petal.move(2, switch, switch + (316 * 1), radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY, centerX, centerY);
+		petal.rotate(switch, switch, rotateAngle, (0 - (curAngle + curAngleDiff)));
+	//	petal.color(switch + (316 * 1), switch + (316 * 5), 0, 0, 0, 51, 51, 255);
+		petal.move(7, switch + (316 * 1), switch + (316 * 5), centerX, centerY, radistance * sin(curAngle) + centerX, radistance * cos(curAngle) + centerY);
+		petal.fade(2, switch + (316 * 1), switch + (316 * 5), 1, 0);
+	}
+}
+
+//spinDisk(10732, 10732, 11670,256,192, 0, 240);
+//spinDisk(55732,55732,56670,256,192,0,220);
+/*
+spinDisk(58232,58232,59170,473,50,0, 180);
+spinDisk(60732,60732,61670,0,200,0,170);
+spinDisk(63232,63232,64170,290,220,0,220);
+spinDisk(65732,65732,66670,550,330,0,200);
+spinDisk(68232,68232,69170,280,280,0,220);
+*/
+
+function lightWave(startTime, endTime, interval, colourR, colourG, colourB){
+// This method took exactly 3 hours to write!
+
+	startTime = startTime - 313;
+	endTime = endTime - 313;
+	var switchToEven = true;
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var size = 0.2;
+	var distanceX = 180;
+	var distanceY = 50;
+	var twoBar = 156;
+	var delay = twoBar * 2;
+	
+	var easeStart = 2;
+	var easeEnd = 1;
+	
+	for(var lines = -5; lines < 6; lines++) {
+	
+		if(switchToEven == false) {
+		
+			for(var asddf = 0; asddf < 3; asddf++){
+				for(var asdff = 0; asdff < 2; asdff++){
+				//	println(asddf == 0 && asdff == 0);
+					if(asddf == 0 && asdff == 0) { //Run once for middle odd line.
+					/*
+						var beeHivee = new Sprite("SB/hex.png");
+						beeHivee.scale(startTime, startTime, size, size);
+						beeHivee.move(startTime, startTime, centreX + ((distanceX * asddf) * negative(asdff)), centreY + (distanceY * lines), centreX + ((distanceX * asddf) * negative(asdff)), centreY + (distanceY * lines));
+						beeHivee.fade(easeStart, startTime, startTime + interval * (1.00/3.00), 0, 1);
+						beeHivee.fade(easeEnd, startTime + interval * (1.00/3.00), startTime + interval, 1, 0);
+						break;
+						println("Run");
+						*/
+						
+						//Fuck this code. B-baka I never needed this code anyways =3=
+					}
+					else{
+						var beeHivee = new Sprite("SB/hex.png");
+						beeHivee.scale(startTime, startTime, size, size);
+						beeHivee.move(startTime, startTime, centreX + ((distanceX * asddf) * negative(asdff)), centreY + (distanceY * lines), centreX + ((distanceX * asddf) * negative(asdff)), centreY + (distanceY * lines));	
+						beeHivee.fade(easeStart, startTime + delay * (2*asddf), startTime + delay * (2*asddf) + interval * (1.00/4.00), 0, 1);
+						beeHivee.fade(easeEnd, startTime + delay * (2*asddf) + interval * (1.00/4.00),startTime + delay * (2*asddf) + interval, 1, 0);
+						beeHivee.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+					}
+				}
+			}
+			switchToEven = true;
+		}
+		else{
+			
+			for(var asddf = 0; asddf < 3; asddf++){
+				for(var asdff = 0; asdff < 2; asdff++){
+				var beeHivee = new Sprite("SB/hex.png");
+				beeHivee.scale(startTime, startTime, size, size);
+				beeHivee.move(startTime, startTime, centreX + ((distanceX / 2) * negative(asdff)) + ((distanceX * asddf) * negative(asdff)), centreY + (distanceY * lines),centreX + ((distanceX / 2) * negative(asdff)) + ((distanceX * asddf) * negative(asdff)) , centreY + (distanceY * lines));
+				beeHivee.fade(easeStart, startTime + delay * ((2*asddf) + 1), startTime + delay * ((2*asddf) + 1) + interval * (1.00/4.00), 0, 1);
+				beeHivee.fade(easeEnd, startTime + delay * ((2*asddf) + 1) + interval * (1.00/4.00), startTime + delay * ((2*asddf) + 1) + interval, 1, 0);
+				beeHivee.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+			//	println("what is " + asddf + " power of: "+2*(asddf));
+				}
+			}
+			switchToEven = false;
+		}
+	
+	}
+
+}
+/*
+lightWave(41045, 43545, 2500, 194, 239, 194);
+lightWave(43545, 46045, 2500, 194, 239, 194);
+lightWave(46045, 48545, 2500, 194, 239, 194);
+lightWave(48545, 51045, 2500, 194, 239, 194);
+lightWave(51045, 53388, 2500, 194, 239, 194);
+*/
+/*
+lightWave(116045,118545, 2500, 179, 153, 255);
+lightWave(118545,121045, 2500, 179, 153, 255);
+lightWave(121045,123545, 2500, 179, 153, 255);
+lightWave(123545,124795, 1250, 179, 153, 255);
+
+lightWave(126045,128545, 2500, 255, 173, 51);
+*/
+
+function negative(activate) {
+
+if(activate == 1){
+	return -1;
+}
+else{
+	return 1;
+}
+
+return 0;
+}
+
+function hanaOne (startTime, endTime) {
+
+//This function took 2 hours to write!
+
+	var distance = 0;
+	var angleAdd = -0.174533;
+	var distanceInc = 1.5;
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var angle = 0;
+	var petalHeight = 0.3;
+	var petalWidth = 0.1;
+	var twoBar = 156;
+	var nintyDeg = 1.5708;
+	var particles = 283;
+	var colourR = 213;
+	var colourG = 42;
+	var colourB = 42; // meaning of life!
+	var colourChange = 5000;
+	
+	for(var assdf = 0; assdf < 283; assdf++){
+		if(!((centreY + cos(angle) * distance) < -40) && !((centreY + cos(angle) * distance) > 500)) {
+			var petalBox = new Sprite("SB/square.jpg");
+			petalBox.scaleVec(startTime, startTime, petalWidth, petalHeight, petalWidth, petalHeight);
+			petalBox.move(startTime, startTime, centreX + sin(angle) * distance, centreY + cos(angle) * distance, centreX + sin(angle) * distance, centreY + cos(angle) * distance);
+			petalBox.fade(0,startTime, startTime + 313, 0, 1);
+			petalBox.fade(21, startTime + 313, endTime - (2500 / particles) * assdf, 1, 0);
+//			petalBox.color(startTime, startTime + colourChange, 255, 255, 255, colourR, colourG, colourB);
+//			petalBox.color(startTime + colourChange, startTime + (colourChange * 2), colourR, colourG, colourB, 77, 77, 179);
+//			petalBox.color(1, startTime, startTime + (colourChange * 3),255, 255 ,255, 255, 255 ,255);
+			petalBox.rotate(startTime, startTime, -angle, -angle);
+		}
+		angle = angle + angleAdd;
+		distance = distance + distanceInc;
+	}
+	
+	
+
+}
+//hanaOne(53232,56045);
+//hanaOne(128232,131045);
+
+function wall(startTime, endTime, distance, size, colourR, colourG, colourB, flashEnable) {
+
+//This function took 5.5 hours to write!
+
+	var angle = 0;
+	var angleAdd = -0.174533;
+	var spinPast = 0;
+	var startTimeLoop = 0;
+	var twoBar = 156;
+	var varyBar = twoBar / size;
+	var centreX = 256 + 64;
+	var centreY = 196 + 55;
+	var topHide = false;
+	var bottomHide = false;
+	
+	for(var aasdf = 0; aasdf < 19; aasdf ++) {
+		var wallThing = new Sprite("SB/w.png");
+		wallThing.color(startTime, startTime, colourR, colourG, colourB, colourR, colourG, colourB);
+		topHide = false;
+		bottomHide = false;
+		for (var asdf = startTime; asdf < endTime; asdf++) {
+			startTimeLoop = asdf;
+			wallThing.move(startTimeLoop, startTimeLoop + varyBar, centreX + sin(angle) * distance, centreY + cos(angle) * distance, centreX + sin(angle + angleAdd) * distance, centreY + cos(angle + angleAdd) * distance);
+			if(startTime + (twoBar) < startTimeLoop){
+				if(centreY + cos(angle) * distance < -70){
+					if(topHide == false){
+						wallThing.fade(startTimeLoop - (varyBar / 2), startTimeLoop, 1, 0);
+					}
+				topHide = true;
+				}
+				else if(centreY + cos(angle) * distance > -70){
+					if(topHide){
+						wallThing.fade(startTimeLoop - ((varyBar) + (varyBar / 2)), startTimeLoop - (varyBar), 0, 1);
+					}
+				topHide = false;
+				}
+				if(centreY + cos(angle + angleAdd) * distance > 550){
+					if(bottomHide == false){
+						wallThing.fade(startTimeLoop + (varyBar / 2), startTimeLoop + varyBar, 1, 0);
+					}
+					bottomHide = true;
+				}
+				else if(centreY + cos(angle) * distance < 550){
+					if(bottomHide) {
+						wallThing.fade(startTimeLoop - ((varyBar) + (varyBar / 2)), startTimeLoop - (varyBar), 0, 1);
+					}
+					bottomHide = false;
+				}
+			}
+			asdf = asdf + (varyBar - 1);
+			angle = angle + angleAdd;
+		//	startTimeLoop = startTimeLoop + twoBar;
+		}
+		wallThing.fade(startTime, startTime + twoBar, 0, 0.9);
+		
+		//Flash
+		if(flashEnable){
+			if(topHide == false){
+				wallThing.fade(34482,35966,0.9,0.7);
+				wallThing.fade(35966,36045,0.7,1);
+			}
+			if(bottomHide == false){
+				wallThing.fade(34482,35966,0.9,0.7);
+				wallThing.fade(35966,36045,0.7,1);
+			}
+		}
+			
+		wallThing.scale(startTime, startTime, size, size);
+		angle = aasdf * (angleAdd * 2);
+		wallThing.fade(40966, 40966, 0, 0); // Prevent SB overload
+		//wallThing.fade(endTime - (twoBar / 2), endTime - (twoBar / 2), 1, 0);
+		wallThing.color(1, endTime - 469, endTime, colourR, colourG, colourB, 47, 62, 106);
+		//varyBar = twoBar / size;
+	}
+}
+// (START / END / DISTANCE FROM CENTRE / SIZE OF CIRCLE / R / G / B / Flash enable (hard coded timestamp))
+/*
+wall(31357,41045,190,0.3,62, 82, 142,true);
+wall(31210,41045,240,0.35,78, 103, 177,true);
+wall(31045,41045,295,0.4,113, 133, 193,true);
+wall(30888,41045,360,0.5,149, 164, 208,false);
+wall(30732,41045,440,0.65,184, 194, 224,false);
+*/
+
+function circlePetalFireworks(startTime, endTime) {
+
+	var size = rand(20, 100);
+	size = size / 100.0;
+	var angle = 0;
+	var changeAngle = 0.785398;
+	var degToRad = 3.14159 / 180;
+	var newThing = 1250;
+	var minXBoundary = -104 + 64;
+	var maxXBoundary = 624 + 64;
+	var minYBoundary = 8 + 55;
+	var maxYBoundary = 328 + 55;
+	var expand = 937;
+	var expandDistance = 20;
+	var startDistance = 10;
+	
+	var randX = rand(minXBoundary, maxXBoundary);
+	var randY = rand(minYBoundary, maxYBoundary);
+	
+	for(var repeat = startTime; repeat < endTime; repeat++){
+		for(var asdf = 1; asdf <= 8; asdf++){
+			var petal = new Sprite("SB/leaf.png");
+			petal.rotate(repeat, repeat, -angle, -angle);
+		//	println(angle);
+			petal.scale(repeat, repeat, size / 5, size / 5);
+			petal.move(1, repeat, repeat + expand, randX + sin(angle) * startDistance, randY + cos(angle) * startDistance, randX + sin(angle) * (startDistance + expandDistance), randY + cos(angle) * (startDistance + expandDistance));
+			petal.color(255,77,77);
+			petal.fade(repeat - 313, repeat, 0, 1);
+			petal.fade(1, repeat, repeat + expand, 1, 0);
+			
+			angle = changeAngle + angle;
+		//	println(angle);
+		}
+		var centreFlower = new Sprite("SB/w0.png");
+		centreFlower.scale(repeat, repeat, size/4, size/4);
+		centreFlower.fade(repeat - 313, repeat, 0, 1);
+		centreFlower.fade(1, repeat, repeat + expand, 1, 0);
+		centreFlower.move(repeat, repeat, randX, randY, randX, randY);
+		
+		randX = rand(minXBoundary, maxXBoundary);
+		randY = rand(minYBoundary, maxYBoundary);
+		repeat = repeat + (newThing - 1);
+	}
+}
+
+//circlePetalFireworks(22295, 30420);
+//circlePetalFireworks(21670, 31045);
+
+function circlePetal(startTime, endTime, distance) {
+
+
+	var fadeInStart = 21670;
+	var fadeInFinish = 21982;
+	var centreX = 256 + 64;
+	var centreY = 192 + 55;
+	var pi = 3.141592;
+	var degToRad = 3.141592 / 180.0;
+	var tick = 79;
+	var angle = 0;
+	var addAngle = 0.0349066;
+	var petalSize = 0.15;
+	var masterAngle = 0;
+	var colourR = 255;
+	var colourG = rand(50, 90);
+	var colourB = colourG;
+	var beginScope = 0;
+	
+	for(var petalQuan = 0; petalQuan < 18; petalQuan++){
+	
+	var petal = new Sprite("SB/leaf.png", Background, Centre);
+	petal.scale(startTime, startTime, petalSize, petalSize);
+	petal.fade(fadeInStart, fadeInFinish, 0, 1);
+	petal.color(colourR, colourG, colourB);
+	for(var begin = startTime; begin < endTime; begin++){
+		petal.move(begin, begin + tick, distance * sin(angle) + centreX, distance * cos(angle) + centreY, distance * sin(angle+addAngle) + centreX, distance * cos(angle + addAngle) + centreY);
+		petal.rotate(begin, begin + tick, pi - angle, pi - (angle + addAngle));
+		begin = begin + (tick - 1);
+		angle = angle + addAngle;
+		beginScope = begin;
+	}
+	petal.move(1, beginScope, beginScope + (8 * tick), distance * sin(angle) + centreX, (distance) * cos(angle) + centreY, (distance + 100) * sin(angle + addAngle) + centreX, (distance + 100) * cos(angle + addAngle) + centreY);
+	petal.rotate(1, beginScope, beginScope + (8 * tick), pi - angle, pi - (angle + (addAngle * 4)));
+	petal.fade(beginScope, beginScope + (8 * tick), 1, 0);
+	colourG = rand(50, 90);
+	colourB = colourG;
+	masterAngle = masterAngle + (20 * degToRad);
+	angle = masterAngle;
+	}
+}
+
+//circlePetal(21670, 30732, 200);
+
+
+
+function white (startTime, endTime){
+	var whiteThings = new Sprite ("SB/square.jpg", Background, Centre);
+	whiteThings.scaleVec(0, startTime, startTime, 7.5, 4.5, 7.5, 4.5);
+	whiteThings.fade(0, startTime, endTime, 1, 1);
+}
+
+//white(11045,21045);
+//white(21045, 31045);
+
+function edgeBounce(startTime, endTime) {
+
+	var spacing = 25;
+	var thickness = 0.1;
+	var width = 0.115;
+	var topY = -32 + 55;
+	var bottomY = 450;
+	var middleY = 247;
+	
+	var startFade = 157;
+	
+	var variTime = startTime;
+
+	// Top
+	for(var aaaa = (-180 + 64); aaaa < (705+55); aaaa++) {
+		var dotLines = new Sprite("SB/square.jpg");
+		dotLines.scaleVec(startTime, startTime, width, thickness, width, thickness);
+		dotLines.moveY(startTime, variTime, topY, topY);
+		dotLines.moveY(2, variTime, variTime + startFade, topY, middleY);
+		dotLines.moveX(startTime, startTime, aaaa, aaaa);
+		dotLines.scaleVec(2, variTime, variTime + startFade, width, thickness, width, 4.5);
+		dotLines.fade(startTime - startFade, startTime, 0, 1);
+		dotLines.fade(startTime, endTime, 1, 1);
+		
+		variTime = variTime + 15;
+		aaaa = aaaa + (spacing - 1);
+	}
+	
+	// Bottom
+	
+	for(var aaaa = 772; aaaa > (-116); aaaa--) {
+		var dotLines = new Sprite("SB/square.jpg");
+		dotLines.scaleVec(startTime, startTime, width, thickness, width, thickness);
+		dotLines.moveY(startTime, variTime, bottomY, bottomY);
+		dotLines.moveY(2, variTime, variTime + startFade, bottomY, middleY);
+		dotLines.moveX(startTime, startTime, aaaa, aaaa);
+		dotLines.scaleVec(2, variTime, variTime + startFade, width, thickness, width, 4.5);
+		dotLines.fade(startTime - startFade, startTime, 0, 1);
+		dotLines.fade(startTime, endTime, 1, 1);
+		
+		variTime = variTime + 15;
+		aaaa = aaaa - (spacing - 1);
+		
+	}
+	
+
+}
+//edgeBounce(9795, 11045);
+
+function dripLast (emphasis){
+
+	var pi = 3.14159265;
+	
+	var squareSizeX = 0.025;
+	var squareSizeY = 0.07;
+	
+	var addAngle = 0.1570795;
+	var radDistance = 50;
+	var curAngle = 0;
+	
+	var veryCentreX = 256 + 64;
+	var veryCentreY = 192 + 55;
+	
+	var emph = emphasis;
+	
+	var oneTick = 312;
+	
+	for(var ayy = 1; ayy <= 4; ayy++){
+		while(curAngle < (pi * 2) - 0.01) {
+			var spreadEffect = new Sprite("SB/square.jpg");
+			spreadEffect.color(255, 255, 255);
+			spreadEffect.fade(2, emphasis, emphasis  + (oneTick / 2), 0, 1);
+			spreadEffect.fade(1, emphasis + (oneTick / 2), emphasis + (oneTick), 1, 0);
+			spreadEffect.rotate(0, emphasis, emphasis, 0 - curAngle, 0 - curAngle);
+			spreadEffect.scaleVec(0, emphasis, emphasis, squareSizeX + (0.02 * ayy), squareSizeY, squareSizeX + (0.02 * ayy), squareSizeY);
+			spreadEffect.move(0, emphasis, emphasis, radDistance * sin(curAngle) + veryCentreX, radDistance * cos(curAngle) + veryCentreY, radDistance * sin(curAngle) + veryCentreX, radDistance * cos(curAngle) + veryCentreY);
+			curAngle = curAngle + addAngle;
+		
+		}
+		radDistance = 40 + (20 * ayy);
+		emphasis = emph + (oneTick * ayy);
+		curAngle = 0;
+	}
+	
+	radDistance = 50; //Reset
+}
+
+function drip (emphasis) {
+
+var pi = 3.14159265;
+	
+	var squareSizeX = 0.025;
+	var squareSizeY = 0.07;
+	
+	var addAngle = 0.1570795;
+	var radDistance = 60;
+	var curAngle = 0;
+	
+	var veryCentreX = 256 + 64;
+	var veryCentreY = 192 + 55;
+	
+	var emph = emphasis;
+	
+	var oneTick = 312;
+	
+	for(var ayy = 1; ayy <= 8; ayy++){
+		while(curAngle < (pi * 2) - 0.01) {
+			var spreadEffect = new Sprite("SB/square.jpg");
+			spreadEffect.color(255, 255, 255);
+			spreadEffect.fade(2, emphasis, emphasis  + (oneTick / 2), 0, 1);
+			spreadEffect.fade(1, emphasis + (oneTick / 2), emphasis + (oneTick), 1, 0);
+			spreadEffect.rotate(0, emphasis, emphasis, 0 - curAngle, 0 - curAngle);
+			spreadEffect.scaleVec(0, emphasis, emphasis, squareSizeX + (0.02 * ayy), squareSizeY, squareSizeX + (0.02 * ayy), squareSizeY);
+			spreadEffect.move(0, emphasis, emphasis, radDistance * sin(curAngle) + veryCentreX, radDistance * cos(curAngle) + veryCentreY, radDistance * sin(curAngle) + veryCentreX, radDistance * cos(curAngle) + veryCentreY);
+			curAngle = curAngle + addAngle;
+		
+		}
+		radDistance = 60 + (20 * ayy);
+		emphasis = emph + (oneTick * ayy);
+		curAngle = 0;
+	}
+	
+	radDistance = 50; //Reset
+}
+
+function threeDimensionBox (startTime, endTime) {
+
+	var veryCentreX = 256 + 64;
+	var veryCentreY = 192 + 55;
+	
+	var movement = 20;
+	var thirtyRad = 0.785398;
+	
+	var switchThing = true;
+	
+	var oneTick = 624; //This is actually two ticks
+	
+	var sides = new Sprite("SB/square.jpg");
+	for(var aa = startTime; aa < endTime; aa++){
+	sides.rotate(0, startTime, startTime, thirtyRad, thirtyRad);
+	if(switchThing){
+		sides.scaleVec(0, aa, aa + oneTick, -1, 1, 1, 1);
+		sides.moveX(0, aa - (oneTick / 2), aa + (oneTick / 2), veryCentreX + (-movement), veryCentreX + (movement));
+		sides.moveY(0, aa - (oneTick / 2), aa + (oneTick / 2), veryCentreY + (-movement), veryCentreY + (movement));
+		switchThing = false;
+	}
+	else {
+		sides.scaleVec(0, aa, aa + oneTick, 1, 1, -1, 1);
+		sides.moveX(0, aa - (oneTick / 2), aa + (oneTick / 2), veryCentreX + (movement), veryCentreX + (-movement));
+		sides.moveY(0, aa - (oneTick / 2), aa + (oneTick / 2), veryCentreY + (movement), veryCentreY + (-movement));
+		switchThing = true;
+	}
+	
+	aa = aa + (oneTick - 1);
+	}
+	
+	
+
+}
+
+function squareEffect (startTime, tick, endTime) {
+
+	var posX = rand(50, 470);
+	var posY = rand(50, 350);
+	posX = posX + 64;
+	posY = posY + 55;
+	var tickThing = 312;
+	var thirtyRad = rand(0, 314);
+	thirtyRad = thirtyRad / 100.0;
+	var thickness = 0.1;
+	var size = rand(50, 80);
+	var nintyDeg = 1.5708;
+	
+	println("size: " + size);
+	println("rotation: " + thirtyRad);
+	
+	var squareCentre = new Sprite("SB/square.jpg");
+	squareCentre.rotate(startTime, startTime, thirtyRad, thirtyRad);
+	squareCentre.scale(2, startTime, startTime + (tickThing * 3), size / 100.0, size / 1000.0);
+	squareCentre.move(startTime, startTime, posX, posY, posX, posY);
+	squareCentre.fade(0, startTime - (tickThing / 4), startTime, 0, 1);
+	squareCentre.fade(2, startTime, startTime + (tickThing * 2), 1, 0);
+	
+	for(var aaa = 1; aaa <= 4; aaa++) {
+	
+		var squareThing = new Sprite("SB/square.jpg");
+			squareThing.fade(0, startTime - (tickThing / 4), startTime, 0, 1);
+			squareThing.fade(0, startTime, startTime + (tickThing * 2), 1, 0);
+			squareThing.scaleVec(1, startTime, startTime + (tickThing * 3), thickness, 1, thickness, 1);
+			squareThing.rotate(0, startTime, startTime, thirtyRad, thirtyRad);
+			squareThing.move(0, startTime, startTime, posX + sin(thirtyRad) * size, posY + cos(thirtyRad) * size, posX + sin(thirtyRad) * size, posY + cos(thirtyRad) * size);
+	
+		
+		thirtyRad = thirtyRad + nintyDeg;
+		
+	}
+
+}
+
+//squareEffect(1045, 1513, 1670);
+//squareEffect(1982, 2451, 2607);
+//squareEffect(2920, 3232, 3545);
+//squareEffect(3545, 4013, 4170);
+//squareEffect(4482, 4951, 5107);
+//squareEffect(5420, 5732, 6045);
+//squareEffect(6045, 6513, 6670);
+//squareEffect(6982, 7451, 7607);
+//squareEffect(7920, 8232, 8545);
+//squareEffect(8545, 9013, 9482);
+
+function startIntro (startTime, emphasis, melody, endTime) {
+
+	var lastTick = 262511;
+
+	var deleteBG = new Sprite("BG1.jpg", Background, Centre);
+	deleteBG.move(0, lastTick, lastTick, 256 + 64, 192 + 55, 256 + 64, 192 + 55);
+	deleteBG.fade(0, lastTick, lastTick, 0.01, 0.01);
+	deleteBG.scale(0, lastTick, lastTick, 0.67, 0.67);
+
+	var whiteBG = new Sprite("SB/square.jpg", Background, Centre);
+	whiteBG.scaleVec(0, startTime, startTime, 7.5, 4.5, 7.5, 4.5);
+	whiteBG.fade(2, startTime, emphasis, 0.8, 0);
+	whiteBG.fade(0, emphasis, melody, 0, 0.4);
+	whiteBG.fade(1, melody, endTime, 0.4, 0);
+	
+	for(var a=0; a<3; a++){
+		drip(emphasis + (2500 * a));
+	}
+	
+	dripLast(emphasis + (2500 * 3));
+	
+	//threeDimensionBox(emphasis, endTime);
+}
+//startIntro(0, 1045, 9795, 11045);
